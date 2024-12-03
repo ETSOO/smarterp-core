@@ -1,0 +1,74 @@
+{
+  "name": "@etsoo/smarterp-core",
+  "version": "1.0.0",
+  "description": "TypeScript APIs for SmartERP Core",
+  "main": "lib/cjs/index.js",
+  "module": "lib/mjs/index.js",
+  "types": "lib/mjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/mjs/index.js",
+      "require": "./lib/cjs/index.js"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
+    "test": "jest",
+    "localtest": "set NODE_ENV=local&&jest"
+  },
+  "jest": {
+    "automock": false,
+    "testMatch": [
+      "<rootDir>/__tests__/**/*.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/app/TestApp.ts"
+    ],
+    "testEnvironment": "jsdom",
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "d.ts"
+    ],
+    "transform": {
+      ".+\\.jsx?$": "babel-jest",
+      ".+\\.tsx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@etsoo/).+\\.js$"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ETSOO/etsoo-smarterp-core.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "ETSOO",
+    "SmartERP",
+    "SmartERP Core APIs",
+    "青岛亿速思维",
+    "上海亿商",
+    "司友云平台",
+    "司友云平台核心接口"
+  ],
+  "author": "ETSOO",
+  "license": "MIT",
+  "homepage": "https://github.com/ETSOO/etsoo-smarterp-core#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-runtime": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/runtime-corejs3": "^7.26.0",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@etsoo/appscript": "^1.5.77"
+  }
+}
