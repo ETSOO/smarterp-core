@@ -1,7 +1,7 @@
 import { IApi, IApiPayload } from "@etsoo/restclient";
 import { OrgCreateRQ } from "./rq/org/OrgCreateRQ";
 import { OrgUpdateRQ } from "./rq/org/OrgUpdateRQ";
-import { OrgListRQ, OrgQueryRQ } from "./rq/org/OrgQueryRQ";
+import { OrgQueryRQ } from "./rq/org/OrgQueryRQ";
 import { OrgQueryDto } from "./dto/org/OrgQueryDto";
 import { OrgReadDto } from "./dto/org/OrgReadDto";
 import { OrgUpdateReadDto } from "./dto/org/OrgUpdateReadDto";
@@ -13,6 +13,9 @@ import {
   IdResultPayload,
   MsgResultPayload
 } from "@etsoo/appscript";
+import { OrgListRQ } from "./rq/org/OrgListRQ";
+import { OrgGetMyRQ } from "./rq/org/OrgGetMyRQ";
+import { OrgGetMyData } from "./dto/org/OrgGetMyData";
 
 /**
  * Organization API
@@ -46,6 +49,16 @@ export class OrgApi extends EntityApi {
    */
   delete(id: number, payload?: IdResultPayload) {
     return this.deleteBase(id, payload);
+  }
+
+  /**
+   * Get user's latest accessed organizations
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  getMy(rq: OrgGetMyRQ, payload?: IApiPayload<OrgGetMyData[]>) {
+    return this.api.post(`${this.flag}/GetMy`, rq, payload);
   }
 
   /**

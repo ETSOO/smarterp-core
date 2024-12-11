@@ -5,9 +5,9 @@ import { StatusQueryRQ, UserRole } from "@etsoo/appscript";
  */
 export type MemberListRQ = StatusQueryRQ & {
   /**
-   * Has self user or not
+   * Exclude self user or not
    */
-  hasSelf?: boolean;
+  excludeSelf?: boolean;
 
   /**
    * User role

@@ -5,12 +5,17 @@
   "app3": "Business Mgt.",
   "app4": "Finance System",
   "app5": "Progress Mgt.",
+  "brand": "Brand",
   "collapseMenu": "Collapse menu",
   "collapseNavMenuAriaLabel": "Collapse navigation menu",
+  "companyNo": "Company No.",
+  "currentOrg": "Current organization",
   "darkMode": "Dark mode",
   "expandMenu": "Expand menu",
   "expandNavMenuAriaLabel": "Expand navigation menu",
   "lightMode": "Light mode",
+  "orgName": "Org name",
+  "parentOrg": "Parent org",
   "role": "Role",
   "roleAdmin": "Admin",
   "roleCashier": "Cashier",
@@ -31,5 +36,5 @@
   "switchThemeModeAriaLabel": "Switch theme mode",
   "switchToDarkModeAriaLabel": "Switch to dark mode",
   "switchToLightModeAriaLabel": "Switch to light mode",
-  "successLogin": "Success login"
+  "switchOrg": "Switch organization"
 }

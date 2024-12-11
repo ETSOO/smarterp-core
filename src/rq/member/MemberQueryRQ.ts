@@ -1,16 +1,11 @@
-import { StatusQueryRQ, UserRole } from "@etsoo/appscript";
+import { MemberListRQ } from "./MemberListRQ";
 
 /**
  * Member query request data
  */
-export type MemberQueryRQ = StatusQueryRQ & {
+export type MemberQueryRQ = MemberListRQ & {
   /**
    * Assigned ID
    */
   assignedId?: string;
-
-  /**
-   * User role
-   */
-  userRole?: UserRole;
 };

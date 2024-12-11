@@ -57,7 +57,7 @@ if (isLocalTest) {
   test("Test for query zero return", async () => {
     const result = await api.query({
       keyword: "亿速",
-      disabled: false,
+      enabled: true,
       //id: 1001,
       //ids: [1002, 1003, 1004],
       status: EntityStatus.Approved,
@@ -65,7 +65,7 @@ if (isLocalTest) {
       queryPaging: {
         keysets: ["青岛亿速", 1100],
         batchSize: 5,
-        orderBy: { name: false, id: true }
+        orderBy: [{ field: "name" }]
       }
     });
 
@@ -77,12 +77,12 @@ if (isLocalTest) {
   test("Test for query several returns", async () => {
     const result = await api.query({
       keyword: "亿速",
-      disabled: false,
+      enabled: true,
       excludedIds: [1, 2, 3],
       queryPaging: {
         keysets: ["青岛亿速", 1100],
         batchSize: 5,
-        orderBy: { name: false, id: true }
+        orderBy: [{ field: "name" }, { field: "id", desc: true, unique: true }]
       }
     });
 
@@ -107,7 +107,7 @@ if (isLocalTest) {
   test("Test for list", async () => {
     const result = await api.list({
       keyword: "亿速",
-      disabled: false,
+      enabled: true,
       excludedIds: [1, 2, 3],
       queryPaging: 2
     });

@@ -39,4 +39,9 @@ export type OrgQueryDto = {
    * Status
    */
   status: EntityStatus;
+
+  /**
+   * Creation
+   */
+  creation: Date | string;
 };

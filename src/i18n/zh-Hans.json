@@ -5,12 +5,17 @@
   "app3": "业务管理",
   "app4": "财务系统",
   "app5": "进度管理",
+  "brand": "品牌",
   "collapseMenu": "折叠菜单",
   "collapseNavMenuAriaLabel": "折叠导航菜单",
+  "companyNo": "机构编号",
+  "currentOrg": "当前机构",
   "darkMode": "深色模式",
   "expandMenu": "展开菜单",
   "expandNavMenuAriaLabel": "展开导航菜单",
   "lightMode": "浅色模式",
+  "orgName": "机构名称",
+  "parentOrg": "上级机构",
   "role": "角色",
   "roleAdmin": "管理员",
   "roleCashier": "出纳员",
@@ -31,5 +36,5 @@
   "switchThemeModeAriaLabel": "切换主题模式",
   "switchToDarkModeAriaLabel": "切换到深色模式",
   "switchToLightModeAriaLabel": "切换到浅色模式",
-  "switchOrganization": "切换机构"
+  "switchOrg": "切换机构"
 }

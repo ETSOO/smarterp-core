@@ -57,7 +57,7 @@
   "license": "MIT",
   "homepage": "https://github.com/ETSOO/etsoo-smarterp-core#readme",
   "devDependencies": {
-    "@babel/cli": "^7.25.9",
+    "@babel/cli": "^7.26.4",
     "@babel/core": "^7.26.0",
     "@babel/plugin-transform-runtime": "^7.25.9",
     "@babel/preset-env": "^7.26.0",
@@ -69,6 +69,7 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
-    "@etsoo/appscript": "^1.5.77"
+    "@etsoo/appscript": "^1.5.79",
+    "@etsoo/shared": "^1.2.55"
   }
 }

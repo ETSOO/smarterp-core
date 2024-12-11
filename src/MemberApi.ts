@@ -3,7 +3,8 @@ import { ListType } from "@etsoo/shared";
 import { MemberListRQ } from "./rq/member/MemberListRQ";
 import { MemberQueryRQ } from "./rq/member/MemberQueryRQ";
 import { MemberQueryDto } from "./dto/member/MemberQueryDto";
-import { EntityApi, IApp } from "@etsoo/appscript";
+import { EntityApi, IApp, IdResultPayload } from "@etsoo/appscript";
+import { MemberListDto } from "./dto/member/MemberListDto";
 
 /**
  * Member API
@@ -19,12 +20,22 @@ export class MemberApi extends EntityApi {
   }
 
   /**
+   * Delete
+   * @param id Id
+   * @param payload Payload
+   * @returns Result
+   */
+  delete(id: number, payload?: IdResultPayload) {
+    return this.deleteBase(id, payload);
+  }
+
+  /**
    * List
    * @param rq Request data
    * @param payload Payload
    * @returns Result
    */
-  list(rq: MemberListRQ, payload: IApiPayload<ListType[]>) {
+  list(rq: MemberListRQ, payload: IApiPayload<MemberListDto[]>) {
     return this.listBase(rq, payload);
   }
 

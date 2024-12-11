@@ -3,6 +3,7 @@ import { IApi, IApiPayload } from "@etsoo/restclient";
 import { DeviceListDto } from "./dto/user/DeviceListDto";
 import { AuditHistoryRQ } from "./rq/user/AuditHistoryRQ";
 import { AuditHistoryDto } from "./dto/user/AuditHistoryDto";
+import { AppData } from "./dto/app/AppData";
 
 /**
  * User API
@@ -36,6 +37,26 @@ export class UserApi extends EntityApi {
    */
   deviceList(rq: QueryRQ, payload?: IApiPayload<DeviceListDto[]>) {
     return this.api.post(`${this.flag}/DeviceList`, rq, payload);
+  }
+
+  /**
+   * Get user's current apps
+   * 获取用户当前应用
+   * @param payload Payload
+   * @returns Result
+   */
+  getCurrentApps(payload?: IApiPayload<AppData[]>) {
+    return this.api.get(`${this.flag}/GetCurrentApps`, undefined, payload);
+  }
+
+  /**
+   * Get user latest app
+   * 获取用户最新应用
+   * @param payload Payload
+   * @returns Result
+   */
+  getLatestApp(payload?: IApiPayload<string>) {
+    return this.api.get("User/GetLatestApp", undefined, payload);
   }
 
   /**

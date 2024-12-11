@@ -26,5 +26,5 @@ export type AuditHistoryDto = {
   /**
    * Creation
    */
-  creation: Date;
+  creation: Date | string;
 };

@@ -32,7 +32,12 @@ export type MemberQueryDto = {
   isSelf: boolean;
 
   /**
+   * Is owner
+   */
+  isOwner: boolean;
+
+  /**
    * Creation
    */
-  creation: Date;
+  creation: string | Date;
 };
