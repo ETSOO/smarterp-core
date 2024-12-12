@@ -5,6 +5,7 @@ import { AppApi } from "./AppApi";
 import { PublicApi } from "./PublicApi";
 import { UserApi } from "./UserApi";
 import { AuthApi, IApp } from "@etsoo/appscript";
+import { IdentityType } from "./dto/IdentityType";
 
 /**
  * Core application
@@ -72,4 +73,12 @@ export class CoreApp {
    * @param api API
    */
   constructor(protected app: IApp, protected api: IApi) {}
+
+  /**
+   * Get identities
+   * @returns List
+   */
+  getIdentities() {
+    return this.app.getEnumList(IdentityType, "id");
+  }
 }
