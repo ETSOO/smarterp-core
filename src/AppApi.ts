@@ -61,6 +61,6 @@ export class AppApi extends EntityApi {
     rq: AppPurchasedQueryRQ,
     payload?: IApiPayload<AppPurchasedQueryData[]>
   ) {
-    return this.queryBase(rq, payload);
+    return this.queryBase(rq, payload, "Purchased");
   }
 }

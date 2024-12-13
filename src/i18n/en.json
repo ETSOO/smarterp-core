@@ -18,6 +18,7 @@
   "idUser": "User/Org.",
   "lightMode": "Light mode",
   "orgName": "Org name",
+  "orgPin": "Org No.",
   "parentOrg": "Parent org",
   "role": "Role",
   "roleAdmin": "Admin",
