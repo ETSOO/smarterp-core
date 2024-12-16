@@ -12,7 +12,7 @@ import { IdentityType } from "./dto/IdentityType";
  * 核心应用程序
  */
 export class CoreApp {
-  _appApi?: AppApi;
+  private _appApi?: AppApi;
   /**
    * Application API
    * 应用程序接口
@@ -21,7 +21,7 @@ export class CoreApp {
     return (this._appApi ??= new AppApi(this.app, this.api));
   }
 
-  _authApi?: AuthApi;
+  private _authApi?: AuthApi;
   /**
    * Authentication API
    * 认证接口
@@ -30,7 +30,7 @@ export class CoreApp {
     return (this._authApi ??= new AuthApi(this.app, this.api));
   }
 
-  _memberApi?: MemberApi;
+  private _memberApi?: MemberApi;
   /**
    * Member API
    * 会员接口
@@ -39,7 +39,7 @@ export class CoreApp {
     return (this._memberApi ??= new MemberApi(this.app, this.api));
   }
 
-  _orgApi?: OrgApi;
+  private _orgApi?: OrgApi;
   /**
    * Organization API
    * 机构接口
@@ -48,7 +48,7 @@ export class CoreApp {
     return (this._orgApi ??= new OrgApi(this.app, this.api));
   }
 
-  _publicApi?: PublicApi;
+  private _publicApi?: PublicApi;
   /**
    * Public API
    * 公共接口
@@ -57,7 +57,7 @@ export class CoreApp {
     return (this._publicApi ??= new PublicApi(this.app, this.api));
   }
 
-  _userApi?: UserApi;
+  private _userApi?: UserApi;
   /**
    * User API
    * 用户接口
@@ -72,7 +72,7 @@ export class CoreApp {
    * @param app Base application
    * @param api API
    */
-  constructor(protected app: IApp, protected api: IApi) {}
+  constructor(public app: IApp, protected api: IApi) {}
 
   /**
    * Get identities
