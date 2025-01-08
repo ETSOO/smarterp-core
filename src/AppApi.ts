@@ -1,5 +1,10 @@
 import { IApi, IApiPayload } from "@etsoo/restclient";
-import { EntityApi, IApp } from "@etsoo/appscript";
+import {
+  EntityApi,
+  IApp,
+  IdResultPayload,
+  ResultPayload
+} from "@etsoo/appscript";
 import { AppGetMyRQ } from "./rq/app/AppGetMyRQ";
 import { AppQueryData } from "./dto/app/AppQueryData";
 import { AppListRQ } from "./rq/app/AppListRQ";
@@ -7,6 +12,8 @@ import { AppListDto } from "./dto/app/AppListDto";
 import { AppQueryRQ } from "./rq/app/AppQueryRQ";
 import { AppPurchasedQueryRQ } from "./rq/app/AppPurchasedQueryRQ";
 import { AppPurchasedQueryData } from "./dto/app/AppPurchasedQueryData";
+import { AppBuyNewRQ } from "./rq/app/AppBuyNewRQ";
+import { AppBuyRQ } from "./rq/app/AppBuyRQ";
 
 /**
  * Application API
@@ -19,6 +26,26 @@ export class AppApi extends EntityApi {
    */
   constructor(app: IApp, api: IApi = app.api) {
     super("App", app, api);
+  }
+
+  /**
+   * Buy the application
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  buy(rq: AppBuyRQ, payload?: ResultPayload) {
+    return this.api.post(`${this.flag}/Buy`, rq, payload);
+  }
+
+  /**
+   * Buy and create new organization
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  buyNew(rq: AppBuyNewRQ, payload?: IdResultPayload) {
+    return this.api.post(`${this.flag}/BuyNew`, rq, payload);
   }
 
   /**
@@ -62,5 +89,15 @@ export class AppApi extends EntityApi {
     payload?: IApiPayload<AppPurchasedQueryData[]>
   ) {
     return this.queryBase(rq, payload, "Purchased");
+  }
+
+  /**
+   * Renew the application
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  renew(rq: AppBuyRQ, payload?: ResultPayload) {
+    return this.api.put(`${this.flag}/Renew`, rq, payload);
   }
 }

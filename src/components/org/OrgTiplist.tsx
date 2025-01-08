@@ -1,4 +1,4 @@
-import { Tiplist } from "@etsoo/materialui";
+import { Tiplist, TiplistProps } from "@etsoo/materialui";
 import { OrgListDto } from "../../dto/org/OrgListDto";
 import { CoreApp } from "../../CoreApp";
 
@@ -6,7 +6,10 @@ import { CoreApp } from "../../CoreApp";
  * Organization tiplist properties
  * 机构提示列表属性
  */
-export type OrgTiplistProps = {
+export type OrgTiplistProps = Pick<
+  TiplistProps<OrgListDto, "id">,
+  "maxItems" | "search" | "idValue"
+> & {
   /**
    * API Application
    * 接口应用
@@ -18,13 +21,6 @@ export type OrgTiplistProps = {
    * 标签
    */
   label?: string;
-
-  /**
-   * Max items
-   * 最大项目
-   * @default 10
-   */
-  maxItems?: number;
 
   /**
    * Name
@@ -46,7 +42,8 @@ export function OrgTiplist(props: OrgTiplistProps) {
     api,
     label = api.app.get("org")!,
     maxItems = 10,
-    name = "organizationId"
+    name = "organizationId",
+    ...rest
   } = props;
 
   // Layout
@@ -58,16 +55,20 @@ export function OrgTiplist(props: OrgTiplistProps) {
       fullWidth
       maxItems={maxItems}
       loadData={(keyword, id, maxItems) =>
-        api.orgApi.list({
-          enabled: true,
-          keyword,
-          id,
-          queryPaging: {
-            batchSize: maxItems,
-            orderBy: [{ field: "name" }]
-          }
-        })
+        api.orgApi.list(
+          {
+            enabled: true,
+            keyword,
+            id,
+            queryPaging: {
+              batchSize: maxItems,
+              orderBy: [{ field: "name" }]
+            }
+          },
+          { showLoading: false, defaultValue: [] }
+        )
       }
+      {...rest}
     />
   );
 }

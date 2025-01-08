@@ -72,7 +72,7 @@ export class CoreApp {
    * @param app Base application
    * @param api API
    */
-  constructor(public app: IApp, protected api: IApi) {}
+  constructor(public readonly app: IApp, public readonly api: IApi) {}
 
   /**
    * Get identities
