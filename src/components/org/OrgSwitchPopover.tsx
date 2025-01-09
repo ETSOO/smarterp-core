@@ -1,11 +1,11 @@
 import React from "react";
 import { Button, ButtonGroup, Stack } from "@mui/material";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
-import { OrgGetMyData } from "@etsoo/smarterp-core";
 import { useNavigate } from "react-router-dom";
 import { ButtonPopover } from "@etsoo/materialui";
 import { CoreServiceAppContext } from "../../ICoreServiceApp";
 import { useRequiredContext } from "@etsoo/react";
+import { OrgGetMyData } from "../../dto/org/OrgGetMyData";
 
 export type OrgSwitchPopoverProps = {
   organizationName?: string;

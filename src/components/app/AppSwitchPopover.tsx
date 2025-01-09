@@ -1,10 +1,10 @@
 import React from "react";
 import { Button, Stack, Typography } from "@mui/material";
-import { AppQueryData } from "@etsoo/smarterp-core";
 import { useNavigate } from "react-router-dom";
 import { ButtonPopover } from "@etsoo/materialui";
 import { useRequiredContext } from "@etsoo/react";
 import { CoreServiceAppContext } from "../../ICoreServiceApp";
+import { AppQueryData } from "../../dto/app/AppQueryData";
 
 export type AppSwitchPopoverProps = {
   appName: string;

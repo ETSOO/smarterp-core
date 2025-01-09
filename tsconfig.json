@@ -14,8 +14,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "jsx": "react-jsx",
-    "forceConsistentCasingInFileNames": true,
-    "rootDir": "."
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src"]
 }
