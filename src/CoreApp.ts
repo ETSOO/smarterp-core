@@ -8,10 +8,46 @@ import { AuthApi, IApp } from "@etsoo/appscript";
 import { IdentityType } from "./dto/IdentityType";
 
 /**
+ * Core application interface
+ * 核心应用程序接口
+ */
+export interface ICoreApp {
+  /**
+   * Application API
+   */
+  appApi: AppApi;
+
+  /**
+   * Authentication API
+   */
+  readonly authApi: AuthApi;
+
+  /**
+   * Member API
+   */
+  readonly memberApi: MemberApi;
+
+  /**
+   * Organization API
+   */
+  readonly orgApi: OrgApi;
+
+  /**
+   * Public API
+   */
+  readonly publicApi: PublicApi;
+
+  /**
+   * User API
+   */
+  readonly userApi: UserApi;
+}
+
+/**
  * Core application
  * 核心应用程序
  */
-export class CoreApp {
+export class CoreApp implements ICoreApp {
   private _appApi?: AppApi;
   /**
    * Application API

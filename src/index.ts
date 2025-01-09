@@ -51,6 +51,8 @@ export * from "./rq/user/AuditHistoryRQ";
 // APIs
 export * from "./AppApi";
 export * from "./CoreApp";
+export * from "./CoreUtils";
+export * from "./ICoreServiceApp";
 export * from "./MemberApi";
 export * from "./OrgApi";
 export * from "./PublicApi";

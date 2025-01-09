@@ -43,6 +43,7 @@
   "signin": "Sign in",
   "signout": "Sign out",
   "signoutSuccess": "Logout successful, please close the current window",
+  "switchApp": "Switch application",
   "switchMode": "Switch mode",
   "switchThemeModeAriaLabel": "Switch theme mode",
   "switchToDarkModeAriaLabel": "Switch to dark mode",

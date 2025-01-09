@@ -4,6 +4,7 @@
   "description": "TypeScript APIs for SmartERP Core",
   "main": "lib/index.js",
   "module": "lib/index.js",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./lib/index.d.ts",
@@ -66,20 +67,20 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/runtime-corejs3": "^7.26.0",
     "@types/jest": "^29.5.14",
-    "@types/react": "^19.0.3",
+    "@types/react": "^19.0.4",
     "@types/react-dom": "^19.0.2",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^29.2.5",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@etsoo/appscript": "^1.5.84",
-    "@etsoo/materialui": "^1.4.60",
-    "@etsoo/react": "^1.8.17",
+    "@etsoo/appscript": "^1.5.87",
+    "@etsoo/materialui": "^1.4.64",
+    "@etsoo/react": "^1.8.21",
     "@etsoo/shared": "^1.2.55",
     "@mui/material": "^6.3.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

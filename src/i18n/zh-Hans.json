@@ -43,6 +43,7 @@
   "signin": "登录",
   "signout": "退出",
   "signoutSuccess": "退出成功，请关闭当前窗口",
+  "switchApp": "切换应用",
   "switchMode": "切换模式",
   "switchThemeModeAriaLabel": "切换主题模式",
   "switchToDarkModeAriaLabel": "切换到深色模式",
