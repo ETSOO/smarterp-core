@@ -14,6 +14,8 @@ import { AppPurchasedQueryRQ } from "./rq/app/AppPurchasedQueryRQ";
 import { AppPurchasedQueryData } from "./dto/app/AppPurchasedQueryData";
 import { AppBuyNewRQ } from "./rq/app/AppBuyNewRQ";
 import { AppBuyRQ } from "./rq/app/AppBuyRQ";
+import { AppRenewRQ } from "./rq/app/AppRenewRQ";
+import { AppUpdateRQ } from "./rq/app/AppUpdateRQ";
 
 /**
  * Application API
@@ -97,7 +99,17 @@ export class AppApi extends EntityApi {
    * @param payload Payload
    * @returns Result
    */
-  renew(rq: AppBuyRQ, payload?: ResultPayload) {
+  renew(rq: AppRenewRQ, payload?: ResultPayload) {
     return this.api.put(`${this.flag}/Renew`, rq, payload);
+  }
+
+  /**
+   * Update the application
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  update(rq: AppUpdateRQ, payload?: ResultPayload) {
+    return this.api.put(`${this.flag}/Update`, rq, payload);
   }
 }

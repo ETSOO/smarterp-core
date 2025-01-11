@@ -49,9 +49,7 @@ export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
             <Button
               title={labels.switchOrg}
               onClick={(e) => callback(e.currentTarget)}
-              ref={(e) => {
-                if (e) anchorRef.current = e;
-              }}
+              ref={anchorRef}
             >
               <AccountTreeIcon />
             </Button>

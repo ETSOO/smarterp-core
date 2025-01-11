@@ -36,6 +36,11 @@ export type OrgReadDto = {
   pin?: string;
 
   /**
+   * Parent id
+   */
+  parentId?: number;
+
+  /**
    * Parent name
    */
   parentName?: string;

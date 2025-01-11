@@ -1,33 +1,20 @@
 import { Tiplist, TiplistProps } from "@etsoo/materialui";
 import { OrgListDto } from "../../dto/org/OrgListDto";
-import { CoreApp } from "../../CoreApp";
+import { useRequiredContext } from "@etsoo/react";
+import { CoreServiceAppContext } from "../../ICoreServiceApp";
 
 /**
  * Organization tiplist properties
  * 机构提示列表属性
  */
-export type OrgTiplistProps = Pick<
+export type OrgTiplistProps = Omit<
   TiplistProps<OrgListDto, "id">,
-  "maxItems" | "search" | "idValue"
+  "loadData" | "label"
 > & {
   /**
-   * API Application
-   * 接口应用
-   */
-  api: CoreApp;
-
-  /**
    * Label
-   * 标签
    */
   label?: string;
-
-  /**
-   * Name
-   * 名称
-   * @default 'organizationId'
-   */
-  name?: string;
 };
 
 /**
@@ -37,11 +24,15 @@ export type OrgTiplistProps = Pick<
  * @returns Component
  */
 export function OrgTiplist(props: OrgTiplistProps) {
+  // App
+  const { app } = useRequiredContext(CoreServiceAppContext);
+
   // Destruct
   const {
-    api,
-    label = api.app.get("org")!,
+    fullWidth = true,
+    label = app.get("org")!,
     maxItems = 10,
+    getOptionLabel = (data) => data.name + "(" + data.pin + ")",
     name = "organizationId",
     ...rest
   } = props;
@@ -50,12 +41,12 @@ export function OrgTiplist(props: OrgTiplistProps) {
   return (
     <Tiplist<OrgListDto>
       label={label}
-      getOptionLabel={(data) => data.name + "(" + data.pin + ")"}
+      getOptionLabel={getOptionLabel}
       name={name}
-      fullWidth
+      fullWidth={fullWidth}
       maxItems={maxItems}
       loadData={(keyword, id, maxItems) =>
-        api.orgApi.list(
+        app.core.orgApi.list(
           {
             enabled: true,
             keyword,

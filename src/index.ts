@@ -32,6 +32,7 @@ export * from "./rq/app/AppListRQ";
 export * from "./rq/app/AppPurchasedQueryRQ";
 export * from "./rq/app/AppQueryRQ";
 export * from "./rq/app/AppRenewRQ";
+export * from "./rq/app/AppUpdateRQ";
 
 export * from "./rq/member/MemberListRQ";
 export * from "./rq/member/MemberQueryRQ";
