@@ -4,7 +4,7 @@ import { EntityStatus, UpdateModel } from "@etsoo/appscript";
  * Update organization request data
  * 更新机构请求数据
  */
-export type OrgUpdateRQ = UpdateModel & {
+export interface OrgUpdateRQ extends UpdateModel {
   /**
    * Organization name
    * 机构名称
@@ -40,4 +40,4 @@ export type OrgUpdateRQ = UpdateModel & {
    * 查询关键字
    */
   queryKeyword?: string;
-};
+}

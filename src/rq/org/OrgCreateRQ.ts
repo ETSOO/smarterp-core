@@ -40,4 +40,10 @@ export type OrgCreateRQ = {
    * 查询关键字
    */
   queryKeyword?: string;
+
+  /**
+   * Region
+   * 所在区域
+   */
+  region: string;
 };

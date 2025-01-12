@@ -3,7 +3,7 @@ import { UserApi } from "../src";
 
 if (isLocalTest) {
   const app = new TestApp();
-  app.changeCulture(app.settings.cultures[0]);
+  await app.changeCulture(app.settings.cultures[0]);
 
   // Simulate logined
   app.authorize(

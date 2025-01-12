@@ -20,4 +20,10 @@ export type AppBuyNewRQ = {
    * 新机构编号
    */
   orgPin?: string;
+
+  /**
+   * Region
+   * 所在区域
+   */
+  region: string;
 };

@@ -3,10 +3,11 @@ import { isLocalTest, TestApp } from "./app/TestApp";
 import { EntityStatus } from "@etsoo/appscript";
 import { OrgApi } from "../src/OrgApi";
 import { OrgCreateRQ } from "../src/rq/org/OrgCreateRQ";
+import { OrgUpdateRQ } from "../src";
 
 if (isLocalTest) {
   const app = new TestApp();
-  app.changeCulture(app.settings.cultures[0]);
+  await app.changeCulture(app.settings.cultures[0]);
 
   // Simulate logined
   app.authorize(
@@ -22,12 +23,14 @@ if (isLocalTest) {
       ? {
           name: `青岛亿速思维网络科技有限公司`,
           brand: "亿速思维",
-          pin: guid
+          pin: guid,
+          region: "CN"
         }
       : {
           name: `上海亿商网络科技有限公司`,
           brand: "亿商",
-          pin: guid
+          pin: guid,
+          region: "CN"
         };
 
     const result = await api.create(rq);
