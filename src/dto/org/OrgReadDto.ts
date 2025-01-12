@@ -11,6 +11,11 @@ export type OrgReadDto = {
   id: number;
 
   /**
+   * Current user is the owner of the organization
+   */
+  isOwner: boolean;
+
+  /**
    * Owner name
    */
   ownerName: string;

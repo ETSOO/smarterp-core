@@ -9,12 +9,17 @@ import { CoreServiceAppContext } from "../../ICoreServiceApp";
  */
 export type OrgTiplistProps = Omit<
   TiplistProps<OrgListDto, "id">,
-  "loadData" | "label"
+  "loadData" | "label" | "name"
 > & {
   /**
    * Label
    */
   label?: string;
+
+  /**
+   * Name
+   */
+  name?: string;
 };
 
 /**

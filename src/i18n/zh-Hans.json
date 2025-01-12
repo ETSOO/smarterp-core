@@ -26,6 +26,7 @@
   "orgName": "机构名称",
   "orgPin": "机构编号",
   "orgs": "机构",
+  "owner": "所有者",
   "parentOrg": "上级机构",
   "role": "角色",
   "roleAdmin": "管理员",
