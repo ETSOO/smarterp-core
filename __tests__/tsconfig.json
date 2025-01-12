@@ -11,9 +11,10 @@
     "declaration": true,
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "jsx": "react-jsx",
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["vitest/globals"]
   },
   "include": ["src"]
 }
