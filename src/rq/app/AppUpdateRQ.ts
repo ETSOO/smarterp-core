@@ -1,10 +1,10 @@
-import { UpdateModel } from "@etsoo/appscript";
+import { EntityStatus, UpdateModel } from "@etsoo/appscript";
 
 /**
  * App update request data
  * 应用更新请求数据
  */
-export type AppUpdateRQ = UpdateModel & {
+export interface AppUpdateRQ extends UpdateModel {
   /**
    * Local name
    * 本地名称
@@ -28,4 +28,9 @@ export type AppUpdateRQ = UpdateModel & {
    * 本地接口
    */
   localApis?: string[];
-};
+
+  /**
+   * Status
+   */
+  status?: EntityStatus;
+}

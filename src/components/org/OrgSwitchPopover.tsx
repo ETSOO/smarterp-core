@@ -3,9 +3,8 @@ import { Button, ButtonGroup, Stack } from "@mui/material";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import { useNavigate } from "react-router-dom";
 import { ButtonPopover } from "@etsoo/materialui";
-import { CoreServiceAppContext } from "../../ICoreServiceApp";
-import { useRequiredContext } from "@etsoo/react";
 import { OrgGetMyData } from "../../dto/org/OrgGetMyData";
+import { useRequiredAppContext } from "../../ICoreServiceApp";
 
 export type OrgSwitchPopoverProps = {
   organizationName?: string;
@@ -19,7 +18,7 @@ export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
   const navigate = useNavigate();
 
   // App
-  const { app } = useRequiredContext(CoreServiceAppContext);
+  const app = useRequiredAppContext();
 
   // Labels
   const labels = app.getLabels("currentOrg", "more", "switchOrg");

@@ -1,13 +1,18 @@
-import { IServiceApp, ReactAppData } from "@etsoo/materialui";
+import { IServiceApp, ReactAppContext } from "@etsoo/materialui";
 import { ICoreApp } from "./CoreApp";
-import React from "react";
+import { useRequiredContext } from "@etsoo/react";
 
 /**
- * Core service application context
- * 核心服务应用程序上下文
+ * Get core service application context hook
+ * @returns Application
  */
-export const CoreServiceAppContext =
-  React.createContext<ReactAppData<ICoreServiceApp> | null>(null);
+export function useRequiredAppContext(): ICoreServiceApp {
+  // Get the app context
+  const app = useRequiredContext(ReactAppContext);
+
+  // Assume the app is core service app
+  return app as ICoreServiceApp;
+}
 
 /**
  * Core service application interface

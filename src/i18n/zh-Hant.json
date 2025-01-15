@@ -1,5 +1,7 @@
 {
   "accountIconButtonAriaLabel": "當前用戶",
+  "appKey": "應用程式鍵",
+  "appSecret": "應用金鑰",
   "app1": "管理中心",
   "app2": "運維中心",
   "app3": "業務管理",
@@ -15,13 +17,17 @@
   "companyNo": "機構編號",
   "currentOrg": "當前機構",
   "darkMode": "深色模式",
+  "days": "天數",
+  "editLogo": "修改圖標",
   "expandMenu": "展開菜單",
   "expandNavMenuAriaLabel": "展開導航菜單",
+  "fullName": "全稱",
   "lightMode": "淺色模式",
   "idCustomer": "客戶",
   "idSupplier": "供應商",
   "idUser": "使用者/機構",
   "identityType": "對象身份",
+  "monthsUnit": "個月",
   "org": "機構",
   "orgName": "機構名稱",
   "orgPin": "機構編號",
@@ -49,5 +55,6 @@
   "switchThemeModeAriaLabel": "切換主題模式",
   "switchToDarkModeAriaLabel": "切換到深色模式",
   "switchToLightModeAriaLabel": "切換到淺色模式",
-  "switchOrg": "切換機構"
+  "switchOrg": "切換機構",
+  "years5": ["1年", "2年", "3年", "4年", "5年"]
 }

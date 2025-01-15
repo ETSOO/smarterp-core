@@ -6,19 +6,19 @@
   "module": "lib/mjs/index.js",
   "exports": {
     ".": {
-      "types": "./lib/cjs/index.d.ts",
-      "import": "./lib/cjs/index.js",
-      "require": "./lib/mjs/index.js"
+      "types": "./lib/mjs/index.d.ts",
+      "import": "./lib/mjs/index.js",
+      "require": "./lib/cjs/index.js"
     },
     "./components": {
-      "types": "./lib/cjs/components/index.d.ts",
-      "import": "./lib/cjs/components/index.js",
-      "require": "./lib/mjs/components/index.js"
+      "types": "./lib/mjs/components/index.d.ts",
+      "import": "./lib/mjs/components/index.js",
+      "require": "./lib/cjs/components/index.js"
     }
   },
   "sideEffects": false,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
     "test": "vitest",
     "localtest": "set NODE_ENV=local&&jest"
   },
@@ -57,9 +57,9 @@
     "react-dom": "$react-dom"
   },
   "dependencies": {
-    "@etsoo/appscript": "^1.5.88",
-    "@etsoo/materialui": "^1.4.69",
-    "@etsoo/react": "^1.8.24",
+    "@etsoo/appscript": "^1.5.90",
+    "@etsoo/materialui": "^1.4.74",
+    "@etsoo/react": "^1.8.26",
     "@etsoo/shared": "^1.2.58",
     "@mui/material": "^6.3.1",
     "react": "^18.3.1",

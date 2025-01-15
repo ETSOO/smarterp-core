@@ -112,14 +112,14 @@ export class OrgApi extends EntityApi {
   }
 
   /**
-   * Upload avatar
+   * Update avatar
    * @param id Organization id
    * @param data Avatar form data
    * @param payload Payload
    * @returns Result
    */
-  uploadAvatar(id: number, data: FormData, payload?: MsgResultPayload) {
-    return this.api.put(`${this.flag}/UploadAvatar/${id}`, data, payload);
+  updateAvatar(id: number, data: FormData, payload?: MsgResultPayload) {
+    return this.api.put(`${this.flag}/UpdateAvatar/${id}`, data, payload);
   }
 
   /**

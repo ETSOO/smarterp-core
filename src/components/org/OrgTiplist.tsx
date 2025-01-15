@@ -1,7 +1,6 @@
 import { Tiplist, TiplistProps } from "@etsoo/materialui";
 import { OrgListDto } from "../../dto/org/OrgListDto";
-import { useRequiredContext } from "@etsoo/react";
-import { CoreServiceAppContext } from "../../ICoreServiceApp";
+import { useRequiredAppContext } from "../../ICoreServiceApp";
 
 /**
  * Organization tiplist properties
@@ -30,7 +29,7 @@ export type OrgTiplistProps = Omit<
  */
 export function OrgTiplist(props: OrgTiplistProps) {
   // App
-  const { app } = useRequiredContext(CoreServiceAppContext);
+  const app = useRequiredAppContext();
 
   // Destruct
   const {

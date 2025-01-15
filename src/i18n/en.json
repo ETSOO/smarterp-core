@@ -1,5 +1,7 @@
 {
   "accountIconButtonAriaLabel": "Current user",
+  "appKey": "App key",
+  "appSecret": "App secret",
   "app1": "Admin Center",
   "app2": "O&M System",
   "app3": "Business Mgt.",
@@ -14,14 +16,18 @@
   "collapseNavMenuAriaLabel": "Collapse navigation menu",
   "companyNo": "Company No.",
   "currentOrg": "Current organization",
+  "days": "Days",
   "darkMode": "Dark mode",
+  "editLogo": "Edit logo",
   "expandMenu": "Expand menu",
   "expandNavMenuAriaLabel": "Expand navigation menu",
+  "fullName": "Full name",
   "idCustomer": "Customer",
   "idSupplier": "Supplier",
   "idUser": "User/Org.",
   "identityType": "Identity type",
   "lightMode": "Light mode",
+  "monthsUnit": "Months",
   "org": "Organization",
   "orgName": "Org name",
   "orgPin": "Org No.",
@@ -49,5 +55,6 @@
   "switchThemeModeAriaLabel": "Switch theme mode",
   "switchToDarkModeAriaLabel": "Switch to dark mode",
   "switchToLightModeAriaLabel": "Switch to light mode",
-  "switchOrg": "Switch organization"
+  "switchOrg": "Switch organization",
+  "years5": ["1 year", "2 years", "3 years", "4 years", "5 years"]
 }

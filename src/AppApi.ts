@@ -16,6 +16,11 @@ import { AppBuyNewRQ } from "./rq/app/AppBuyNewRQ";
 import { AppBuyRQ } from "./rq/app/AppBuyRQ";
 import { AppRenewRQ } from "./rq/app/AppRenewRQ";
 import { AppUpdateRQ } from "./rq/app/AppUpdateRQ";
+import { AppUpdateReadDto } from "./dto/app/AppUpdateReadDto";
+import { AppReadDto } from "./dto/app/AppReadDto";
+import { CreateApiKeyData } from "./dto/app/CreateApiKeyData";
+import { IActionResult } from "@etsoo/shared";
+import { AppCreateApiKeyRQ } from "./rq/app/AppCreateApiKeyRQ";
 
 /**
  * Application API
@@ -48,6 +53,19 @@ export class AppApi extends EntityApi {
    */
   buyNew(rq: AppBuyNewRQ, payload?: IdResultPayload) {
     return this.api.post(`${this.flag}/BuyNew`, rq, payload);
+  }
+
+  /**
+   * Create API key
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  createApiKey(
+    rq: AppCreateApiKeyRQ,
+    payload?: IApiPayload<IActionResult<CreateApiKeyData>>
+  ) {
+    return this.api.put(`${this.flag}/CreateApiKey`, rq, payload);
   }
 
   /**
@@ -94,6 +112,16 @@ export class AppApi extends EntityApi {
   }
 
   /**
+   * Read
+   * @param id Id
+   * @param payload Payload
+   * @returns Result
+   */
+  read(id: number, payload?: IApiPayload<AppReadDto>) {
+    return this.readBase(id, payload);
+  }
+
+  /**
    * Renew the application
    * @param rq Request data
    * @param payload Payload
@@ -111,5 +139,15 @@ export class AppApi extends EntityApi {
    */
   update(rq: AppUpdateRQ, payload?: ResultPayload) {
     return this.api.put(`${this.flag}/Update`, rq, payload);
+  }
+
+  /**
+   * Update read
+   * @param id Id
+   * @param payload Payload
+   * @returns Result
+   */
+  updateRead(id: number, payload?: IApiPayload<AppUpdateReadDto>) {
+    return this.updateReadBase(id, payload);
   }
 }

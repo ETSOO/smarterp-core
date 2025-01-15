@@ -1,5 +1,7 @@
 {
   "accountIconButtonAriaLabel": "当前用户",
+  "appKey": "应用键",
+  "appSecret": "应用密钥",
   "app1": "管理中心",
   "app2": "运维中心",
   "app3": "业务管理",
@@ -15,13 +17,17 @@
   "companyNo": "机构编号",
   "currentOrg": "当前机构",
   "darkMode": "深色模式",
+  "days": "天数",
+  "editLogo": "修改图标",
   "expandMenu": "展开菜单",
   "expandNavMenuAriaLabel": "展开导航菜单",
+  "fullName": "全称",
   "idCustomer": "客户",
   "idSupplier": "供应商",
   "idUser": "用户/机构",
   "identityType": "对象身份",
   "lightMode": "浅色模式",
+  "monthsUnit": "个月",
   "org": "机构",
   "orgName": "机构名称",
   "orgPin": "机构编号",
@@ -49,5 +55,6 @@
   "switchThemeModeAriaLabel": "切换主题模式",
   "switchToDarkModeAriaLabel": "切换到深色模式",
   "switchToLightModeAriaLabel": "切换到浅色模式",
-  "switchOrg": "切换机构"
+  "switchOrg": "切换机构",
+  "years5": ["1年", "2年", "3年", "4年", "5年"]
 }

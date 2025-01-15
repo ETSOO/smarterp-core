@@ -2,9 +2,8 @@ import React from "react";
 import { Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ButtonPopover } from "@etsoo/materialui";
-import { useRequiredContext } from "@etsoo/react";
-import { CoreServiceAppContext } from "../../ICoreServiceApp";
 import { AppQueryData } from "../../dto/app/AppQueryData";
+import { useRequiredAppContext } from "../../ICoreServiceApp";
 
 export type AppSwitchPopoverProps = {
   appName: string;
@@ -18,7 +17,7 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
   const navigate = useNavigate();
 
   // App
-  const { app } = useRequiredContext(CoreServiceAppContext);
+  const app = useRequiredAppContext();
 
   // Labels
   const labels = app.getLabels("more", "switchApp");
