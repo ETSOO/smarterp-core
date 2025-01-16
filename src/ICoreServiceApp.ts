@@ -39,6 +39,18 @@ export function usePageData(
 }
 
 /**
+ * Use page data empty
+ * @param app Application
+ */
+export function usePageDataEmpty(app: ICoreServiceApp) {
+  React.useEffect(() => {
+    return () => {
+      app.pageExit();
+    };
+  }, []);
+}
+
+/**
  * Core service application interface
  * 核心服务应用程序接口
  */

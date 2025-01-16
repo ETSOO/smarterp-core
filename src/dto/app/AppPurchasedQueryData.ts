@@ -7,6 +7,12 @@ import { AppQueryData } from "./AppQueryData";
  */
 export type AppPurchasedQueryData = AppQueryData & {
   /**
+   * Full name
+   * 全名
+   */
+  fullName: string;
+
+  /**
    * Expiry
    * 到期时间
    */
