@@ -1,6 +1,8 @@
 import { IServiceApp, ReactAppContext } from "@etsoo/materialui";
 import { ICoreApp } from "./CoreApp";
 import { useRequiredContext } from "@etsoo/react";
+import React, { DependencyList } from "react";
+import { PageDataContext } from "@etsoo/toolpad";
 
 /**
  * Get core service application context hook
@@ -12,6 +14,28 @@ export function useRequiredAppContext(): ICoreServiceApp {
 
   // Assume the app is core service app
   return app as ICoreServiceApp;
+}
+
+/**
+ * Use page data
+ * @param app Application
+ * @param pageTitle Page title
+ * @param deps Dependencies
+ */
+export function usePageData(
+  app: ICoreServiceApp,
+  pageTitle?: string,
+  deps?: DependencyList
+) {
+  const { dispatch } = React.useContext(PageDataContext);
+  React.useEffect(() => {
+    // Page title
+    dispatch({ page: pageTitle });
+
+    return () => {
+      app.pageExit();
+    };
+  }, deps);
 }
 
 /**
