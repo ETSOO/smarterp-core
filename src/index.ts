@@ -7,6 +7,8 @@ export * from "./dto/app/AppReadDto";
 export * from "./dto/app/AppUpdateReadDto";
 export * from "./dto/app/CreateApiKeyData";
 
+export * from "./dto/authCode/AuthCodeAction";
+
 export * from "./dto/member/MemberListDto";
 export * from "./dto/member/MemberQueryDto";
 
@@ -38,6 +40,10 @@ export * from "./rq/app/AppQueryRQ";
 export * from "./rq/app/AppRenewRQ";
 export * from "./rq/app/AppUpdateRQ";
 
+export * from "./rq/authCode/SendEmailRQ";
+export * from "./rq/authCode/SendSMSRQ";
+export * from "./rq/authCode/ValidateRQ";
+
 export * from "./rq/member/MemberListRQ";
 export * from "./rq/member/MemberQueryRQ";
 
@@ -55,6 +61,7 @@ export * from "./rq/user/AuditHistoryRQ";
 
 // APIs
 export * from "./AppApi";
+export * from "./AuthCodeApi";
 export * from "./CoreApp";
 export * from "./CoreUtils";
 export * from "./ICoreServiceApp";

@@ -6,6 +6,7 @@ import { PublicApi } from "./PublicApi";
 import { UserApi } from "./UserApi";
 import { AuthApi, IApp } from "@etsoo/appscript";
 import { IdentityType } from "./dto/IdentityType";
+import { AuthCodeApi } from "./AuthCodeApi";
 
 /**
  * Core application interface
@@ -21,6 +22,11 @@ export interface ICoreApp {
    * Authentication API
    */
   readonly authApi: AuthApi;
+
+  /**
+   * Auth code API
+   */
+  readonly authCodeApi: AuthCodeApi;
 
   /**
    * Member API
@@ -64,6 +70,15 @@ export class CoreApp implements ICoreApp {
    */
   get authApi() {
     return (this._authApi ??= new AuthApi(this.app, this.api));
+  }
+
+  private _authCodeApi?: AuthCodeApi;
+  /**
+   * Authentication API
+   * 认证接口
+   */
+  get authCodeApi() {
+    return (this._authCodeApi ??= new AuthCodeApi(this.app, this.api));
   }
 
   private _memberApi?: MemberApi;
