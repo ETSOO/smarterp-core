@@ -16,6 +16,11 @@ export type MemberUpdateReadDto = {
   name: string;
 
   /**
+   * Is self
+   */
+  isSelf: boolean;
+
+  /**
    * User role
    */
   userRole: UserRole;
