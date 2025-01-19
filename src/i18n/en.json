@@ -35,6 +35,7 @@
   "orgs": "Organizations",
   "owner": "Owner",
   "parentOrg": "Parent org",
+  "preferredName": "Preferred name",
   "refreshTime": "Refresh time",
   "role": "Role",
   "roleAdmin": "Admin",

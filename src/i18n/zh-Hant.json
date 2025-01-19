@@ -35,6 +35,7 @@
   "orgs": "機構",
   "owner": "所有者",
   "parentOrg": "上級機構",
+  "preferredName": "首選姓名",
   "refreshTime": "刷新時間",
   "role": "角色",
   "roleAdmin": "管理員",
