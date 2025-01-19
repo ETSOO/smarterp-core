@@ -7,5 +7,7 @@ export enum AuthCodeAction {
   UserCallbackSMSCode = 3,
   UserCallbackEmailCode = 4,
   UserVerificationSMSCode = 5,
-  UserVerificationEmailCode = 6
+  UserVerificationEmailCode = 6,
+
+  MemberInvitationEmailCode = 20
 }

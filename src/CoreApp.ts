@@ -126,10 +126,34 @@ export class CoreApp implements ICoreApp {
   constructor(public readonly app: IApp, public readonly api: IApi) {}
 
   /**
+   * Get identity label
+   * 获取身份标签
+   * @param identity Identity value
+   * @param joinChar Join character
+   * @returns Label(s)
+   */
+  getIdentityLabel(
+    identity: IdentityType | null | undefined,
+    joinChar?: string
+  ) {
+    if (identity == null) return "";
+
+    joinChar ??= ", ";
+
+    const identities = this.getIdentities(identity);
+    return identities.map((r) => r.label).join(joinChar);
+  }
+
+  /**
    * Get identities
+   * 获取身份列表
+   * @param identity Identity value combined
    * @returns List
    */
-  getIdentities() {
-    return this.app.getEnumList(IdentityType, "id");
+  getIdentities(identity?: number) {
+    if (identity == null) return this.app.getEnumList(IdentityType, "id");
+    return this.app.getEnumList(IdentityType, "id", (id, _key) => {
+      if ((id & identity) > 0) return id;
+    });
   }
 }

@@ -1,4 +1,5 @@
 import { EntityStatus } from "@etsoo/appscript";
+import { IdentityType } from "../IdentityType";
 
 /**
  * App read data
@@ -54,6 +55,12 @@ export type AppReadDto = {
    * Expiry days
    */
   expiryDays?: number;
+
+  /**
+   * Identity type
+   * 身份类型
+   */
+  identityType: IdentityType;
 
   /**
    * Status

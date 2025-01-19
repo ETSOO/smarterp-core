@@ -11,6 +11,8 @@ export * from "./dto/authCode/AuthCodeAction";
 
 export * from "./dto/member/MemberListDto";
 export * from "./dto/member/MemberQueryDto";
+export * from "./dto/member/MemberReadDto";
+export * from "./dto/member/MemberUpdateReadDto";
 
 export * from "./dto/org/OrgGetMyData";
 export * from "./dto/org/OrgListDto";
@@ -44,8 +46,10 @@ export * from "./rq/authCode/SendEmailRQ";
 export * from "./rq/authCode/SendSMSRQ";
 export * from "./rq/authCode/ValidateRQ";
 
+export * from "./rq/member/MemberInviteRQ";
 export * from "./rq/member/MemberListRQ";
 export * from "./rq/member/MemberQueryRQ";
+export * from "./rq/member/MemberUpdateRQ";
 
 export * from "./rq/org/OrgCreateRQ";
 export * from "./rq/org/OrgGetMyRQ";
