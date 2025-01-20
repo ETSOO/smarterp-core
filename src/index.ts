@@ -9,7 +9,6 @@ export * from "./dto/app/CreateApiKeyData";
 
 export * from "./dto/authCode/AuthCodeAction";
 
-export * from "./dto/member/MemberInvitationDto";
 export * from "./dto/member/MemberListDto";
 export * from "./dto/member/MemberQueryDto";
 export * from "./dto/member/MemberReadDto";
@@ -22,6 +21,7 @@ export * from "./dto/org/OrgReadDto";
 export * from "./dto/org/OrgUpdateReadDto";
 
 export * from "./dto/public/CurrencyItem";
+export * from "./dto/public/MemberInvitationDto";
 export * from "./dto/public/PlaceCommon";
 export * from "./dto/public/PlaceLocation";
 export * from "./dto/public/RegionData";

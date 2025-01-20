@@ -13,6 +13,7 @@ import {
   ProductUnit,
   RepeatOption
 } from "@etsoo/appscript";
+import { MemberInvitationDto } from "./dto/public/MemberInvitationDto";
 
 const unitPrefix = "unit";
 
@@ -123,6 +124,16 @@ export class PublicApi extends BaseApi {
    */
   queryPlace(rq: PlaceQueryRQ, payload?: IApiPayload<PlaceCommon[]>) {
     return this.api.post("Public/QueryPlace", rq, payload);
+  }
+
+  /**
+   * Read member invitation
+   * @param id Id
+   * @param payload Payload
+   * @returns Result
+   */
+  readInvitation(id: string, payload?: IApiPayload<MemberInvitationDto>) {
+    return this.api.get(`Public/ReadInvitation/${id}`, undefined, payload);
   }
 
   /**

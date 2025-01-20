@@ -13,7 +13,6 @@ import { MemberReadDto } from "./dto/member/MemberReadDto";
 import { MemberUpdateReadDto } from "./dto/member/MemberUpdateReadDto";
 import { MemberUpdateRQ } from "./rq/member/MemberUpdateRQ";
 import { MemberInviteRQ } from "./rq/member/MemberInviteRQ";
-import { MemberInvitationDto } from "./dto/member/MemberInvitationDto";
 
 /**
  * Member API
@@ -76,20 +75,6 @@ export class MemberApi extends EntityApi {
    */
   read(id: number, payload?: IApiPayload<MemberReadDto>) {
     return this.readBase(id, payload);
-  }
-
-  /**
-   * Read invitation
-   * @param id Id
-   * @param payload Payload
-   * @returns Result
-   */
-  readInvitation(id: string, payload?: IApiPayload<MemberInvitationDto>) {
-    return this.api.get(
-      `${this.flag}/ReadInvitation/${id}`,
-      undefined,
-      payload
-    );
   }
 
   /**
