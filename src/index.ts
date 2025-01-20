@@ -58,6 +58,7 @@ export * from "./rq/org/OrgListRQ";
 export * from "./rq/org/OrgQueryRQ";
 export * from "./rq/org/OrgUpdateRQ";
 
+export * from "./rq/public/AcceptInvitationRQ";
 export * from "./rq/public/CreateBarcodeRQ";
 export * from "./rq/public/PinyinRQ";
 export * from "./rq/public/PlaceQueryRQ";

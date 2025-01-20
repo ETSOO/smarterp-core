@@ -11,9 +11,11 @@ import {
   Currency,
   IApp,
   ProductUnit,
-  RepeatOption
+  RepeatOption,
+  ResultPayload
 } from "@etsoo/appscript";
 import { MemberInvitationDto } from "./dto/public/MemberInvitationDto";
+import { AcceptInvitationRQ } from "./rq/public/AcceptInvitationRQ";
 
 const unitPrefix = "unit";
 
@@ -29,6 +31,16 @@ export class PublicApi extends BaseApi {
    */
   constructor(app: IApp, api: IApi = app.api) {
     super(app, api);
+  }
+
+  /**
+   * Accept invitation
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  acceptInvitation(rq: AcceptInvitationRQ, payload?: ResultPayload) {
+    return this.api.post("Public/AcceptInvitation", rq, payload);
   }
 
   /**
