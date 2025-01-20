@@ -9,6 +9,7 @@ export * from "./dto/app/CreateApiKeyData";
 
 export * from "./dto/authCode/AuthCodeAction";
 
+export * from "./dto/member/MemberInvitationDto";
 export * from "./dto/member/MemberListDto";
 export * from "./dto/member/MemberQueryDto";
 export * from "./dto/member/MemberReadDto";
