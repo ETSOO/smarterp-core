@@ -50,17 +50,17 @@
     "@vitejs/plugin-react": "^4.3.4",
     "jsdom": "^26.0.0",
     "typescript": "^5.7.3",
-    "vitest": "^3.0.2"
+    "vitest": "^3.0.3"
   },
   "overrides": {
     "react": "$react",
     "react-dom": "$react-dom"
   },
   "dependencies": {
-    "@etsoo/appscript": "^1.5.91",
+    "@etsoo/appscript": "^1.5.93",
     "@etsoo/materialui": "^1.4.74",
     "@etsoo/react": "^1.8.26",
-    "@etsoo/shared": "^1.2.58",
+    "@etsoo/shared": "^1.2.59",
     "@etsoo/toolpad": "^1.0.14",
     "@mui/material": "^6.3.1",
     "react": "^18.3.1",
