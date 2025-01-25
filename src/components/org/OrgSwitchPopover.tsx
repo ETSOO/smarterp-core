@@ -61,27 +61,31 @@ export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
     >
       {(data) => {
         if (data == null) return <React.Fragment />;
+
+        // Remove the current organization
+        if (currentOrg != null) {
+          const index = data.findIndex((org) => org.id === currentOrg);
+          if (index >= 0) data.splice(index, 1);
+        }
+
         return (
           <Stack direction="column" margin={2}>
-            {data.map(
-              (org) =>
-                currentOrg !== org.id && (
-                  <Button
-                    key={org.id}
-                    onClick={async () => {
-                      const result = await app.switchOrg(org.id);
-                      if (result == null) return;
+            {data.map((org) => (
+              <Button
+                key={org.id}
+                onClick={async () => {
+                  const result = await app.switchOrg(org.id);
+                  if (result == null) return;
 
-                      if (!result.ok) {
-                        app.alertResult(result);
-                        return;
-                      }
-                    }}
-                  >
-                    {org.name}
-                  </Button>
-                )
-            )}
+                  if (!result.ok) {
+                    app.alertResult(result);
+                    return;
+                  }
+                }}
+              >
+                {org.name}
+              </Button>
+            ))}
             {(data.length === 0 || data.length === maxItems) && (
               <Button onClick={() => navigate("./org/my")}>
                 {labels.more}...
