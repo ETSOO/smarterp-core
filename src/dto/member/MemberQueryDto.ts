@@ -37,6 +37,11 @@ export type MemberQueryDto = {
   isOwner: boolean;
 
   /**
+   * Is editable
+   */
+  isEditable: boolean;
+
+  /**
    * Creation
    */
   creation: string | Date;
