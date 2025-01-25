@@ -23,6 +23,11 @@ export type MemberInvitationDto = {
   isExpired: boolean;
 
   /**
+   * Is accepted or not
+   */
+  isAccepted: boolean;
+
+  /**
    * User exists or not
    */
   userExists: boolean;
