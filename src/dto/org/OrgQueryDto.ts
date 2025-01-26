@@ -44,4 +44,14 @@ export type OrgQueryDto = {
    * Creation
    */
   creation: Date | string;
+
+  /**
+   * User status
+   */
+  userStatus: EntityStatus;
+
+  /**
+   * Is user expired
+   */
+  isUserExpired: boolean;
 };

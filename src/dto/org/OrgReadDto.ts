@@ -64,4 +64,14 @@ export type OrgReadDto = {
    * Query Keyword
    */
   queryKeyword?: string;
+
+  /**
+   * User status
+   */
+  userStatus: EntityStatus;
+
+  /**
+   * User expiry
+   */
+  userExpiry?: string | Date;
 };

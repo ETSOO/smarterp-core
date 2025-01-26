@@ -17,5 +17,5 @@ export type AppGetMyRQ = {
    * 身份类型
    * @default IdentityType.User
    */
-  identityType?: IdentityType;
+  identityType: IdentityType;
 };

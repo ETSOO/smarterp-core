@@ -62,6 +62,16 @@ export class OrgApi extends EntityApi {
   }
 
   /**
+   * Leave the organization
+   * @param id Organization id
+   * @param payload Payload
+   * @returns Result
+   */
+  leave(id: number, payload?: IdResultPayload) {
+    return this.api.post(`${this.flag}/Leave/${id}`, undefined, payload);
+  }
+
+  /**
    * List
    * @param rq Request data
    * @param payload Payload
