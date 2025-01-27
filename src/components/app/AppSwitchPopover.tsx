@@ -54,6 +54,7 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
           { showLoading: false }
         )
       }
+      position="left"
     >
       {(data) => {
         if (data == null) return <React.Fragment />;
