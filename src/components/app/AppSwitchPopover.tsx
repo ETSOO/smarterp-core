@@ -65,9 +65,9 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
 
         return (
           <Stack direction="column" margin={2}>
-            {data.map((app) => (
-              <Button key={app.id} onClick={async () => {}}>
-                {app.name}
+            {data.map((appData) => (
+              <Button key={appData.id} onClick={async () => {}}>
+                {app.core.getAppName(appData)}
               </Button>
             ))}
             {(data.length === 0 || data.length === maxItems) && (

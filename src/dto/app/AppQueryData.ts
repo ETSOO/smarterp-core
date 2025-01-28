@@ -18,6 +18,12 @@ export type AppQueryData = {
   name: string;
 
   /**
+   * Local name
+   * 本地名称
+   */
+  localName?: string;
+
+  /**
    * Identity type
    * 身份类型
    */

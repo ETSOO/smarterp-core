@@ -30,6 +30,10 @@
   "identityType": "對象身份",
   "inviteMember": "邀請成員",
   "monthsUnit": "個月",
+  "noCodeId": "需要重新發送驗證碼，請不要關閉添加窗口",
+  "oneTimePin": "驗證碼",
+  "oneTimePinEmailTip": "輸入剛傳送到您電子郵件信箱的驗證碼，如果沒有找到，請檢查垃圾信箱",
+  "oneTimePinMobileTip": "輸入剛傳送到您手機號碼的驗證碼",
   "org": "機構",
   "orgName": "機構名稱",
   "orgPin": "機構編號",
@@ -63,5 +67,11 @@
   "switchToDarkModeAriaLabel": "切換到深色模式",
   "switchToLightModeAriaLabel": "切換到淺色模式",
   "switchOrg": "切換機構",
-  "years5": ["1年", "2年", "3年", "4年", "5年"]
+  "years5": ["1年", "2年", "3年", "4年", "5年"],
+  "uiTypeEmail": "電子郵件",
+  "uiTypeMobile": "手機號碼",
+  "uiTypeWechat": "微信",
+  "uiTypeAlipay": "支付寶",
+  "uiTypeGoogle": "谷歌",
+  "uiTypeMicrosoft": "微軟"
 }

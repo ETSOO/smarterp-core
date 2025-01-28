@@ -4,9 +4,11 @@ import { OrgApi } from "./OrgApi";
 import { AppApi } from "./AppApi";
 import { PublicApi } from "./PublicApi";
 import { UserApi } from "./UserApi";
-import { AuthApi, IApp } from "@etsoo/appscript";
+import { AuthApi, IApp, UserIdentifierType } from "@etsoo/appscript";
 import { IdentityType } from "./dto/IdentityType";
 import { AuthCodeApi } from "./AuthCodeApi";
+import { AppQueryData } from "./dto/app/AppQueryData";
+import { DataTypes, ListType } from "@etsoo/shared";
 
 /**
  * Core application interface
@@ -47,6 +49,42 @@ export interface ICoreApp {
    * User API
    */
   readonly userApi: UserApi;
+
+  /**
+   * Get app name
+   * 获取应用名称
+   * @param data App data
+   * @returns Name
+   */
+  getAppName(data: AppQueryData): string;
+
+  /**
+   * Get user identifier type label
+   * 获取用户标识类型标签
+   * @param type Type
+   * @returns Label
+   */
+  getIdentifierTypeLabel(type: UserIdentifierType): string;
+
+  /**
+   * Get identity label
+   * 获取身份标签
+   * @param identity Identity value
+   * @param joinChar Join character
+   * @returns Label(s)
+   */
+  getIdentityLabel(
+    identity: IdentityType | null | undefined,
+    joinChar?: string
+  ): string;
+
+  /**
+   * Get identities
+   * 获取身份列表
+   * @param identity Identity value combined
+   * @returns List
+   */
+  getIdentities(identity?: number): ListType[];
 }
 
 /**
@@ -124,6 +162,27 @@ export class CoreApp implements ICoreApp {
    * @param api API
    */
   constructor(public readonly app: IApp, public readonly api: IApi) {}
+
+  /**
+   * Get app name
+   * 获取应用名称
+   * @param data App data
+   * @returns Name
+   */
+  getAppName(data: { id: number; name: string; localName?: string }) {
+    return data.localName ?? this.app.get(`app${data.id}`) ?? data.name;
+  }
+
+  /**
+   * Get user identifier type label
+   * 获取用户标识类型标签
+   * @param type Type
+   * @returns Label
+   */
+  getIdentifierTypeLabel(type: UserIdentifierType) {
+    const key = DataTypes.getEnumKey(UserIdentifierType, type);
+    return this.app.get(`uiType${key}`) ?? key;
+  }
 
   /**
    * Get identity label

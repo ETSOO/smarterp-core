@@ -1,9 +1,18 @@
-import { EntityApi, IApp, MsgResultPayload, QueryRQ } from "@etsoo/appscript";
+import {
+  EntityApi,
+  IApp,
+  IdResultPayload,
+  MsgResultPayload,
+  QueryRQ,
+  ResultPayload
+} from "@etsoo/appscript";
 import { IApi, IApiPayload } from "@etsoo/restclient";
 import { DeviceListDto } from "./dto/user/DeviceListDto";
 import { AuditHistoryRQ } from "./rq/user/AuditHistoryRQ";
 import { AuditHistoryDto } from "./dto/user/AuditHistoryDto";
 import { AppData } from "./dto/app/AppData";
+import { UserIdentifierData } from "./dto/user/UserIdentifierData";
+import { ValidateRQ } from "./rq/authCode/ValidateRQ";
 
 /**
  * User API
@@ -20,6 +29,35 @@ export class UserApi extends EntityApi {
   }
 
   /**
+   * Add email
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  addEmail(rq: ValidateRQ, payload?: ResultPayload) {
+    return this.api.post(`${this.flag}/AddEmail`, rq, payload);
+  }
+
+  /**
+   * Add mobile
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  addMobile(rq: ValidateRQ, payload?: ResultPayload) {
+    return this.api.post(`${this.flag}/AddMobile`, rq, payload);
+  }
+
+  /**
+   * Get all user identifiers
+   * @param payload Payload
+   * @returns Result
+   */
+  allIdentifiers(payload?: IApiPayload<UserIdentifierData[]>) {
+    return this.api.post(`${this.flag}/AllIdentifiers`, undefined, payload);
+  }
+
+  /**
    * Audit history
    * @param rq Request data
    * @param payload Payload
@@ -27,6 +65,20 @@ export class UserApi extends EntityApi {
    */
   auditHistory(rq: AuditHistoryRQ, payload?: IApiPayload<AuditHistoryDto[]>) {
     return this.api.post(`${this.flag}/AuditHistory`, rq, payload);
+  }
+
+  /**
+   * Delete user identifier
+   * @param id Identifier id
+   * @param payload Payload
+   * @returns Result
+   */
+  deleteIdentifier(id: number, payload?: IdResultPayload) {
+    return this.api.delete(
+      `${this.flag}/DeleteIdentifier/${id}`,
+      undefined,
+      payload
+    );
   }
 
   /**

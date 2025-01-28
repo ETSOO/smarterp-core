@@ -30,6 +30,10 @@
   "inviteMember": "Invite member",
   "lightMode": "Light mode",
   "monthsUnit": "Months",
+  "noCodeId": "Need to resend the verification code, please do not close the add window",
+  "oneTimePin": "One Time Pin",
+  "oneTimePinEmailTip": "Enter up the One Time Pin just sent to your email address. If you can't find it, please check your spam folder.",
+  "oneTimePinMobileTip": "Enter up the One Time Pin just sent to your mobile phone number",
   "org": "Organization",
   "orgName": "Org name",
   "orgPin": "Org No.",
@@ -63,5 +67,11 @@
   "switchToDarkModeAriaLabel": "Switch to dark mode",
   "switchToLightModeAriaLabel": "Switch to light mode",
   "switchOrg": "Switch organization",
-  "years5": ["1 year", "2 years", "3 years", "4 years", "5 years"]
+  "years5": ["1 year", "2 years", "3 years", "4 years", "5 years"],
+  "uiTypeEmail": "Email",
+  "uiTypeMobile": "Mobile",
+  "uiTypeWechat": "WeChat",
+  "uiTypeAlipay": "Alipay",
+  "uiTypeGoogle": "Google",
+  "uiTypeMicrosoft": "Microsoft"
 }

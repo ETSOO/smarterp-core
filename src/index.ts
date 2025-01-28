@@ -28,6 +28,7 @@ export * from "./dto/public/RegionData";
 
 export * from "./dto/user/AuditHistoryDto";
 export * from "./dto/user/DeviceListDto";
+export * from "./dto/user/UserIdentifierData";
 
 // i18n
 export * from "./i18n/CoreCulture";
