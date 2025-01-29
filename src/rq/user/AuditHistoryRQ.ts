@@ -11,6 +11,11 @@ export type AuditHistoryRQ = QueryRQ & {
   deviceId?: number;
 
   /**
+   * Kind
+   */
+  kind?: string;
+
+  /**
    * Creation start
    */
   creationStart?: Date | string;
