@@ -9,14 +9,19 @@ export type AuditHistoryDto = {
   id: number;
 
   /**
+   * Kind
+   */
+  kind: string;
+
+  /**
+   * Culture
+   */
+  culture: string;
+
+  /**
    * Title
    */
   title: string;
-
-  /**
-   * Device name
-   */
-  deviceName: string;
 
   /**
    * JSON data
