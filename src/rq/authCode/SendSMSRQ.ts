@@ -1,14 +1,9 @@
 import { AuthCodeAction } from "../../dto/authCode/AuthCodeAction";
 
 /**
- * Send SMS request data
+ * Send SMS input request data
  */
-export type SendSMSRQ = {
-  /**
-   * Device id
-   */
-  deviceId: string;
-
+export type SendSMSInputRQ = {
   /**
    * Template/action id
    */
@@ -18,6 +13,16 @@ export type SendSMSRQ = {
    * Mobile number
    */
   mobile: string;
+};
+
+/**
+ * Send SMS request data
+ */
+export type SendSMSRQ = SendSMSInputRQ & {
+  /**
+   * Device id
+   */
+  deviceId: string;
 
   /**
    * Country or region

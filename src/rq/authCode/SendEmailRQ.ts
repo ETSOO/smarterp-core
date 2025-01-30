@@ -1,14 +1,9 @@
 import { AuthCodeAction } from "../../dto/authCode/AuthCodeAction";
 
 /**
- * Send email request data
+ * Send email input request data
  */
-export type SendEmailRQ = {
-  /**
-   * Device id
-   */
-  deviceId: string;
-
+export type SendEmailInputRQ = {
   /**
    * Template/action id
    */
@@ -18,14 +13,24 @@ export type SendEmailRQ = {
    * Email address
    */
   email: string;
+};
+
+/**
+ * Send email request data
+ */
+export type SendEmailRQ = SendEmailInputRQ & {
+  /**
+   * Device id
+   */
+  deviceId: string;
 
   /**
    * Country or region
    */
-  region?: string;
+  region: string;
 
   /**
    * Timezone
    */
-  timezone?: string;
+  timezone: string;
 };

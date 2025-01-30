@@ -1,6 +1,6 @@
 import { BaseApi, IApi, IApp, StringIdResultPayload } from "@etsoo/appscript";
-import { SendEmailRQ } from "./rq/authCode/SendEmailRQ";
-import { SendSMSRQ } from "./rq/authCode/SendSMSRQ";
+import { SendEmailInputRQ, SendEmailRQ } from "./rq/authCode/SendEmailRQ";
+import { SendSMSInputRQ, SendSMSRQ } from "./rq/authCode/SendSMSRQ";
 
 /**
  * Auth Code API
@@ -22,8 +22,15 @@ export class AuthCodeApi extends BaseApi {
    * @param payload Payload
    * @returns Result
    */
-  sendEmail(rq: SendEmailRQ, payload?: StringIdResultPayload) {
-    return this.api.put("AuthCode/SendEmail", rq, payload);
+  sendEmail(rq: SendEmailInputRQ, payload?: StringIdResultPayload) {
+    const { deviceId, region } = this.app;
+    const data: SendEmailRQ = {
+      ...rq,
+      deviceId,
+      region,
+      timezone: this.app.getTimeZone()
+    };
+    return this.api.put("AuthCode/SendEmail", data, payload);
   }
 
   /**
@@ -32,7 +39,13 @@ export class AuthCodeApi extends BaseApi {
    * @param payload Payload
    * @returns Result
    */
-  sendSMS(rq: SendSMSRQ, payload?: StringIdResultPayload) {
-    return this.api.put("AuthCode/SendSMS", rq, payload);
+  sendSMS(rq: SendSMSInputRQ, payload?: StringIdResultPayload) {
+    const { deviceId, region } = this.app;
+    const data: SendSMSRQ = {
+      ...rq,
+      deviceId,
+      region
+    };
+    return this.api.put("AuthCode/SendSMS", data, payload);
   }
 }
