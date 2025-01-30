@@ -24,14 +24,7 @@ export type MemberInviteRQ = {
   message?: string;
 
   /**
-   * Country or region code, like CN = China
-   * 国家或地区编号，如 CN = 中国
+   * Timezone
    */
-  region?: string;
-
-  /**
-   * Current's time zone
-   * 所在时区
-   */
-  timeZone?: string;
+  timezone: string;
 };
