@@ -22,9 +22,4 @@ export type MemberInviteRQ = {
    * 留言
    */
   message?: string;
-
-  /**
-   * Timezone
-   */
-  timezone: string;
 };

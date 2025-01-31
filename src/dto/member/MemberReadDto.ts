@@ -60,4 +60,9 @@ export type MemberReadDto = {
    * Status
    */
   status: EntityStatus;
+
+  /**
+   * Inviter
+   */
+  inviter?: string;
 };

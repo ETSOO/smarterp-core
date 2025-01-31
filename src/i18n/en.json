@@ -28,6 +28,7 @@
   "idUser": "User/Org.",
   "identityType": "Identity type",
   "inviteMember": "Invite member",
+  "inviter": "Inviter",
   "lightMode": "Light mode",
   "monthsUnit": "Months",
   "noCodeId": "Need to resend the verification code, please do not close the add window",

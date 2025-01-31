@@ -28,6 +28,7 @@
   "idUser": "用户/机构",
   "identityType": "对象身份",
   "inviteMember": "邀请成员",
+  "inviter": "邀请人",
   "lightMode": "浅色模式",
   "monthsUnit": "个月",
   "noCodeId": "需要重新发送验证码，请不要关闭添加窗口",
