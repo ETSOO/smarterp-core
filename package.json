@@ -41,24 +41,24 @@
   "homepage": "https://github.com/ETSOO/etsoo-smarterp-core#readme",
   "devDependencies": {
     "@babel/cli": "^7.26.4",
-    "@babel/core": "^7.26.7",
-    "@babel/plugin-transform-runtime": "^7.25.9",
-    "@babel/preset-env": "^7.26.7",
+    "@babel/core": "^7.26.8",
+    "@babel/plugin-transform-runtime": "^7.26.8",
+    "@babel/preset-env": "^7.26.8",
     "@babel/runtime-corejs3": "^7.26.7",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "jsdom": "^26.0.0",
     "typescript": "^5.7.3",
-    "vitest": "^3.0.4"
+    "vitest": "^3.0.5"
   },
   "dependencies": {
-    "@etsoo/appscript": "^1.5.97",
-    "@etsoo/materialui": "^1.4.77",
-    "@etsoo/react": "^1.8.27",
+    "@etsoo/appscript": "^1.5.98",
+    "@etsoo/materialui": "^1.4.78",
+    "@etsoo/react": "^1.8.28",
     "@etsoo/shared": "^1.2.60",
     "@etsoo/toolpad": "^1.0.14",
-    "@mui/material": "^6.4.2",
+    "@mui/material": "^6.4.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }

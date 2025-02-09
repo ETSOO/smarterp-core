@@ -16,6 +16,11 @@ export type AuditHistoryRQ = QueryRQ & {
   kind?: string;
 
   /**
+   * Target id
+   */
+  targetId?: number;
+
+  /**
    * Creation start
    */
   creationStart?: Date | string;

@@ -57,7 +57,7 @@ export function OrgTiplist(props: OrgTiplistProps) {
             id,
             queryPaging: {
               batchSize: maxItems,
-              orderBy: [{ field: "name" }]
+              orderBy: [{ field: "CoreOrganization.Name" }]
             }
           },
           { showLoading: false, defaultValue: [] }
