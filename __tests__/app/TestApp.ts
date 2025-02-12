@@ -10,7 +10,6 @@ import {
   AddressUtils,
   CoreApp,
   createClient,
-  ExternalSettings,
   IAppSettings,
   InitCallResultData,
   IUser
@@ -72,7 +71,9 @@ export class TestApp extends CoreApp<
    */
   constructor() {
     super(
-      ExternalSettings.format({
+      {
+        appId: 0,
+
         /**
          * Endpoint of the API service
          */
@@ -119,7 +120,7 @@ export class TestApp extends CoreApp<
           supportedCultures,
           detectedCulture
         )![0]
-      }),
+      },
       createClient(),
       container,
       new WindowStorage(),
