@@ -1,4 +1,5 @@
 import { IdentityType } from "../IdentityType";
+import { AppUrl } from "./AppData";
 
 /**
  * Application query data
@@ -28,6 +29,12 @@ export type AppQueryData = {
    * 身份类型
    */
   identityType: IdentityType;
+
+  /**
+   * URLs
+   * 网址
+   */
+  urls: AppUrl[];
 
   /**
    * Require local URL or not
