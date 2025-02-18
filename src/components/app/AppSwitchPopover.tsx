@@ -70,11 +70,21 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
                 key={appData.id}
                 onClick={async () => {
                   const tasks = appData.urls.map((u) =>
-                    app.core.authApi.getLogInUrl({ showLoading: false }, u.api)
+                    app.core.authApi.getLogInUrl(
+                      { showLoading: false, onError: () => false },
+                      u.api
+                    )
                   );
-                  const url = await Promise.any(tasks);
-                  if (url == null) return;
-                  app.loadUrlEx(url);
+
+                  const result = await Promise.allSettled(tasks);
+                  const success = result.find(
+                    (r) => r.status === "fulfilled" && r.value != null
+                  ) as PromiseFulfilledResult<string> | undefined;
+                  if (success) {
+                    app.loadUrlEx(success.value);
+                  } else {
+                    app.notifier.alert(app.get("networkFailure"));
+                  }
                 }}
               >
                 {app.core.getAppName(appData)}
