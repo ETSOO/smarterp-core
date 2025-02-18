@@ -36,18 +36,6 @@ export type AppQueryData = {
   requireLocalUrl?: boolean;
 
   /**
-   * Web URL
-   * 网页地址
-   */
-  webUrl: string;
-
-  /**
-   * Help URL
-   * 帮助地址
-   */
-  helpUrl?: string;
-
-  /**
    * Logo
    * 图标
    */

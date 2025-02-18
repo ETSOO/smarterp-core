@@ -1,4 +1,5 @@
 import { EntityStatus, UpdateModel } from "@etsoo/appscript";
+import { AppUrl } from "../../dto/app/AppData";
 
 /**
  * App update request data
@@ -12,22 +13,10 @@ export interface AppUpdateRQ extends UpdateModel {
   localName?: string;
 
   /**
-   * Local Web URL
+   * Local URLs
    * 本地网址
    */
-  localUrl?: string;
-
-  /**
-   * Local help URL
-   * 本地帮助网址
-   */
-  localHelpUrl?: string;
-
-  /**
-   * Local APIs
-   * 本地接口
-   */
-  localApis?: string[];
+  localUrls?: AppUrl[];
 
   /**
    * Status

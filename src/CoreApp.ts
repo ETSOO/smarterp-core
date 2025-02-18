@@ -7,7 +7,6 @@ import { UserApi } from "./UserApi";
 import { AuthApi, IApp, UserIdentifierType } from "@etsoo/appscript";
 import { IdentityType } from "./dto/IdentityType";
 import { AuthCodeApi } from "./AuthCodeApi";
-import { AppQueryData } from "./dto/app/AppQueryData";
 import { DataTypes, ListType } from "@etsoo/shared";
 
 /**
@@ -56,7 +55,7 @@ export interface ICoreApp {
    * @param data App data
    * @returns Name
    */
-  getAppName(data: AppQueryData): string;
+  getAppName(data: { id: number; name: string; localName?: string }): string;
 
   /**
    * Get user identifier type label

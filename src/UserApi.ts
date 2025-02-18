@@ -107,7 +107,7 @@ export class UserApi extends EntityApi {
    * @param payload Payload
    * @returns Result
    */
-  getLatestApp(payload?: IApiPayload<string>) {
+  getLatestApp(payload?: IApiPayload<AppData>) {
     return this.api.get("User/GetLatestApp", undefined, payload);
   }
 

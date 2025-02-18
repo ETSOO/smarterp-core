@@ -1,5 +1,6 @@
 import { EntityStatus } from "@etsoo/appscript";
 import { IdentityType } from "../IdentityType";
+import { AppUrl } from "./AppData";
 
 /**
  * App read data
@@ -32,19 +33,9 @@ export type AppReadDto = {
   localName?: string;
 
   /**
-   * Local URL
+   * Local URLs
    */
-  localUrl?: string;
-
-  /**
-   * Local help URL
-   */
-  localHelpUrl?: string;
-
-  /**
-   * Local APIs
-   */
-  localApis?: string[];
+  localUrls?: AppUrl[];
 
   /**
    * Expiry

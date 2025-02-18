@@ -2,9 +2,9 @@ import React from "react";
 import { Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ButtonPopover } from "@etsoo/materialui";
-import { AppQueryData } from "../../dto/app/AppQueryData";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import { IdentityType } from "../../dto/IdentityType";
+import { AppData } from "../../dto/app/AppData";
 
 export type AppSwitchPopoverProps = {
   appName: string;
@@ -31,7 +31,7 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
 
   // Layout
   return (
-    <ButtonPopover<AppQueryData[]>
+    <ButtonPopover<AppData[]>
       button={(callback) => (
         <Typography
           variant="h6"
@@ -66,7 +66,17 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
         return (
           <Stack direction="column" margin={2}>
             {data.map((appData) => (
-              <Button key={appData.id} onClick={async () => {}}>
+              <Button
+                key={appData.id}
+                onClick={async () => {
+                  const tasks = appData.urls.map((u) =>
+                    app.core.authApi.getLogInUrl({ showLoading: false }, u.api)
+                  );
+                  const url = await Promise.any(tasks);
+                  if (url == null) return;
+                  app.loadUrlEx(url);
+                }}
+              >
                 {app.core.getAppName(appData)}
               </Button>
             ))}

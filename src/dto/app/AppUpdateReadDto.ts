@@ -1,4 +1,5 @@
 import { EntityStatus } from "@etsoo/appscript";
+import { AppUrl } from "./AppData";
 
 /**
  * App read for update data
@@ -21,19 +22,9 @@ export type AppUpdateReadDto = {
   localName?: string;
 
   /**
-   * Local URL
+   * Local URLs
    */
-  localUrl?: string;
-
-  /**
-   * Local help URL
-   */
-  localHelpUrl?: string;
-
-  /**
-   * Local APIs
-   */
-  localApis?: string[];
+  localUrls?: AppUrl[];
 
   /**
    * Status

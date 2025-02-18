@@ -1,4 +1,25 @@
 /**
+ * Application URL
+ * 应用网址
+ */
+export type AppUrl = {
+  /**
+   * Web URL
+   */
+  web: string;
+
+  /**
+   * API URL
+   */
+  api: string;
+
+  /**
+   * Help URL
+   */
+  help?: string;
+};
+
+/**
  * Application data
  * 程序数据
  */
@@ -16,16 +37,16 @@ export type AppData = {
   name: string;
 
   /**
-   * Web URL
-   * Web网址
+   * Local name
+   * 本地名称
    */
-  webUrl: string;
+  localName?: string;
 
   /**
-   * Help URL
-   * 帮助网址
+   * Application URLs
+   * 程序网址
    */
-  helpUrl?: string;
+  urls: AppUrl[];
 
   /**
    * Logo

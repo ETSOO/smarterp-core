@@ -21,6 +21,7 @@ import { AppReadDto } from "./dto/app/AppReadDto";
 import { CreateApiKeyData } from "./dto/app/CreateApiKeyData";
 import { IActionResult } from "@etsoo/shared";
 import { AppCreateApiKeyRQ } from "./rq/app/AppCreateApiKeyRQ";
+import { AppData } from "./dto/app/AppData";
 
 /**
  * Application API
@@ -74,7 +75,7 @@ export class AppApi extends EntityApi {
    * @param payload Payload
    * @returns Result
    */
-  getMy(rq: AppGetMyRQ, payload?: IApiPayload<AppQueryData[]>) {
+  getMy(rq: AppGetMyRQ, payload?: IApiPayload<AppData[]>) {
     return this.api.post(`${this.flag}/GetMy`, rq, payload);
   }
 
