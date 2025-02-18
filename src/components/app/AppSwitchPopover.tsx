@@ -71,6 +71,7 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
                 onClick={async () => {
                   const tasks = appData.urls.map((u) =>
                     app.core.authApi.getLogInUrl(
+                      "APP",
                       { showLoading: false, onError: () => false },
                       u.api
                     )
