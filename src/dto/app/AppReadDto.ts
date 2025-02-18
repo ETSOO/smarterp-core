@@ -23,6 +23,11 @@ export type AppReadDto = {
   appId: number;
 
   /**
+   * URLs
+   */
+  urls: AppUrl[];
+
+  /**
    * App key
    */
   appKey?: string;
