@@ -21,7 +21,7 @@ export type AppUrl = {
 
 /**
  * Application data
- * 程序数据
+ * 应用数据
  */
 export type AppData = {
   /**

@@ -24,6 +24,16 @@ export type AuditHistoryDto = {
   title: string;
 
   /**
+   * Organization id
+   */
+  organizationId?: number;
+
+  /**
+   * Application id
+   */
+  appId: number;
+
+  /**
    * JSON data
    */
   data?: string;
