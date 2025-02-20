@@ -70,6 +70,8 @@
   "switchToDarkModeAriaLabel": "切换到深色模式",
   "switchToLightModeAriaLabel": "切换到浅色模式",
   "switchOrg": "切换机构",
+  "target": "目标",
+  "targetId": "目标编号",
   "years5": ["1年", "2年", "3年", "4年", "5年"],
   "uiTypeEmail": "电子邮箱",
   "uiTypeMobile": "手机号",

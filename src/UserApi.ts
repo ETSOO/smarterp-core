@@ -68,6 +68,19 @@ export class UserApi extends EntityApi {
   }
 
   /**
+   * Check app session
+   * @param payload Payload
+   * @returns Result
+   */
+  checkSession(payload?: IdResultPayload) {
+    return this.api.post(
+      `${this.flag}/CheckSession/${this.app.settings.appId}`,
+      undefined,
+      payload
+    );
+  }
+
+  /**
    * Delete user identifier
    * @param id Identifier id
    * @param payload Payload

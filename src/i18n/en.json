@@ -70,6 +70,8 @@
   "switchToDarkModeAriaLabel": "Switch to dark mode",
   "switchToLightModeAriaLabel": "Switch to light mode",
   "switchOrg": "Switch organization",
+  "target": "Target",
+  "targetId": "Target id",
   "years5": ["1 year", "2 years", "3 years", "4 years", "5 years"],
   "uiTypeEmail": "Email",
   "uiTypeMobile": "Mobile",

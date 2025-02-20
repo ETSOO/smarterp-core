@@ -70,6 +70,8 @@
   "switchToDarkModeAriaLabel": "切換到深色模式",
   "switchToLightModeAriaLabel": "切換到淺色模式",
   "switchOrg": "切換機構",
+  "target": "目標",
+  "targetId": "目標編號",
   "years5": ["1年", "2年", "3年", "4年", "5年"],
   "uiTypeEmail": "電子郵件",
   "uiTypeMobile": "手機號碼",
