@@ -19,7 +19,6 @@ export namespace DefaultUI {
       adjustHeight: 24,
       searchBarTop: true,
       pageProps: {
-        paddings: 0,
         ...page
       }
     };
