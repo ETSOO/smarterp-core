@@ -44,4 +44,10 @@ export type MemberUpdateReadDto = {
    * Status
    */
   status: EntityStatus;
+
+  /**
+   * Report to
+   * 汇报对象
+   */
+  reportTo?: number;
 };

@@ -65,4 +65,16 @@ export type MemberReadDto = {
    * Inviter
    */
   inviter?: string;
+
+  /**
+   * Direct reports
+   * 直接下属人数
+   */
+  directReports: number;
+
+  /**
+   * Report to
+   * 汇报对象
+   */
+  reportTo?: string;
 };

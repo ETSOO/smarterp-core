@@ -17,6 +17,11 @@ export type MemberQueryDto = {
   userRole: UserRole;
 
   /**
+   * Direct reports
+   */
+  directReports: number;
+
+  /**
    * Status
    */
   status: EntityStatus;

@@ -6,13 +6,15 @@ import {
   EntityApi,
   IApp,
   IdResultPayload,
-  MsgResultPayload
+  MsgResultPayload,
+  ResultPayload
 } from "@etsoo/appscript";
 import { MemberListDto } from "./dto/member/MemberListDto";
 import { MemberReadDto } from "./dto/member/MemberReadDto";
 import { MemberUpdateReadDto } from "./dto/member/MemberUpdateReadDto";
 import { MemberUpdateRQ } from "./rq/member/MemberUpdateRQ";
 import { MemberInviteRQ } from "./rq/member/MemberInviteRQ";
+import { MemberAdjustReportToRQ } from "./rq/member/MemberAdjustReportToRQ";
 
 /**
  * Member API
@@ -25,6 +27,16 @@ export class MemberApi extends EntityApi {
    */
   constructor(app: IApp, api: IApi = app.api) {
     super("Member", app, api);
+  }
+
+  /**
+   * Adjust report to
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  adjustReportToRQ(rq: MemberAdjustReportToRQ, payload?: ResultPayload) {
+    return this.api.put(`${this.flag}/AdjustReportTo`, rq, payload);
   }
 
   /**

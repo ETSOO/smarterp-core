@@ -34,4 +34,10 @@ export interface MemberUpdateRQ extends UpdateModel {
    * 状况
    */
   status?: EntityStatus;
+
+  /**
+   * Report to
+   * 汇报对象
+   */
+  reportTo?: number;
 }
