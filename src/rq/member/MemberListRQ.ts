@@ -18,4 +18,16 @@ export type MemberListRQ = StatusQueryRQ & {
    * User role start
    */
   userRoleStart?: UserRole;
+
+  /**
+   * Inviter id
+   * 邀请人编号
+   */
+  inviterId?: number;
+
+  /**
+   * Report to
+   * 汇报对象
+   */
+  reportTo?: number;
 };

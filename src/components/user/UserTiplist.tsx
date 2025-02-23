@@ -1,6 +1,7 @@
 import { Tiplist, TiplistProps } from "@etsoo/materialui";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import { MemberListDto } from "../../dto/member/MemberListDto";
+import { MemberListRQ } from "../../rq/member/MemberListRQ";
 
 /**
  * User tiplist properties
@@ -19,6 +20,11 @@ export type UserTiplistProps = Omit<
    * Name
    */
   name?: string;
+
+  /**
+   * Default request data
+   */
+  rq?: Partial<MemberListRQ>;
 };
 
 /**
@@ -38,6 +44,7 @@ export function UserTiplist(props: UserTiplistProps) {
     maxItems = 10,
     getOptionLabel = (data) => data.name,
     name = "userId",
+    rq = { enabled: true },
     ...rest
   } = props;
 
@@ -52,7 +59,7 @@ export function UserTiplist(props: UserTiplistProps) {
       loadData={(keyword, id, maxItems) =>
         app.core.memberApi.list(
           {
-            enabled: true,
+            ...rq,
             keyword,
             id,
             queryPaging: {

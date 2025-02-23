@@ -1,6 +1,7 @@
 import { Tiplist, TiplistProps } from "@etsoo/materialui";
 import { OrgListDto } from "../../dto/org/OrgListDto";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
+import { OrgListRQ } from "../../rq/org/OrgListRQ";
 
 /**
  * Organization tiplist properties
@@ -19,6 +20,11 @@ export type OrgTiplistProps = Omit<
    * Name
    */
   name?: string;
+
+  /**
+   * Default request data
+   */
+  rq?: Partial<OrgListRQ>;
 };
 
 /**
@@ -38,6 +44,7 @@ export function OrgTiplist(props: OrgTiplistProps) {
     maxItems = 10,
     getOptionLabel = (data) => data.name + "(" + data.pin + ")",
     name = "organizationId",
+    rq = { enabled: true },
     ...rest
   } = props;
 
@@ -52,7 +59,7 @@ export function OrgTiplist(props: OrgTiplistProps) {
       loadData={(keyword, id, maxItems) =>
         app.core.orgApi.list(
           {
-            enabled: true,
+            ...rq,
             keyword,
             id,
             queryPaging: {
