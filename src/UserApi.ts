@@ -158,6 +158,6 @@ export class UserApi extends EntityApi {
    * @returns Result
    */
   updateRead(payload?: IApiPayload<UserUpdateReadDto>) {
-    return this.api.put(`${this.flag}/UpdateRead`, undefined, payload);
+    return this.api.get(`${this.flag}/UpdateRead`, undefined, payload);
   }
 }
