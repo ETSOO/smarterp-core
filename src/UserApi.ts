@@ -13,6 +13,8 @@ import { AuditHistoryDto } from "./dto/user/AuditHistoryDto";
 import { AppData } from "./dto/app/AppData";
 import { UserIdentifierData } from "./dto/user/UserIdentifierData";
 import { ValidateRQ } from "./rq/authCode/ValidateRQ";
+import { UserUpdateReadDto } from "./dto/user/UserUpdateReadDto";
+import { UserUpdateRQ } from "./rq/user/UserUpdateRQ";
 
 /**
  * User API
@@ -125,6 +127,16 @@ export class UserApi extends EntityApi {
   }
 
   /**
+   * Update
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  update(rq: UserUpdateRQ, payload?: IdResultPayload) {
+    return this.updateBase(rq, payload);
+  }
+
+  /**
    * Update avatar
    * @param data Avatar form data
    * @param payload Payload
@@ -138,5 +150,14 @@ export class UserApi extends EntityApi {
       payload.config.credentials = "include";
 
     return this.api.put(`${this.flag}/UpdateAvatar`, data, payload);
+  }
+
+  /**
+   * Update read
+   * @param payload Payload
+   * @returns Result
+   */
+  updateRead(payload?: IApiPayload<UserUpdateReadDto>) {
+    return this.api.put(`${this.flag}/UpdateRead`, undefined, payload);
   }
 }

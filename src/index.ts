@@ -29,6 +29,7 @@ export * from "./dto/public/RegionData";
 export * from "./dto/user/AuditHistoryDto";
 export * from "./dto/user/DeviceListDto";
 export * from "./dto/user/UserIdentifierData";
+export * from "./dto/user/UserUpdateReadDto";
 
 export * from "./dto/IdentityType";
 
@@ -67,6 +68,7 @@ export * from "./rq/public/PinyinRQ";
 export * from "./rq/public/PlaceQueryRQ";
 
 export * from "./rq/user/AuditHistoryRQ";
+export * from "./rq/user/UserUpdateRQ";
 
 // APIs
 export * from "./AppApi";
