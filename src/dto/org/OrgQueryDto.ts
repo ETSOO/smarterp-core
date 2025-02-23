@@ -54,4 +54,10 @@ export type OrgQueryDto = {
    * Is user expired
    */
   isUserExpired: boolean;
+
+  /**
+   * Users
+   * 用户数
+   */
+  users: number;
 };

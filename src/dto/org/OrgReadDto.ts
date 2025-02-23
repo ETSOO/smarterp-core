@@ -74,4 +74,10 @@ export type OrgReadDto = {
    * User expiry
    */
   userExpiry?: string | Date;
+
+  /**
+   * Users
+   * 用户数
+   */
+  users: number;
 };
