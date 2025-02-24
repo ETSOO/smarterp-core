@@ -26,6 +26,8 @@
   "expandMenu": "展開菜單",
   "expandNavMenuAriaLabel": "展開導航菜單",
   "fullName": "全稱",
+  "latinFamilyName": "姓氏（拼音）",
+  "latinGivenName": "名（拼音）",
   "lightMode": "淺色模式",
   "idCustomer": "客戶",
   "idSupplier": "供應商",

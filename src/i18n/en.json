@@ -34,6 +34,8 @@
   "inviteMember": "Invite member",
   "inviter": "Inviter",
   "isFrozen": "Is frozen",
+  "latinFamilyName": "Family name (Latin)",
+  "latinGivenName": "Given name (Latin)",
   "lightMode": "Light mode",
   "members": "Members",
   "monthsUnit": "Months",

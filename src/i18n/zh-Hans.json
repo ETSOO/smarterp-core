@@ -34,6 +34,8 @@
   "inviteMember": "邀请成员",
   "inviter": "邀请人",
   "isFrozen": "是否被冻结",
+  "latinFamilyName": "姓氏（拼音）",
+  "latinGivenName": "名（拼音）",
   "lightMode": "浅色模式",
   "members": "成员数",
   "monthsUnit": "个月",

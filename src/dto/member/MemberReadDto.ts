@@ -62,6 +62,11 @@ export type MemberReadDto = {
   status: EntityStatus;
 
   /**
+   * User's avatar
+   */
+  avatar?: string;
+
+  /**
    * Inviter
    */
   inviter?: string;
