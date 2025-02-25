@@ -82,6 +82,7 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
                     (r) => r.status === "fulfilled" && r.value != null
                   ) as PromiseFulfilledResult<string> | undefined;
                   if (success) {
+                    app.clearSession();
                     app.loadUrlEx(success.value);
                   } else {
                     app.notifier.alert(app.get("networkFailure"));
