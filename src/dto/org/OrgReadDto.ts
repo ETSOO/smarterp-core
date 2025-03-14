@@ -80,4 +80,10 @@ export type OrgReadDto = {
    * 用户数
    */
   users: number;
+
+  /**
+   * Persons
+   * 人员数
+   */
+  persons: number;
 };
