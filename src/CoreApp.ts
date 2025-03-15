@@ -55,7 +55,7 @@ export interface ICoreApp {
    * @param data App data
    * @returns Name
    */
-  getAppName(data: { id: number; name: string; localName?: string }): string;
+  getAppName(data: { appId: number; name: string; localName?: string }): string;
 
   /**
    * Get user identifier type label
@@ -168,8 +168,8 @@ export class CoreApp implements ICoreApp {
    * @param data App data
    * @returns Name
    */
-  getAppName(data: { id: number; name: string; localName?: string }) {
-    return data.localName ?? this.app.get(`app${data.id}`) ?? data.name;
+  getAppName(data: { appId: number; name: string; localName?: string }) {
+    return data.localName ?? this.app.get(`app${data.appId}`) ?? data.name;
   }
 
   /**
