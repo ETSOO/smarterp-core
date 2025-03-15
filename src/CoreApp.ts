@@ -9,6 +9,8 @@ import { IdentityType } from "./dto/IdentityType";
 import { AuthCodeApi } from "./AuthCodeApi";
 import { DataTypes, ListType } from "@etsoo/shared";
 
+type AppData = { id: number; appId?: number; name: string; localName?: string };
+
 /**
  * Core application interface
  * 核心应用程序接口
@@ -55,7 +57,7 @@ export interface ICoreApp {
    * @param data App data
    * @returns Name
    */
-  getAppName(data: { appId: number; name: string; localName?: string }): string;
+  getAppName(data: AppData): string;
 
   /**
    * Get user identifier type label
@@ -168,8 +170,10 @@ export class CoreApp implements ICoreApp {
    * @param data App data
    * @returns Name
    */
-  getAppName(data: { appId: number; name: string; localName?: string }) {
-    return data.localName ?? this.app.get(`app${data.appId}`) ?? data.name;
+  getAppName(data: AppData) {
+    return (
+      data.localName ?? this.app.get(`app${data.appId ?? data.id}`) ?? data.name
+    );
   }
 
   /**
