@@ -1,5 +1,4 @@
-import { QueryRQ } from "@etsoo/appscript";
-import { IdentityType } from "../../dto/IdentityType";
+import { IdentityType, QueryRQ } from "@etsoo/appscript";
 
 /**
  * Application list request data

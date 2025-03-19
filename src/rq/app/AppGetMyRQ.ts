@@ -1,4 +1,4 @@
-import { IdentityType } from "../../dto/IdentityType";
+import { IdentityType } from "@etsoo/appscript";
 
 /**
  * Get user's latest accessed applications request data

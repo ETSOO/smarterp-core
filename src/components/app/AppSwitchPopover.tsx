@@ -3,9 +3,8 @@ import { Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ButtonPopover } from "@etsoo/materialui";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
-import { IdentityType } from "../../dto/IdentityType";
 import { AppData } from "../../dto/app/AppData";
-import { AuthRequest } from "@etsoo/appscript";
+import { AuthRequest, IdentityType } from "@etsoo/appscript";
 
 export type AppSwitchPopoverProps = {
   appName: string;

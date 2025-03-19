@@ -4,8 +4,12 @@ import { OrgApi } from "./OrgApi";
 import { AppApi } from "./AppApi";
 import { PublicApi } from "./PublicApi";
 import { UserApi } from "./UserApi";
-import { AuthApi, IApp, UserIdentifierType } from "@etsoo/appscript";
-import { IdentityType } from "./dto/IdentityType";
+import {
+  AuthApi,
+  IApp,
+  IdentityType,
+  UserIdentifierType
+} from "@etsoo/appscript";
 import { AuthCodeApi } from "./AuthCodeApi";
 import { DataTypes, ListType } from "@etsoo/shared";
 

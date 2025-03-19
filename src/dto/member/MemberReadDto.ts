@@ -1,5 +1,4 @@
-import { EntityStatus, UserRole } from "@etsoo/appscript";
-import { IdentityType } from "../IdentityType";
+import { EntityStatus, IdentityType, UserRole } from "@etsoo/appscript";
 
 /**
  * Member read for view data

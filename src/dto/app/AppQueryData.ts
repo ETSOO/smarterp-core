@@ -1,4 +1,4 @@
-import { IdentityType } from "../IdentityType";
+import { IdentityType } from "@etsoo/appscript";
 import { AppUrl } from "./AppData";
 
 /**

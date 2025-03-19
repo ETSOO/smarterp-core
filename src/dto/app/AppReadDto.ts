@@ -1,5 +1,4 @@
-import { EntityStatus } from "@etsoo/appscript";
-import { IdentityType } from "../IdentityType";
+import { EntityStatus, IdentityType } from "@etsoo/appscript";
 import { AppUrl } from "./AppData";
 
 /**

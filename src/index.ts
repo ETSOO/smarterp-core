@@ -31,8 +31,6 @@ export * from "./dto/user/DeviceListDto";
 export * from "./dto/user/UserIdentifierData";
 export * from "./dto/user/UserUpdateReadDto";
 
-export * from "./dto/IdentityType";
-
 // i18n
 export * from "./i18n/CoreCulture";
 
