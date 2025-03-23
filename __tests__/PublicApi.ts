@@ -2,7 +2,6 @@ import { isLocalTest, TestApp } from "./app/TestApp";
 import { PublicApi } from "../src/PublicApi";
 import { PinyinFormatType } from "../src/rq/public/PinyinRQ";
 import { ApiProvider } from "../src/rq/public/PlaceQueryRQ";
-import { act } from "react";
 
 const app = new TestApp();
 

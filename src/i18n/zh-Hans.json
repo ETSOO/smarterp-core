@@ -51,6 +51,7 @@
   "parentOrg": "上级机构",
   "pin": "身份证号码",
   "preferredName": "首选姓名",
+  "queryKeyword": "查询关键字",
   "refreshTime": "刷新时间",
   "reportTo": "汇报对象",
   "role": "角色",

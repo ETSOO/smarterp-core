@@ -51,6 +51,7 @@
   "parentOrg": "上級機構",
   "pin": "身份證號碼",
   "preferredName": "首選姓名",
+  "queryKeyword": "查詢關鍵字",
   "refreshTime": "刷新時間",
   "reportTo": "匯報對象",
   "role": "角色",

@@ -3,7 +3,6 @@ import { isLocalTest, TestApp } from "./app/TestApp";
 import { EntityStatus } from "@etsoo/appscript";
 import { OrgApi } from "../src/OrgApi";
 import { OrgCreateRQ } from "../src/rq/org/OrgCreateRQ";
-import { OrgUpdateRQ } from "../src";
 
 if (isLocalTest) {
   const app = new TestApp();

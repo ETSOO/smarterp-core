@@ -51,6 +51,7 @@
   "parentOrg": "Parent org",
   "pin": "ID",
   "preferredName": "Preferred name",
+  "queryKeyword": "Query keyword",
   "refreshTime": "Refresh time",
   "reportTo": "Report to",
   "role": "Role",

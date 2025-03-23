@@ -23,7 +23,7 @@ export interface ICoreApp {
   /**
    * Application API
    */
-  appApi: AppApi;
+  readonly appApi: AppApi;
 
   /**
    * Authentication API
