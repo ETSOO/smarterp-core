@@ -2,7 +2,7 @@ import { IServiceApp, ReactAppContext } from "@etsoo/materialui";
 import { ICoreApp } from "./CoreApp";
 import { useRequiredContext } from "@etsoo/react";
 import React, { DependencyList } from "react";
-import { PageDataContext } from "@etsoo/toolpad";
+import { PageData, PageDataContext } from "@etsoo/toolpad";
 
 /**
  * Get core service application context hook
@@ -19,18 +19,42 @@ export function useRequiredAppContext(): ICoreServiceApp {
 /**
  * Use page data
  * @param app Application
- * @param pageTitle Page title
+ * @param pageTitle Page title or true for reset
  * @param deps Dependencies
  */
 export function usePageData(
   app: ICoreServiceApp,
-  pageTitle?: string,
+  pageTitle?: string | true,
+  deps?: DependencyList
+): void;
+
+/**
+ * Use page data
+ * @param app Application
+ * @param pageData Page data
+ * @param deps Dependencies
+ */
+export function usePageData(
+  app: ICoreServiceApp,
+  pageData?: PageData,
+  deps?: DependencyList
+): void;
+
+export function usePageData(
+  app: ICoreServiceApp,
+  pageDataOrTitle?: string | true | PageData,
   deps?: DependencyList
 ) {
   const { dispatch } = React.useContext(PageDataContext);
   React.useEffect(() => {
     // Page title
-    dispatch({ page: pageTitle });
+    dispatch(
+      typeof pageDataOrTitle === "object"
+        ? pageDataOrTitle
+        : typeof pageDataOrTitle === "boolean"
+        ? pageDataOrTitle
+        : { page: pageDataOrTitle }
+    );
 
     return () => {
       app.pageExit();
