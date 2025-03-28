@@ -1,10 +1,12 @@
 import React from "react";
-import { Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ButtonPopover } from "@etsoo/materialui";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import { AppData } from "../../dto/app/AppData";
 import { AuthRequest, IdentityType } from "@etsoo/appscript";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
 export type AppSwitchPopoverProps = {
   appName: string;
