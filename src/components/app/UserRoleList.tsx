@@ -1,12 +1,15 @@
 import { ComboBox, ComboBoxProps } from "@etsoo/materialui";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
+import { DataTypes } from "@etsoo/shared";
 
 /**
  * User role list component
  * @param props Props
  * @returns Component
  */
-export function UserRoleList(props: Omit<ComboBoxProps, "options">) {
+export function UserRoleList(
+  props: DataTypes.Optional<Omit<ComboBoxProps, "options">, "name">
+) {
   // App
   const app = useRequiredAppContext();
 
