@@ -3,8 +3,9 @@ export * from "./DefaultUI";
 
 // app
 export * from "./app/AppSwitchPopover";
-export * from "./app/IdentityType";
+export * from "./app/IdentityTypeList";
 export * from "./app/SearchDays";
+export * from "./app/UserRoleList";
 
 // org
 export * from "./org/OrgSwitchPopover";

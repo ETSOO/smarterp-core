@@ -3,11 +3,13 @@ import { useRequiredAppContext } from "../../ICoreServiceApp";
 import { ListType } from "@etsoo/shared";
 
 /**
- * Identity type component
+ * Identity type list component
  * @param props Props
  * @returns Component
  */
-export function IdentityType(props: Omit<SelectExProps<ListType>, "options">) {
+export function IdentityTypeList(
+  props: Omit<SelectExProps<ListType>, "options">
+) {
   // App
   const app = useRequiredAppContext();
 
