@@ -8,7 +8,7 @@ import { DataTypes } from "@etsoo/shared";
  * @returns Component
  */
 export function UserRoleList(
-  props: DataTypes.Optional<Omit<ComboBoxProps, "options">, "name">
+  props: DataTypes.Optional<Omit<ComboBoxProps, "options">, "name" | "label">
 ) {
   // App
   const app = useRequiredAppContext();
