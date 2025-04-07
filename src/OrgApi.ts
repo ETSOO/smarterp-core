@@ -11,7 +11,8 @@ import {
   EntityApi,
   IApp,
   IdResultPayload,
-  MsgResultPayload
+  MsgResultPayload,
+  ResultPayload
 } from "@etsoo/appscript";
 import { OrgListRQ } from "./rq/org/OrgListRQ";
 import { OrgGetMyRQ } from "./rq/org/OrgGetMyRQ";
@@ -140,5 +141,20 @@ export class OrgApi extends EntityApi {
    */
   updateRead(id: number, payload?: IApiPayload<OrgUpdateReadDto>) {
     return this.updateReadBase(id, payload);
+  }
+
+  /**
+   * Upload profle attachments
+   * @param id Profile id
+   * @param files Files
+   * @param payload Payload
+   * @returns Result
+   */
+  uploadProfileFiles(id: number, files: FileList, payload?: ResultPayload) {
+    return this.api.post(
+      `${this.flag}/UploadProfileFiles/${id}`,
+      files,
+      payload
+    );
   }
 }
