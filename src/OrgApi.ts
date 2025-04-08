@@ -1,4 +1,4 @@
-import { IApi, IApiPayload } from "@etsoo/restclient";
+import { ApiResponseType, IApi, IApiPayload } from "@etsoo/restclient";
 import { OrgCreateRQ } from "./rq/org/OrgCreateRQ";
 import { OrgUpdateRQ } from "./rq/org/OrgUpdateRQ";
 import { OrgQueryRQ } from "./rq/org/OrgQueryRQ";
@@ -17,6 +17,8 @@ import {
 import { OrgListRQ } from "./rq/org/OrgListRQ";
 import { OrgGetMyRQ } from "./rq/org/OrgGetMyRQ";
 import { OrgGetMyData } from "./dto/org/OrgGetMyData";
+import { OrgDownloadKind } from "./dto/org/OrgDownloadKind";
+import { DataTypes } from "@etsoo/shared";
 
 /**
  * Organization API
@@ -50,6 +52,35 @@ export class OrgApi extends EntityApi {
    */
   delete(id: number, payload?: IdResultPayload) {
     return this.deleteBase(id, payload);
+  }
+
+  /**
+   * Download file
+   * @kind Download kind
+   * @param id id
+   * @param payload Payload
+   * @returns Result
+   */
+  async downloadFile(kind: OrgDownloadKind, id: number): Promise<void> {
+    const payload: IApiPayload<ReadableStream> = {
+      responseType: ApiResponseType.Stream
+    };
+
+    const key = DataTypes.getEnumKey(OrgDownloadKind, kind);
+
+    const result = await this.api.get(
+      `${this.flag}/Download${key}File/${id}`,
+      undefined,
+      payload
+    );
+
+    if (result == null || payload.response == null) return;
+
+    const filename =
+      this.api.getContentDisposition(payload.response)?.filename ??
+      "DownloadFile";
+
+    await this.app.download(result, filename);
   }
 
   /**

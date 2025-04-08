@@ -14,6 +14,7 @@ export * from "./dto/member/MemberQueryDto";
 export * from "./dto/member/MemberReadDto";
 export * from "./dto/member/MemberUpdateReadDto";
 
+export * from "./dto/org/OrgDownloadKind";
 export * from "./dto/org/OrgGetMyData";
 export * from "./dto/org/OrgListDto";
 export * from "./dto/org/OrgQueryDto";
