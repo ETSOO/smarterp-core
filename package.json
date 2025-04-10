@@ -1,6 +1,6 @@
 {
   "name": "@etsoo/smarterp-core",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "description": "TypeScript APIs for SmartERP Core",
   "main": "lib/cjs/index.js",
   "module": "lib/mjs/index.js",
@@ -58,7 +58,7 @@
     "@etsoo/react": "^1.8.38",
     "@etsoo/shared": "^1.2.66",
     "@etsoo/toolpad": "^1.0.26",
-    "@mui/material": "^7.0.1",
+    "@mui/material": "^7.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }
