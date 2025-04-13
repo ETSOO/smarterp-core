@@ -1,15 +1,19 @@
-import type { CommonPageProps, ResponsePageProps } from "@etsoo/materialui";
+import type {
+  CommonPageProps,
+  ResponsePageProps,
+  TabBoxProps
+} from "@etsoo/materialui";
 
 /**
  * Default UI namespace
  */
 export namespace DefaultUI {
   /**
-   * Create response page props
+   * Default response page props
    * @param page Page props
    * @returns Response page props
    */
-  export function createProps(
+  export function pageProps(
     page: CommonPageProps
   ): Pick<
     ResponsePageProps<any, any>,
@@ -23,6 +27,25 @@ export namespace DefaultUI {
         ...page
       }
     };
+  }
+
+  /**
+   * Default TabBox props
+   * @param isMobile Whether is mobile
+   * @returns Result
+   */
+  export function tabsProps(isMobile: boolean) {
+    const props: Partial<TabBoxProps> = isMobile
+      ? {
+          sx: { maxWidth: { xs: 320, sm: 480 } },
+          variant: "scrollable",
+          scrollButtons: "auto",
+          allowScrollButtonsMobile: true,
+          centered: true
+        }
+      : {};
+
+    return props;
   }
 
   /**
