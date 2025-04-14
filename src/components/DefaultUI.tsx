@@ -34,7 +34,7 @@ export namespace DefaultUI {
    * @param isMobile Whether is mobile
    * @returns Result
    */
-  export function tabsProps(isMobile: boolean) {
+  export function tabsProps(isMobile?: boolean) {
     const props: Partial<TabBoxProps> = isMobile
       ? {
           sx: { maxWidth: { xs: 320, sm: 480 } },
