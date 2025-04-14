@@ -40,8 +40,7 @@ export namespace DefaultUI {
           sx: { maxWidth: { xs: 320, sm: 480 } },
           variant: "scrollable",
           scrollButtons: "auto",
-          allowScrollButtonsMobile: true,
-          centered: true
+          allowScrollButtonsMobile: true
         }
       : {};
 
