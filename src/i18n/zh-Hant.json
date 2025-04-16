@@ -54,6 +54,7 @@
   "preferredName": "首選姓名",
   "queryKeyword": "查詢關鍵字",
   "refreshTime": "刷新時間",
+  "relatedTarget": "關聯對象",
   "reportTo": "匯報對象",
   "role": "角色",
   "roleAdmin": "管理員",

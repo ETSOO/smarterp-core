@@ -54,6 +54,7 @@
   "preferredName": "Preferred name",
   "queryKeyword": "Query keyword",
   "refreshTime": "Refresh time",
+  "relatedTarget": "Related target",
   "reportTo": "Report to",
   "role": "Role",
   "roleAdmin": "Admin",

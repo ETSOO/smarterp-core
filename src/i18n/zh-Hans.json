@@ -54,6 +54,7 @@
   "preferredName": "首选姓名",
   "queryKeyword": "查询关键字",
   "refreshTime": "刷新时间",
+  "relatedTarget": "关联对象",
   "reportTo": "汇报对象",
   "role": "角色",
   "roleAdmin": "管理员",
