@@ -21,6 +21,7 @@ export * from "./dto/org/OrgQueryDto";
 export * from "./dto/org/OrgReadDto";
 export * from "./dto/org/OrgUpdateReadDto";
 
+export * from "./dto/public/ChinaPinData";
 export * from "./dto/public/CurrencyItem";
 export * from "./dto/public/MemberInvitationDto";
 export * from "./dto/public/PlaceCommon";
@@ -60,6 +61,8 @@ export * from "./rq/org/OrgGetMyRQ";
 export * from "./rq/org/OrgListRQ";
 export * from "./rq/org/OrgQueryRQ";
 export * from "./rq/org/OrgUpdateRQ";
+export * from "./rq/org/SendEmailMessage";
+export * from "./rq/org/SendSMSMessage";
 
 export * from "./rq/public/AcceptInvitationRQ";
 export * from "./rq/public/CreateBarcodeRQ";

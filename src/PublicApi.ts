@@ -16,6 +16,7 @@ import {
 } from "@etsoo/appscript";
 import { MemberInvitationDto } from "./dto/public/MemberInvitationDto";
 import { AcceptInvitationRQ } from "./rq/public/AcceptInvitationRQ";
+import { ChinaPinData } from "./dto/public/ChinaPinData";
 
 const unitPrefix = "unit";
 
@@ -126,6 +127,16 @@ export class PublicApi extends BaseApi {
    */
   mobileQRCode(id?: string, host?: string, payload?: IApiPayload<string>) {
     return this.api.post("Public/MobileQRCode", { id, host }, payload);
+  }
+
+  /**
+   * Parse China PIN
+   * @param pin Pin code
+   * @param payload Payload
+   * @returns Result
+   */
+  parseChinaPin(pin: string, payload?: IApiPayload<ChinaPinData>) {
+    return this.api.get(`Public/ParseChinaPin/${pin}`, undefined, payload);
   }
 
   /**

@@ -2,9 +2,9 @@ import {
   EntityApi,
   IApp,
   IdResultPayload,
-  MsgResultPayload,
   QueryRQ,
-  ResultPayload
+  ResultPayload,
+  StringIdResultPayload
 } from "@etsoo/appscript";
 import { IApi, IApiPayload } from "@etsoo/restclient";
 import { DeviceListDto } from "./dto/user/DeviceListDto";
@@ -142,7 +142,7 @@ export class UserApi extends EntityApi {
    * @param payload Payload
    * @returns Result
    */
-  updateAvatar(data: FormData, payload?: MsgResultPayload) {
+  updateAvatar(data: FormData, payload?: StringIdResultPayload) {
     payload ??= { config: {} };
 
     // Credentials for anti-forgery cookie sending

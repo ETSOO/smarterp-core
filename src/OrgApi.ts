@@ -11,14 +11,16 @@ import {
   EntityApi,
   IApp,
   IdResultPayload,
-  MsgResultPayload,
-  ResultPayload
+  ResultPayload,
+  StringIdResultPayload
 } from "@etsoo/appscript";
 import { OrgListRQ } from "./rq/org/OrgListRQ";
 import { OrgGetMyRQ } from "./rq/org/OrgGetMyRQ";
 import { OrgGetMyData } from "./dto/org/OrgGetMyData";
 import { OrgDownloadKind } from "./dto/org/OrgDownloadKind";
 import { DataTypes } from "@etsoo/shared";
+import { SendEmailMessage } from "./rq/org/SendEmailMessage";
+import { SendSMSMessage } from "./rq/org/SendSMSMessage";
 
 /**
  * Organization API
@@ -84,6 +86,16 @@ export class OrgApi extends EntityApi {
   }
 
   /**
+   * Format HTML content
+   * @param content HTML content
+   * @param payload Payload
+   * @returns Result
+   */
+  formatHtmlContent(content: string, payload?: IApiPayload<string>) {
+    return this.api.post(`${this.flag}/FormatHtmlContent`, content, payload);
+  }
+
+  /**
    * Get user's latest accessed organizations
    * @param rq Request data
    * @param payload Payload
@@ -144,6 +156,28 @@ export class OrgApi extends EntityApi {
   }
 
   /**
+   * Send email
+   * 发送邮件
+   * @param message Email message
+   * @param payload Payload
+   * @returns Result
+   */
+  sendEmail(message: SendEmailMessage, payload?: StringIdResultPayload) {
+    return this.api.post(`${this.flag}/SendEmail`, message, payload);
+  }
+
+  /**
+   * Send SMS
+   * 发送短信
+   * @param message SMS message
+   * @param payload Payload
+   * @returns Result
+   */
+  sendSMS(message: SendSMSMessage, payload?: StringIdResultPayload) {
+    return this.api.post(`${this.flag}/SendSMS`, message, payload);
+  }
+
+  /**
    * Update
    * @param rq Request data
    * @param payload Payload
@@ -160,7 +194,7 @@ export class OrgApi extends EntityApi {
    * @param payload Payload
    * @returns Result
    */
-  updateAvatar(id: number, data: FormData, payload?: MsgResultPayload) {
+  updateAvatar(id: number, data: FormData, payload?: StringIdResultPayload) {
     return this.api.put(`${this.flag}/UpdateAvatar/${id}`, data, payload);
   }
 

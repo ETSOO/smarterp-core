@@ -6,8 +6,8 @@ import {
   EntityApi,
   IApp,
   IdResultPayload,
-  MsgResultPayload,
-  ResultPayload
+  ResultPayload,
+  StringIdResultPayload
 } from "@etsoo/appscript";
 import { MemberListDto } from "./dto/member/MemberListDto";
 import { MemberReadDto } from "./dto/member/MemberReadDto";
@@ -55,7 +55,7 @@ export class MemberApi extends EntityApi {
    * @param payload Payload
    * @returns Result
    */
-  invite(rq: MemberInviteRQ, payload?: MsgResultPayload) {
+  invite(rq: MemberInviteRQ, payload?: StringIdResultPayload) {
     return this.api.post(`${this.flag}/Invite`, rq, payload);
   }
 
@@ -106,7 +106,7 @@ export class MemberApi extends EntityApi {
    * @param payload Payload
    * @returns Result
    */
-  updateAvatar(id: number, data: FormData, payload?: MsgResultPayload) {
+  updateAvatar(id: number, data: FormData, payload?: StringIdResultPayload) {
     return this.api.put(`${this.flag}/UpdateAvatar/${id}`, data, payload);
   }
 
