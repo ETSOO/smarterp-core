@@ -3,6 +3,7 @@ export * from "./DefaultUI";
 
 // app
 export * from "./app/AppSwitchPopover";
+export * from "./app/IdentityFlagsList";
 export * from "./app/IdentityTypeList";
 export * from "./app/SearchDays";
 export * from "./app/StatusList";
