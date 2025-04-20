@@ -8,6 +8,7 @@ import {
   AuthApi,
   IApp,
   IdentityType,
+  IdentityTypeFlags,
   UserIdentifierType
 } from "@etsoo/appscript";
 import { AuthCodeApi } from "./AuthCodeApi";
@@ -84,12 +85,32 @@ export interface ICoreApp {
   ): string;
 
   /**
+   * Get identity label
+   * 获取身份标签
+   * @param identity Identity value
+   * @param joinChar Join character
+   * @returns Label(s)
+   */
+  getIdentityFlagsLabel(
+    identity: IdentityTypeFlags | null | undefined,
+    joinChar?: string
+  ): string;
+
+  /**
    * Get identities
    * 获取身份列表
    * @param identity Identity value combined
    * @returns List
    */
   getIdentities(identity?: number): ListType[];
+
+  /**
+   * Get identity flags
+   * 获取身份标志组合
+   * @param identity Identity value combined
+   * @returns List
+   */
+  getIdentityFlags(identity?: number): ListType[];
 }
 
 /**
@@ -211,6 +232,25 @@ export class CoreApp implements ICoreApp {
   }
 
   /**
+   * Get identity flags label
+   * 获取身份组合标签
+   * @param identity Identity value
+   * @param joinChar Join character
+   * @returns Label(s)
+   */
+  getIdentityFlagsLabel(
+    identity: IdentityTypeFlags | null | undefined,
+    joinChar?: string
+  ) {
+    if (identity == null) return "";
+
+    joinChar ??= ", ";
+
+    const identities = this.getIdentityFlags(identity);
+    return identities.map((r) => r.label).join(joinChar);
+  }
+
+  /**
    * Get identities
    * 获取身份列表
    * @param identity Identity value combined
@@ -219,6 +259,19 @@ export class CoreApp implements ICoreApp {
   getIdentities(identity?: number) {
     if (identity == null) return this.app.getEnumList(IdentityType, "id");
     return this.app.getEnumList(IdentityType, "id", (id, _key) => {
+      if ((id & identity) > 0) return id;
+    });
+  }
+
+  /**
+   * Get identity flags
+   * 获取身份标志组合
+   * @param identity Identity value combined
+   * @returns List
+   */
+  getIdentityFlags(identity?: number) {
+    if (identity == null) return this.app.getEnumList(IdentityTypeFlags, "id");
+    return this.app.getEnumList(IdentityTypeFlags, "id", (id, _key) => {
       if ((id & identity) > 0) return id;
     });
   }
