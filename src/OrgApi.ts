@@ -21,6 +21,7 @@ import { OrgDownloadKind } from "./dto/org/OrgDownloadKind";
 import { DataTypes } from "@etsoo/shared";
 import { SendEmailMessage } from "./rq/org/SendEmailMessage";
 import { SendSMSMessage } from "./rq/org/SendSMSMessage";
+import { SendProfileEmailRQ } from "./rq/org/SendProfileEmailRQ";
 
 /**
  * Organization API
@@ -175,6 +176,16 @@ export class OrgApi extends EntityApi {
    */
   sendSMS(message: SendSMSMessage, payload?: StringIdResultPayload) {
     return this.api.post(`${this.flag}/SendSMS`, message, payload);
+  }
+
+  /**
+   * Send profile email
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  sendProfileEmail(rq: SendProfileEmailRQ, payload?: ResultPayload) {
+    return this.api.post(`${this.flag}/SendProfileEmail`, rq, payload);
   }
 
   /**

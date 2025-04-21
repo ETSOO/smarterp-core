@@ -62,6 +62,7 @@ export * from "./rq/org/OrgListRQ";
 export * from "./rq/org/OrgQueryRQ";
 export * from "./rq/org/OrgUpdateRQ";
 export * from "./rq/org/SendEmailMessage";
+export * from "./rq/org/SendProfileEmailRQ";
 export * from "./rq/org/SendSMSMessage";
 
 export * from "./rq/public/AcceptInvitationRQ";
