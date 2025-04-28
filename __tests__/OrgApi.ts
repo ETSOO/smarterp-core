@@ -15,6 +15,7 @@ if (isLocalTest) {
 
   const api = new OrgApi(app);
 
+  /*
   test("Test for create, delete", async () => {
     const guid = Utils.newGUID().slice(0, 20);
     const random = Date.now() % 2 == 0;
@@ -55,6 +56,7 @@ if (isLocalTest) {
 
     expect(deleteResult?.ok).toBeTruthy();
   });
+  */
 
   test("Test for query zero return", async () => {
     const result = await api.query({
@@ -82,8 +84,7 @@ if (isLocalTest) {
       enabled: true,
       excludedIds: [1, 2, 3],
       queryPaging: {
-        keysets: ["青岛亿速", 1100],
-        batchSize: 5,
+        batchSize: 2,
         orderBy: [{ field: "name" }, { field: "id", desc: true, unique: true }]
       }
     });

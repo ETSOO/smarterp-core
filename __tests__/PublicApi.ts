@@ -40,6 +40,12 @@ if (isLocalTest) {
     expect(result?.startsWith("data:image/png;base64")).toBeTruthy();
   });
 
+  test("Test for getCultures", async () => {
+    const result = await api.getCultures(["zh-CN", "en-US", "fr-FR"]);
+    expect(result).not.toBeNull();
+    expect(result?.length).toBe(3);
+  });
+
   test("Test for getCurrencies all", async () => {
     const result = await api.getCurrencies();
 

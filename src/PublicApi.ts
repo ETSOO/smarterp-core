@@ -8,7 +8,9 @@ import { PlaceQueryRQ } from "./rq/public/PlaceQueryRQ";
 import { PlaceCommon } from "./dto/public/PlaceCommon";
 import {
   BaseApi,
+  CultureItem,
   Currency,
+  CustomCulture,
   IApp,
   ProductUnit,
   RepeatOption,
@@ -65,13 +67,43 @@ export class PublicApi extends BaseApi {
   }
 
   /**
+   * Get cultures
+   * @param ids Culture ids to include and order by
+   * @param payload Payload
+   * @returns Result
+   */
+  getCultures(ids: string[], payload?: IApiPayload<CultureItem[]>) {
+    return this.api.post("Public/GetCultures", ids, {
+      ...payload,
+      contentType: "application/json"
+    });
+  }
+
+  /**
    * Get currencies
    * @param ids Currency ids to include and order by
    * @param payload Payload
    * @returns Result
    */
   getCurrencies(ids?: string[], payload?: IApiPayload<CurrencyItem[]>) {
-    return this.api.post("Public/GetCurrencies", ids, payload);
+    return this.api.post("Public/GetCurrencies", ids, {
+      ...payload,
+      contentType: "application/json"
+    });
+  }
+
+  /**
+   * Get custom resources
+   * @param culture Culture
+   * @param payload Payload
+   * @returns Result
+   */
+  getCustomResources(culture: string, payload?: IApiPayload<CustomCulture[]>) {
+    return this.api.get(
+      `Public/GetCustomResources/${culture}`,
+      undefined,
+      payload
+    );
   }
 
   /**
@@ -91,7 +123,10 @@ export class PublicApi extends BaseApi {
    * @returns Result
    */
   getRegions(ids?: string[], payload?: IApiPayload<RegionData[]>) {
-    return this.api.post("Public/GetRegions", ids, payload);
+    return this.api.post("Public/GetRegions", ids, {
+      ...payload,
+      contentType: "application/json"
+    });
   }
 
   /**

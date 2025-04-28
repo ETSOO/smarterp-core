@@ -8,6 +8,7 @@ import { OrgUpdateReadDto } from "./dto/org/OrgUpdateReadDto";
 import { OrgListDto } from "./dto/org/OrgListDto";
 import {
   AntiforgeryRequestToken,
+  CustomCulture,
   EntityApi,
   IApp,
   IdResultPayload,
@@ -94,6 +95,20 @@ export class OrgApi extends EntityApi {
    */
   formatHtmlContent(content: string, payload?: IApiPayload<string>) {
     return this.api.post(`${this.flag}/FormatHtmlContent`, content, payload);
+  }
+
+  /**
+   * Get current organization's custom resources
+   * @param culture Culture
+   * @param payload Payload
+   * @returns Result
+   */
+  getCustomResources(culture: string, payload?: IApiPayload<CustomCulture[]>) {
+    return this.api.get(
+      `${this.flag}/GetCustomResources/${culture}`,
+      undefined,
+      payload
+    );
   }
 
   /**

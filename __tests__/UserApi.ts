@@ -20,7 +20,7 @@ if (isLocalTest) {
     const core = result.find((a) => a.id === 1);
     expect(core).not.toBeNull();
 
-    expect(core?.name).toBe("司友云ERP主控制台");
+    expect(core?.name).toBe("司友云ERP管理中心");
   });
 } else {
   test("Skip the test", () => {
