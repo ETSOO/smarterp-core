@@ -25,22 +25,26 @@ export function ButtonCultures(
 
   const defaultCultures = [
     "en",
-    "zh-CN",
-    "fr-FR",
-    "de-DE",
-    "ja-JP",
-    "es-ES",
-    "ru-RU",
-    "ar-SA"
+    "zh-Hans",
+    "zh-Hant",
+    "fr",
+    "de",
+    "ja",
+    "id",
+    "es",
+    "ru",
+    "ar"
   ];
 
-  defaultCultures.sort((a) => (a.endsWith(app.region) ? -1 : 0));
+  defaultCultures.sort((a) => (app.culture.startsWith(a) ? -1 : 0));
 
   return (
     <ButtonPopupCheckbox<CultureItem>
       inputName={inputName}
       label={label}
-      labelFormatter={(data) => `${data.name} (${data.id})`}
+      labelFormatter={(data) =>
+        `${data.name === data.id ? data.englishName : data.name} (${data.id})`
+      }
       labelEnd={labelEnd}
       labelField="name"
       loadData={async (ids) => {
