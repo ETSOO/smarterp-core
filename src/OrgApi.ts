@@ -23,6 +23,10 @@ import { DataTypes } from "@etsoo/shared";
 import { SendEmailMessage } from "./rq/org/SendEmailMessage";
 import { SendSMSMessage } from "./rq/org/SendSMSMessage";
 import { SendProfileEmailRQ } from "./rq/org/SendProfileEmailRQ";
+import { OrgCreateResourceRQ } from "./rq/org/OrgCreateResourceRQ";
+import { OrgQueryResourceRQ } from "./rq/org/OrgQueryResourceRQ";
+import { OrgQueryResourceData } from "./dto/org/OrgQueryResourceData";
+import { OrgUpdateResourceReadData } from "./dto/org/OrgUpdateResourceReadData";
 
 /**
  * Organization API
@@ -46,6 +50,16 @@ export class OrgApi extends EntityApi {
    */
   create(rq: OrgCreateRQ, payload?: IdResultPayload) {
     return this.createBase(rq, payload);
+  }
+
+  /**
+   * Create resource
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  createResource(rq: OrgCreateResourceRQ, payload?: IdResultPayload) {
+    return this.api.post(`${this.flag}/CreateResource`, rq, payload);
   }
 
   /**
@@ -152,6 +166,19 @@ export class OrgApi extends EntityApi {
   }
 
   /**
+   * Query custom resources
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  queryResource(
+    rq: OrgQueryResourceRQ,
+    payload?: IApiPayload<OrgQueryResourceData[]>
+  ) {
+    return this.api.post(`${this.flag}/QueryResource`, rq, payload);
+  }
+
+  /**
    * Read
    * @param id Id
    * @param payload Payload
@@ -245,6 +272,23 @@ export class OrgApi extends EntityApi {
     return this.api.post(
       `${this.flag}/UploadProfileFiles/${id}`,
       files,
+      payload
+    );
+  }
+
+  /**
+   * Update read
+   * @param id Id
+   * @param payload Payload
+   * @returns Result
+   */
+  updateResourceRead(
+    id: number,
+    payload?: IApiPayload<OrgUpdateResourceReadData>
+  ) {
+    return this.api.get(
+      `${this.flag}/UpdateResourceRead/${id}`,
+      undefined,
       payload
     );
   }

@@ -18,8 +18,11 @@ export * from "./dto/org/OrgDownloadKind";
 export * from "./dto/org/OrgGetMyData";
 export * from "./dto/org/OrgListDto";
 export * from "./dto/org/OrgQueryDto";
+export * from "./dto/org/OrgQueryResourceData";
 export * from "./dto/org/OrgReadDto";
+export * from "./dto/org/OrgResourceItem";
 export * from "./dto/org/OrgUpdateReadDto";
+export * from "./dto/org/OrgUpdateResourceReadData";
 
 export * from "./dto/public/ChinaPinData";
 export * from "./dto/public/CurrencyItem";
@@ -56,9 +59,11 @@ export * from "./rq/member/MemberListRQ";
 export * from "./rq/member/MemberQueryRQ";
 export * from "./rq/member/MemberUpdateRQ";
 
+export * from "./rq/org/OrgCreateResourceRQ";
 export * from "./rq/org/OrgCreateRQ";
 export * from "./rq/org/OrgGetMyRQ";
 export * from "./rq/org/OrgListRQ";
+export * from "./rq/org/OrgQueryResourceRQ";
 export * from "./rq/org/OrgQueryRQ";
 export * from "./rq/org/OrgUpdateRQ";
 export * from "./rq/org/SendEmailMessage";
