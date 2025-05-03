@@ -5,7 +5,7 @@ type OrgResourceItemUpdate = OrgResourceItem & {
    * Updated flag
    * 更新标记
    */
-  updatedFlag: number;
+  updatedFlag?: number;
 };
 
 /**
