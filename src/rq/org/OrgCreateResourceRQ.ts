@@ -1,5 +1,13 @@
 import { OrgResourceItem } from "../../dto/org/OrgResourceItem";
 
+type OrgResourceItemUpdate = OrgResourceItem & {
+  /**
+   * Updated flag
+   * 更新标记
+   */
+  updatedFlag: number;
+};
+
 /**
  * Create resource request data
  * 创建资源请求数据
@@ -27,5 +35,5 @@ export type OrgCreateResourceRQ = {
    * Resource items
    * 资源项
    */
-  items?: OrgResourceItem[];
+  items?: OrgResourceItemUpdate[];
 };
