@@ -24,6 +24,7 @@ export * from "./dto/org/OrgResourceItem";
 export * from "./dto/org/OrgUpdateReadDto";
 export * from "./dto/org/OrgUpdateResourceReadData";
 
+export * from "./dto/public/AvatarState";
 export * from "./dto/public/ChinaPinData";
 export * from "./dto/public/CurrencyItem";
 export * from "./dto/public/MemberInvitationDto";
