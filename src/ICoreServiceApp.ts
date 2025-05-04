@@ -24,7 +24,7 @@ export function useRequiredAppContext(): ICoreServiceApp {
  */
 export function usePageData(
   app: ICoreServiceApp,
-  pageTitle?: string | true,
+  pageTitle?: string,
   deps?: DependencyList
 ): void;
 
@@ -42,7 +42,7 @@ export function usePageData(
 
 export function usePageData(
   app: ICoreServiceApp,
-  pageDataOrTitle?: string | true | PageData,
+  pageDataOrTitle?: string | PageData,
   deps?: DependencyList
 ) {
   const { dispatch } = React.useContext(PageDataContext);
@@ -50,8 +50,6 @@ export function usePageData(
     // Page title
     dispatch(
       typeof pageDataOrTitle === "object"
-        ? pageDataOrTitle
-        : typeof pageDataOrTitle === "boolean"
         ? pageDataOrTitle
         : { page: pageDataOrTitle }
     );
