@@ -1,5 +1,6 @@
 {
   "accountIconButtonAriaLabel": "Current user",
+  "addResource": "Add resource",
   "appKey": "App key",
   "appSecret": "App secret",
   "app": "App",
@@ -24,6 +25,7 @@
   "directReports": "Direct reports",
   "editAvatar": "Edit avatar",
   "editLogo": "Edit logo",
+  "editResource": "Edit resource",
   "expandMenu": "Expand menu",
   "expandNavMenuAriaLabel": "Expand navigation menu",
   "fileName": "File name",

@@ -1,5 +1,6 @@
 {
   "accountIconButtonAriaLabel": "當前用戶",
+  "addResource": "添加資源",
   "appKey": "應用程式鍵",
   "appSecret": "應用金鑰",
   "app": "應用",
@@ -24,6 +25,7 @@
   "directReports": "直接下屬",
   "editAvatar": "修改頭像",
   "editLogo": "修改圖標",
+  "editResource": "編輯資源",
   "expandMenu": "展開菜單",
   "expandNavMenuAriaLabel": "展開導航菜單",
   "fileName": "文件名",

@@ -26,10 +26,10 @@ export type OrgCreateResourceRQ = {
   key?: string;
 
   /**
-   * Organization Id, null means global
-   * 所属机构，null 表示全局
+   * Organization Id, 所属机构，undefined means global
+   * 所属机构，undefined 表示全局
    */
-  orgId?: number | null;
+  orgId?: number;
 
   /**
    * Resource items
