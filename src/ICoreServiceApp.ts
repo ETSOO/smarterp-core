@@ -56,7 +56,7 @@ export function usePageData(
 
     return () => {
       // Reset page data
-      dispatch({});
+      dispatch(true);
 
       app.pageExit();
     };
