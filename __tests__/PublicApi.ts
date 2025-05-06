@@ -5,6 +5,9 @@ import { ApiProvider } from "../src/rq/public/PlaceQueryRQ";
 
 const app = new TestApp();
 
+// Make sure the app is initialized before running the tests
+await new Promise((resolve) => setTimeout(resolve, 100));
+
 await app.changeCulture(app.settings.cultures[0]);
 
 const api = new PublicApi(app);
