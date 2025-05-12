@@ -1,6 +1,7 @@
 import { SelectEx, SelectExProps } from "@etsoo/materialui";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import { ListType } from "@etsoo/shared";
+import { IdentityTypeFlags } from "@etsoo/appscript";
 
 /**
  * Identity flags list component
@@ -8,20 +9,23 @@ import { ListType } from "@etsoo/shared";
  * @returns Component
  */
 export function IdentityFlagsList(
-  props: Omit<SelectExProps<ListType>, "options">
+  props: Omit<SelectExProps<ListType>, "options"> & {
+    baseIdentity?: IdentityTypeFlags;
+  }
 ) {
   // App
   const app = useRequiredAppContext();
 
-  // Identities
-  const identities = app.core.getIdentityFlags();
-
   // Destruct
   const {
+    baseIdentity,
     label = app.get("identityType"),
     name = "identityType",
     ...rest
   } = props;
+
+  // Identities
+  const identities = app.core.getIdentityFlags(baseIdentity);
 
   // Layout
   return <SelectEx label={label} name={name} options={identities} {...rest} />;
