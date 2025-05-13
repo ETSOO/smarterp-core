@@ -32,6 +32,7 @@
   "fullName": "Full name",
   "idContact": "Contact",
   "idCustomer": "Customer",
+  "idDept": "Department",
   "idOrg": "Organization",
   "idSupplier": "Supplier",
   "idUser": "User",

@@ -4,6 +4,12 @@
  */
 export type OrgGetMyRQ = {
   /**
+   * Check if owns the application
+   * 是否拥有应用
+   */
+  appId?: number;
+
+  /**
    * Max items
    * 最大项数
    */

@@ -9,12 +9,13 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 export type OrgSwitchPopoverProps = {
+  appId?: number;
   organizationName?: string;
 };
 
 export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
   // Destruct
-  const { organizationName } = props;
+  const { appId, organizationName } = props;
 
   // Route
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
         </React.Fragment>
       )}
       loadData={() =>
-        app.core.orgApi.getMy({ maxItems }, { showLoading: false })
+        app.core.orgApi.getMy({ appId, maxItems }, { showLoading: false })
       }
     >
       {(data) => {
