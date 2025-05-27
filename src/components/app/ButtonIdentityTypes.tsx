@@ -49,7 +49,7 @@ export function ButtonIdentityTypes(props: ButtonIdentityTypesProps) {
 
   // Identities
   const identities = React.useMemo(
-    () => app.core.getIdentityFlags(baseIdentity).filter((d) => d.id > 0),
+    () => app.core.getIdentityFlags(baseIdentity),
     [baseIdentity]
   );
 

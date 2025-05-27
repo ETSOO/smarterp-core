@@ -270,7 +270,11 @@ export class CoreApp implements ICoreApp {
    * @returns List
    */
   getIdentityFlags(identity?: number) {
-    if (identity == null) return this.app.getEnumList(IdentityTypeFlags, "id");
+    if (identity == null)
+      return this.app.getEnumList(IdentityTypeFlags, "id", (id) =>
+        id > 0 ? id : undefined
+      );
+
     return this.app.getEnumList(IdentityTypeFlags, "id", (id, _key) => {
       if ((id & identity) > 0) return id;
     });
