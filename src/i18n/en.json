@@ -34,6 +34,7 @@
   "idContact": "Contact",
   "idCustomer": "Customer",
   "idDept": "Department",
+  "idNone": "None",
   "idOrg": "Organization",
   "idSupplier": "Supplier",
   "idUser": "User",
