@@ -2,7 +2,6 @@ import {
   ButtonPopupCheckbox,
   ButtonPopupCheckboxProps
 } from "@etsoo/materialui";
-import { ArrayUtils } from "@etsoo/shared";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import { CultureItem } from "@etsoo/appscript";
 
@@ -47,11 +46,9 @@ export function ButtonCultures(
       }
       labelEnd={labelEnd}
       labelField="name"
-      loadData={async (ids) => {
-        const queryIds = ArrayUtils.mergeArrays(ids ?? [], defaultCultures);
-        const data = await app.core.publicApi.getCultures(queryIds);
-        return data ?? [];
-      }}
+      loadData={async () =>
+        (await app.core.publicApi.getCultures(defaultCultures)) ?? []
+      }
       onAdd={async (ids) => {
         const data = await app.core.publicApi.getCultures(ids);
         if (data == null) return false;

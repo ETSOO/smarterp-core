@@ -25,6 +25,12 @@ export type OrgTiplistProps = Omit<
    * Default request data
    */
   rq?: Partial<OrgListRQ>;
+
+  /**
+   * Load data handler
+   * @param rq Request data
+   */
+  onLoadData?: (rq: OrgListRQ) => OrgListRQ;
 };
 
 /**
@@ -43,6 +49,7 @@ export function OrgTiplist(props: OrgTiplistProps) {
     label = app.get("org")!,
     maxItems = 10,
     getOptionLabel = (data) => data.name + "(" + data.pin + ")",
+    onLoadData = (rq) => rq,
     name = "organizationId",
     rq = { enabled: true },
     ...rest
@@ -58,7 +65,7 @@ export function OrgTiplist(props: OrgTiplistProps) {
       maxItems={maxItems}
       loadData={(keyword, id, maxItems) =>
         app.core.orgApi.list(
-          {
+          onLoadData({
             ...rq,
             keyword,
             id,
@@ -66,7 +73,7 @@ export function OrgTiplist(props: OrgTiplistProps) {
               batchSize: maxItems,
               orderBy: [{ field: "CoreOrganization.Name" }]
             }
-          },
+          }),
           { showLoading: false, defaultValue: [] }
         )
       }

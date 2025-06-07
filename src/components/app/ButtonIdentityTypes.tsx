@@ -9,7 +9,7 @@ import { useRequiredAppContext } from "../../ICoreServiceApp";
 
 export type ButtonIdentityTypesProps = Omit<
   ButtonPopupCheckboxProps<ListType>,
-  "labelField" | "loadData" | "ids" | "value" | "onValueChange"
+  "labelField" | "loadData" | "value" | "onValueChange"
 > & {
   /**
    * Base identity type
@@ -71,7 +71,7 @@ export function ButtonIdentityTypes(props: ButtonIdentityTypesProps) {
       labelEnd={labelEnd}
       labelField="label"
       loadData={async () => identities}
-      ids={ids}
+      value={ids}
       onValueChange={(ids) => {
         let newValue = IdentityTypeFlags.None;
         for (const id of ids) {

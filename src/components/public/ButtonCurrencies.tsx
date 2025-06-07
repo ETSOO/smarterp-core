@@ -3,7 +3,6 @@ import {
   ButtonPopupCheckboxProps
 } from "@etsoo/materialui";
 import { CurrencyItem } from "../../dto/public/CurrencyItem";
-import { ArrayUtils } from "@etsoo/shared";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 
 export function ButtonCurrencies(
@@ -45,11 +44,9 @@ export function ButtonCurrencies(
       labelFormatter={(data) => `${data.name} (${data.id})`}
       labelEnd={labelEnd}
       labelField="name"
-      loadData={async (ids) => {
-        const queryIds = ArrayUtils.mergeArrays(ids ?? [], defaultCurrencies);
-        const data = await app.core.publicApi.getCurrencies(queryIds);
-        return data ?? [];
-      }}
+      loadData={async () =>
+        (await app.core.publicApi.getCurrencies(defaultCurrencies)) ?? []
+      }
       onAdd={async (ids) => {
         const data = await app.core.publicApi.getCurrencies(ids);
         if (data == null) return false;
