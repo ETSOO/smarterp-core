@@ -4,6 +4,7 @@ import {
 } from "@etsoo/materialui";
 import { CurrencyItem } from "../../dto/public/CurrencyItem";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
+import React from "react";
 
 export function ButtonCurrencies(
   props: Omit<ButtonPopupCheckboxProps<CurrencyItem>, "labelField" | "loadData">
@@ -37,6 +38,13 @@ export function ButtonCurrencies(
 
   defaultCurrencies.sort((a) => (a.startsWith(app.region) ? -1 : 0));
 
+  // Load data
+  const loadData = React.useCallback(
+    async () =>
+      (await app.core.publicApi.getCurrencies(defaultCurrencies)) ?? [],
+    []
+  );
+
   return (
     <ButtonPopupCheckbox<CurrencyItem>
       inputName={inputName}
@@ -44,9 +52,7 @@ export function ButtonCurrencies(
       labelFormatter={(data) => `${data.name} (${data.id})`}
       labelEnd={labelEnd}
       labelField="name"
-      loadData={async () =>
-        (await app.core.publicApi.getCurrencies(defaultCurrencies)) ?? []
-      }
+      loadData={loadData}
       onAdd={async (ids) => {
         const data = await app.core.publicApi.getCurrencies(ids);
         if (data == null) return false;

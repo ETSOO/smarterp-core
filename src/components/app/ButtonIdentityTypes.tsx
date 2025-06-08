@@ -70,7 +70,7 @@ export function ButtonIdentityTypes(props: ButtonIdentityTypesProps) {
       labelFormatter={(data) => data.label}
       labelEnd={labelEnd}
       labelField="label"
-      loadData={async () => identities}
+      loadData={identities}
       value={ids}
       onValueChange={(ids) => {
         let newValue = IdentityTypeFlags.None;

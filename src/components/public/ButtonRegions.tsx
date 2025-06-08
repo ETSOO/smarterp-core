@@ -4,6 +4,7 @@ import {
 } from "@etsoo/materialui";
 import { RegionData } from "../../dto/public/RegionData";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
+import React from "react";
 
 export function ButtonRegions(
   props: Omit<ButtonPopupCheckboxProps<RegionData>, "labelField" | "loadData">
@@ -37,6 +38,12 @@ export function ButtonRegions(
     "HK"
   ];
 
+  // Load data
+  const loadData = React.useCallback(
+    async () => (await app.core.publicApi.getRegions(defaultRegions)) ?? [],
+    []
+  );
+
   return (
     <ButtonPopupCheckbox<RegionData>
       inputName={inputName}
@@ -44,9 +51,7 @@ export function ButtonRegions(
       labelFormatter={(data) => `${data.name} (${data.id})`}
       labelEnd={labelEnd}
       labelField="name"
-      loadData={async () =>
-        (await app.core.publicApi.getRegions(defaultRegions)) ?? []
-      }
+      loadData={loadData}
       onAdd={async (ids) => {
         const data = await app.core.publicApi.getRegions(ids);
         if (data == null) return false;

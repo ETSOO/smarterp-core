@@ -4,6 +4,7 @@ import {
 } from "@etsoo/materialui";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import { CultureItem } from "@etsoo/appscript";
+import React from "react";
 
 export function ButtonCultures(
   props: Omit<ButtonPopupCheckboxProps<CultureItem>, "labelField" | "loadData">
@@ -37,6 +38,12 @@ export function ButtonCultures(
 
   defaultCultures.sort((a) => (app.culture.startsWith(a) ? -1 : 0));
 
+  // Load data
+  const loadData = React.useCallback(
+    async () => (await app.core.publicApi.getCultures(defaultCultures)) ?? [],
+    []
+  );
+
   return (
     <ButtonPopupCheckbox<CultureItem>
       inputName={inputName}
@@ -46,9 +53,7 @@ export function ButtonCultures(
       }
       labelEnd={labelEnd}
       labelField="name"
-      loadData={async () =>
-        (await app.core.publicApi.getCultures(defaultCultures)) ?? []
-      }
+      loadData={loadData}
       onAdd={async (ids) => {
         const data = await app.core.publicApi.getCultures(ids);
         if (data == null) return false;
