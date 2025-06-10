@@ -208,7 +208,7 @@ export class CoreApp implements ICoreApp {
    * @returns Label
    */
   getIdentifierTypeLabel(type: UserIdentifierType) {
-    const key = DataTypes.getEnumKey(UserIdentifierType, type);
+    const key = DataTypes.getEnumKey(UserIdentifierType, type) ?? `${type}`;
     return this.app.get(`uiType${key}`) ?? key;
   }
 
