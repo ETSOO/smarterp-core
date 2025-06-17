@@ -27,6 +27,11 @@ import { OrgCreateResourceRQ } from "./rq/org/OrgCreateResourceRQ";
 import { OrgQueryResourceRQ } from "./rq/org/OrgQueryResourceRQ";
 import { OrgQueryResourceData } from "./dto/org/OrgQueryResourceData";
 import { OrgUpdateResourceReadData } from "./dto/org/OrgUpdateResourceReadData";
+import { OrgCreateApiRQ } from "./rq/org/OrgCreateApiRQ";
+import { OrgUpdateApiRQ } from "./rq/org/OrgUpdateApiRQ";
+import { OrgUpdateApiReadDto } from "./dto/org/OrgUpdateApiReadDto";
+import { OrgQueryApiRQ } from "./rq/org/OrgQueryApiRQ";
+import { OrgQueryApiData } from "./dto/org/OrgQueryApiData";
 
 /**
  * Organization API
@@ -50,6 +55,16 @@ export class OrgApi extends EntityApi {
    */
   create(rq: OrgCreateRQ, payload?: IdResultPayload) {
     return this.createBase(rq, payload);
+  }
+
+  /**
+   * Create API
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  createApi(rq: OrgCreateApiRQ, payload?: IdResultPayload) {
+    return this.api.post(`${this.flag}/CreateApi`, rq, payload);
   }
 
   /**
@@ -166,6 +181,16 @@ export class OrgApi extends EntityApi {
   }
 
   /**
+   * Query API
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  queryApi(rq: OrgQueryApiRQ, payload?: IApiPayload<OrgQueryApiData[]>) {
+    return this.api.post(`${this.flag}/QueryApi`, rq, payload);
+  }
+
+  /**
    * Query custom resources
    * @param rq Request data
    * @param payload Payload
@@ -241,6 +266,16 @@ export class OrgApi extends EntityApi {
   }
 
   /**
+   * Update API
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  updateApi(rq: OrgUpdateApiRQ, payload?: IdResultPayload) {
+    return this.api.put(`${this.flag}/UpdateApi`, rq, payload);
+  }
+
+  /**
    * Update avatar
    * @param id Organization id
    * @param data Avatar form data
@@ -258,6 +293,16 @@ export class OrgApi extends EntityApi {
    * @returns Result
    */
   updateRead(id: number, payload?: IApiPayload<OrgUpdateReadDto>) {
+    return this.updateReadBase(id, payload);
+  }
+
+  /**
+   * Update API read
+   * @param id Id
+   * @param payload Payload
+   * @returns Result
+   */
+  updateApiRead(id: number, payload?: IApiPayload<OrgUpdateApiReadDto>) {
     return this.updateReadBase(id, payload);
   }
 
