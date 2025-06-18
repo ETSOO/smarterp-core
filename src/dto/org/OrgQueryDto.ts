@@ -1,4 +1,4 @@
-import { EntityStatus } from "@etsoo/appscript";
+import { EntityStatus, UserRole } from "@etsoo/appscript";
 
 /**
  * Organization query data
@@ -44,6 +44,12 @@ export type OrgQueryDto = {
    * Creation
    */
   creation: Date | string;
+
+  /**
+   * User role
+   * 用户角色
+   */
+  userRole?: UserRole;
 
   /**
    * User status
