@@ -13,6 +13,7 @@ import {
 } from "@etsoo/appscript";
 import { AuthCodeApi } from "./AuthCodeApi";
 import { DataTypes, ListType } from "@etsoo/shared";
+import { CoreApiService } from "./dto/org/CoreApiService";
 
 type AppData = { id: number; appId?: number; name: string; localName?: string };
 
@@ -55,6 +56,13 @@ export interface ICoreApp {
    * User API
    */
   readonly userApi: UserApi;
+
+  /**
+   * Get API services
+   * 获取API服务列表
+   * @returns List of API services
+   */
+  getApiServices(): ListType[];
 
   /**
    * Get app name
@@ -188,6 +196,15 @@ export class CoreApp implements ICoreApp {
    * @param api API
    */
   constructor(public readonly app: IApp, public readonly api: IApi) {}
+
+  /**
+   * Get API services
+   * 获取API服务列表
+   * @returns List of API services
+   */
+  getApiServices() {
+    return this.app.getEnumList(CoreApiService, "api");
+  }
 
   /**
    * Get app name

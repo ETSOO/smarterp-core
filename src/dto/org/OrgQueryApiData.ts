@@ -46,4 +46,16 @@ export type OrgQueryApiData = {
    * 是否继承
    */
   inheritance: boolean;
+
+  /**
+   * Creation date
+   * 创建日期
+   */
+  creation: Date | string;
+
+  /**
+   * Last modified date
+   * 最后修改日期
+   */
+  updatedAt: Date | string;
 };

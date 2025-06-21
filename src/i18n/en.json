@@ -2,6 +2,9 @@
   "accountIconButtonAriaLabel": "Current user",
   "addApi": "Add API",
   "addResource": "Add resource",
+  "allowInheritance": "Allow inheritance",
+  "apiService": "API service",
+  "appId": "App key or username",
   "appKey": "App key",
   "appSecret": "App secret",
   "app": "App",
@@ -63,6 +66,7 @@
   "pin": "ID",
   "preferredName": "Preferred name",
   "queryKeyword": "Query keyword",
+  "ratePolicy": "Rate policy",
   "refreshTime": "Refresh time",
   "relatedTarget": "Related target",
   "reportTo": "Report to",
@@ -98,5 +102,6 @@
   "uiTypeWechat": "WeChat",
   "uiTypeAlipay": "Alipay",
   "uiTypeGoogle": "Google",
-  "uiTypeMicrosoft": "Microsoft"
+  "uiTypeMicrosoft": "Microsoft",
+  "updatedAt": "Updated at"
 }

@@ -2,6 +2,9 @@
   "accountIconButtonAriaLabel": "当前用户",
   "addApi": "添加接口",
   "addResource": "添加资源",
+  "allowInheritance": "允许继承",
+  "apiService": "接口服务",
+  "appId": "应用键或用户名",
   "appKey": "应用键",
   "appSecret": "应用密钥",
   "app": "应用",
@@ -63,6 +66,7 @@
   "pin": "身份证号码",
   "preferredName": "首选名称",
   "queryKeyword": "查询关键字",
+  "ratePolicy": "频率策略",
   "refreshTime": "刷新时间",
   "relatedTarget": "关联对象",
   "reportTo": "汇报对象",
@@ -98,5 +102,6 @@
   "uiTypeWechat": "微信",
   "uiTypeAlipay": "支付宝",
   "uiTypeGoogle": "谷歌",
-  "uiTypeMicrosoft": "微软"
+  "uiTypeMicrosoft": "微软",
+  "updatedAt": "更新时间"
 }
