@@ -203,7 +203,7 @@ export class CoreApp implements ICoreApp {
    * @returns List of API services
    */
   getApiServices() {
-    return this.app.getEnumList(CoreApiService, "api");
+    return this.app.getEnumList(CoreApiService, "apiService");
   }
 
   /**
