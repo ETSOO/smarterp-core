@@ -303,7 +303,7 @@ export class OrgApi extends EntityApi {
    * @returns Result
    */
   updateApiRead(id: number, payload?: IApiPayload<OrgUpdateApiReadDto>) {
-    return this.updateReadBase(id, payload);
+    return this.api.get(`${this.flag}/UpdateApiRead/${id}`, undefined, payload);
   }
 
   /**
