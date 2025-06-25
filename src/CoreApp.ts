@@ -58,6 +58,14 @@ export interface ICoreApp {
   readonly userApi: UserApi;
 
   /**
+   * Get API service label
+   * 获取API服务标签
+   * @param service API service
+   * @returns Result
+   */
+  getApiService(service?: CoreApiService): string;
+
+  /**
    * Get API services
    * 获取API服务列表
    * @returns List of API services
@@ -196,6 +204,19 @@ export class CoreApp implements ICoreApp {
    * @param api API
    */
   constructor(public readonly app: IApp, public readonly api: IApi) {}
+
+  /**
+   * Get API service label
+   * 获取API服务标签
+   * @param service API service
+   * @returns Result
+   */
+  getApiService(service?: CoreApiService) {
+    if (service == null) return "";
+
+    const key = DataTypes.getEnumKey(CoreApiService, service) ?? `${service}`;
+    return this.app.get(`apiService${key}`) ?? key;
+  }
 
   /**
    * Get API services
