@@ -221,7 +221,7 @@ export class OrgApi extends EntityApi {
    * @param payload Payload
    * @returns Result
    */
-  readApiSchema(service: CoreApiService, payload?: IApiPayload<string>) {
+  readApiSchema(service: CoreApiService, payload?: IApiPayload<object>) {
     return this.api.get(
       `${this.flag}/ReadApiSchema/${service}`,
       undefined,

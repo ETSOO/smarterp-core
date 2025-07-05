@@ -1,4 +1,6 @@
-import Ajv, { ErrorObject } from "ajv";
+import type Ajv from "ajv";
+import type { ErrorObject } from "ajv";
+import addFormats from "ajv-formats";
 
 /**
  * Core utilities
@@ -18,6 +20,8 @@ export namespace CoreUtils {
     };
   }
 
+  let ajv: Ajv | null = null;
+
   /**
    * Validate JSON input against a schema
    * 验证 JSON 输入是否符合架构
@@ -26,16 +30,31 @@ export namespace CoreUtils {
    * @returns Result
    */
   export async function validateJson(
-    schema: any,
-    input: any
+    schema: string | object,
+    input: string | object | null | undefined
   ): Promise<
     [
       boolean,
       ErrorObject<string, Record<string, any>, unknown>[] | null | undefined
     ]
   > {
-    const ajv = new Ajv();
-    const v = await ajv.compileAsync(schema);
-    return [v(input), v.errors];
+    if (ajv == null) {
+      const AjvClass = (await import("ajv")).Ajv;
+
+      ajv = new AjvClass({
+        allErrors: true,
+        strictTypes: false
+      });
+
+      addFormats(ajv);
+    }
+
+    return [
+      ajv!.validate(
+        typeof schema === "string" ? JSON.parse(schema) : schema,
+        typeof input === "string" ? JSON.parse(input) : input
+      ),
+      ajv!.errors
+    ];
   }
 }
