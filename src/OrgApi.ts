@@ -32,6 +32,7 @@ import { OrgUpdateApiRQ } from "./rq/org/OrgUpdateApiRQ";
 import { OrgUpdateApiReadDto } from "./dto/org/OrgUpdateApiReadDto";
 import { OrgQueryApiRQ } from "./rq/org/OrgQueryApiRQ";
 import { OrgQueryApiData } from "./dto/org/OrgQueryApiData";
+import { CoreApiService } from "./dto/org/CoreApiService";
 
 /**
  * Organization API
@@ -211,6 +212,21 @@ export class OrgApi extends EntityApi {
    */
   read(id: number, payload?: IApiPayload<OrgReadDto>) {
     return this.readBase(id, payload);
+  }
+
+  /**
+   * Read API schema
+   * 读取接口架构
+   * @param service API service
+   * @param payload Payload
+   * @returns Result
+   */
+  readApiSchema(service: CoreApiService, payload?: IApiPayload<string>) {
+    return this.api.get(
+      `${this.flag}/ReadApiSchema/${service}`,
+      undefined,
+      payload
+    );
   }
 
   /**

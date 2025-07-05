@@ -1,6 +1,6 @@
 {
   "name": "@etsoo/smarterp-core",
-  "version": "1.0.85",
+  "version": "1.0.86",
   "description": "TypeScript APIs for SmartERP Core",
   "main": "lib/cjs/index.js",
   "module": "lib/mjs/index.js",
@@ -40,11 +40,11 @@
   "license": "MIT",
   "homepage": "https://github.com/ETSOO/etsoo-smarterp-core#readme",
   "devDependencies": {
-    "@babel/cli": "^7.27.2",
-    "@babel/core": "^7.27.4",
-    "@babel/plugin-transform-runtime": "^7.27.4",
-    "@babel/preset-env": "^7.27.2",
-    "@babel/runtime-corejs3": "^7.27.6",
+    "@babel/cli": "^7.28.0",
+    "@babel/core": "^7.28.0",
+    "@babel/plugin-transform-runtime": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/runtime-corejs3": "^7.28.0",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.6.0",
@@ -54,11 +54,12 @@
   },
   "dependencies": {
     "@etsoo/appscript": "^1.6.41",
-    "@etsoo/materialui": "^1.5.63",
+    "@etsoo/materialui": "^1.5.64",
     "@etsoo/react": "^1.8.49",
     "@etsoo/shared": "^1.2.75",
     "@etsoo/toolpad": "^1.0.40",
-    "@mui/material": "^7.1.2",
+    "@mui/material": "^7.2.0",
+    "ajv": "^8.17.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }
