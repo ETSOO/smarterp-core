@@ -39,7 +39,8 @@ export namespace CoreUtils {
     ]
   > {
     if (ajv == null) {
-      const AjvClass = (await import("ajv")).Ajv;
+      const AjvImport = await import("ajv");
+      const AjvClass = AjvImport.Ajv ?? AjvImport.default;
 
       ajv = new AjvClass({
         allErrors: true,
