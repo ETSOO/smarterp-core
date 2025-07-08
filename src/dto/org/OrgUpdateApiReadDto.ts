@@ -23,7 +23,7 @@ export type OrgUpdateApiReadDto = {
    * Endpoint URL
    * 端点网址
    */
-  endpoint?: string;
+  endpoint: string;
 
   /**
    * App or user ID
