@@ -8,6 +8,7 @@ import { OrgUpdateReadDto } from "./dto/org/OrgUpdateReadDto";
 import { OrgListDto } from "./dto/org/OrgListDto";
 import {
   AntiforgeryRequestToken,
+  AppActionData,
   CustomCulture,
   EntityApi,
   IApp,
@@ -326,12 +327,20 @@ export class OrgApi extends EntityApi {
    * Upload profle attachments
    * @param id Profile id
    * @param files Files
+   * @param action Action data
    * @param payload Payload
    * @returns Result
    */
-  uploadProfileFiles(id: number, files: FileList, payload?: ResultPayload) {
+  uploadProfileFiles(
+    id: number,
+    files: FileList,
+    action: AppActionData,
+    payload?: ResultPayload
+  ) {
     return this.api.post(
-      `${this.flag}/UploadProfileFiles/${id}`,
+      `${this.flag}/UploadProfileFiles/${id}?action=${encodeURIComponent(
+        JSON.stringify(action)
+      )}`,
       files,
       payload
     );
