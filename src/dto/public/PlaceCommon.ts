@@ -1,4 +1,4 @@
-import { PlaceLocation } from "./PlaceLocation";
+import { PlaceLocation } from "@etsoo/appscript";
 
 /**
  * Common place

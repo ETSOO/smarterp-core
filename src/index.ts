@@ -32,7 +32,6 @@ export * from "./dto/public/ChinaPinData";
 export * from "./dto/public/CurrencyItem";
 export * from "./dto/public/MemberInvitationDto";
 export * from "./dto/public/PlaceCommon";
-export * from "./dto/public/PlaceLocation";
 export * from "./dto/public/RegionData";
 
 export * from "./dto/user/AuditHistoryDto";

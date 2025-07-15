@@ -1,4 +1,4 @@
-import { PlaceLocation } from "../../dto/public/PlaceLocation";
+import { PlaceLocation } from "@etsoo/appscript";
 
 /**
  * API output type
