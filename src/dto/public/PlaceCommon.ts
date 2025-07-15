@@ -46,7 +46,17 @@ export type PlaceCommon = {
   district?: string;
 
   /**
-   * Postcode, 邮政编码
+   * Route, 路线
    */
-  postcode?: string;
+  route?: string;
+
+  /**
+   * Street number, 门牌号
+   */
+  street?: string;
+
+  /**
+   * Postal code, 邮政编码
+   */
+  postalCode?: string;
 };
