@@ -1,24 +1,21 @@
-import {
-  ButtonPopupCheckbox,
-  ButtonPopupCheckboxProps
-} from "@etsoo/materialui";
-import { RegionData } from "../../dto/public/RegionData";
+import { ButtonPopupRadio, ButtonPopupRadioProps } from "@etsoo/materialui";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import React from "react";
+import { RegionData } from "../../dto/public/RegionData";
 
-export function ButtonRegions(
-  props: Omit<ButtonPopupCheckboxProps<RegionData>, "labelField" | "loadData">
+export function ButtonRadioRegions(
+  props: Omit<ButtonPopupRadioProps<RegionData>, "labelField" | "loadData">
 ) {
   // App
   const app = useRequiredAppContext();
 
   // Labels
-  const labels = app.getLabels("clickToChoose", "regions");
+  const labels = app.getLabels("clickToChoose", "region");
 
   // Destruct
   const {
-    inputName = "regions",
-    label = labels.regions,
+    inputName = "region",
+    label = labels.region,
     labelEnd = labels.clickToChoose,
     ...rest
   } = props;
@@ -52,7 +49,7 @@ export function ButtonRegions(
   );
 
   return (
-    <ButtonPopupCheckbox<RegionData>
+    <ButtonPopupRadio<RegionData>
       inputName={inputName}
       label={label}
       labelFormatter={(data) => `${data.name} (${data.id})`}

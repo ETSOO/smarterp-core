@@ -36,6 +36,13 @@ export function ButtonCultures(
     "ar"
   ];
 
+  // Add application cultures, starting from the end
+  for (let i = app.settings.cultures.length - 1; i >= 0; i--) {
+    const c = app.settings.cultures[i];
+    if (defaultCultures.includes(c.name)) return;
+    defaultCultures.unshift(c.name);
+  }
+
   defaultCultures.sort((a) => (app.culture.startsWith(a) ? -1 : 0));
 
   // Load data
