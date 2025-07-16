@@ -20,6 +20,19 @@ export namespace CoreUtils {
     };
   }
 
+  /**
+   * Merge an array with another array, starting from the end
+   * 合并数组，从末尾开始
+   * @param source Source array
+   * @param target Target array
+   */
+  export function mergeArray(source: string[], target: string[]) {
+    for (let i = target.length - 1; i >= 0; i--) {
+      const r = source[i];
+      if (!source.includes(r)) source.unshift(r);
+    }
+  }
+
   let ajv: Ajv | null = null;
 
   /**

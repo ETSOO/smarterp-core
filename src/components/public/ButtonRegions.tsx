@@ -5,6 +5,7 @@ import {
 import { RegionData } from "../../dto/public/RegionData";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import React from "react";
+import { CoreUtils } from "../../CoreUtils";
 
 export function ButtonRegions(
   props: Omit<ButtonPopupCheckboxProps<RegionData>, "labelField" | "loadData">
@@ -39,11 +40,7 @@ export function ButtonRegions(
   ];
 
   // Add application regions, starting from the end
-  for (let i = app.settings.regions.length - 1; i >= 0; i--) {
-    const r = app.settings.regions[i];
-    if (defaultRegions.includes(r)) return;
-    defaultRegions.unshift(r);
-  }
+  CoreUtils.mergeArray(defaultRegions, app.settings.regions);
 
   // Load data
   const loadData = React.useCallback(
