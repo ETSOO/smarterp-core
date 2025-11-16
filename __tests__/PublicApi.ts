@@ -101,6 +101,15 @@ if (isLocalTest) {
     expect(result[2].id).toBe("NZ");
   });
 
+  test("Test for parseName", async () => {
+    const result = await api.parseName({ name: "张三" });
+    expect(result).not.toBeNull();
+    expect(result?.familyName).toBe("张");
+    expect(result?.givenName).toBe("三");
+    expect(result?.latinFamilyName).toBe("Zhang");
+    expect(result?.latinGivenName).toBe("San");
+  });
+
   test("Test for CN queryPlace", async () => {
     const result = await api.queryPlace({
       query: "山东省青岛李沧清溪路88号玫瑰庭院10号楼二单元501室",

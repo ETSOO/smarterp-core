@@ -31,6 +31,7 @@ export * from "./dto/public/AvatarState";
 export * from "./dto/public/ChinaPinData";
 export * from "./dto/public/CurrencyItem";
 export * from "./dto/public/MemberInvitationDto";
+export * from "./dto/public/NameData";
 export * from "./dto/public/PlaceCommon";
 export * from "./dto/public/RegionData";
 
@@ -78,6 +79,7 @@ export * from "./rq/org/SendSMSMessage";
 
 export * from "./rq/public/AcceptInvitationRQ";
 export * from "./rq/public/CreateBarcodeRQ";
+export * from "./rq/public/ParseNameRQ";
 export * from "./rq/public/PinyinRQ";
 export * from "./rq/public/PlaceQueryRQ";
 

@@ -19,6 +19,8 @@ import {
 import { MemberInvitationDto } from "./dto/public/MemberInvitationDto";
 import { AcceptInvitationRQ } from "./rq/public/AcceptInvitationRQ";
 import { ChinaPinData } from "./dto/public/ChinaPinData";
+import { ParseNameRQ } from "./rq/public/ParseNameRQ";
+import { NameData } from "./dto/public/NameData";
 
 const unitPrefix = "unit";
 
@@ -172,6 +174,16 @@ export class PublicApi extends BaseApi {
    */
   parseChinaPin(pin: string, payload?: IApiPayload<ChinaPinData>) {
     return this.api.get(`Public/ParseChinaPin/${pin}`, undefined, payload);
+  }
+
+  /**
+   * Parse name
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  parseName(rq: ParseNameRQ, payload?: IApiPayload<NameData>) {
+    return this.api.post("Public/ParseName", rq, payload);
   }
 
   /**
