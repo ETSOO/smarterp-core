@@ -56,7 +56,7 @@ jobs:
       - name: Publish if necessary
         id: publish
         if: ${{ steps.check.outputs.exists == '0' }} # package version doesn't yet exist, ship it!
-        run: npm Publish
+        run: npm publish
 
       - name: Report publish status
         if: ${{ steps.check.outputs.exists == '1' }}
