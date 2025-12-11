@@ -11,6 +11,10 @@ on:
   # release:
   #  types: [created]
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
 jobs:
   # Publish to NPM
   publish-npm:
@@ -52,9 +56,8 @@ jobs:
       - name: Publish if necessary
         id: publish
         if: ${{ steps.check.outputs.exists == '0' }} # package version doesn't yet exist, ship it!
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.ETSOONpmToken }}
+        run: npm Publish
+
       - name: Report publish status
         if: ${{ steps.check.outputs.exists == '1' }}
         run: 'echo "package version already exists on npm registry"'
