@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ETSOO/etsoo-smarterp-core.git"
+    "url": "git+https://github.com/ETSOO/smarterp-core.git"
   },
   "keywords": [
     "TypeScript",
@@ -38,7 +38,7 @@
   ],
   "author": "ETSOO",
   "license": "MIT",
-  "homepage": "https://github.com/ETSOO/etsoo-smarterp-core#readme",
+  "homepage": "https://github.com/ETSOO/smarterp-core#readme",
   "devDependencies": {
     "@babel/cli": "^7.28.3",
     "@babel/core": "^7.28.5",
