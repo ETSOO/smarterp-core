@@ -16,6 +16,7 @@ export * from "./org/OrgSwitchPopover";
 export * from "./org/OrgTiplist";
 
 // public
+export * from "./public/AddressTiplist";
 export * from "./public/ButtonCultures";
 export * from "./public/ButtonCurrencies";
 export * from "./public/ButtonRadioRegions";

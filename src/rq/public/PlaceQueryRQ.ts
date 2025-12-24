@@ -64,4 +64,10 @@ export type PlaceQueryRQ = {
    * 方圆距离，单位为米
    */
   radius?: number;
+
+  /**
+   * Page size, 1 - 20 suggested
+   * 每页记录数，建议1-20
+   */
+  pageSize?: number;
 };
