@@ -4,7 +4,7 @@ import { PinyinRQ } from "./rq/public/PinyinRQ";
 import { CreateBarcodeRQ } from "./rq/public/CreateBarcodeRQ";
 import { CurrencyItem } from "./dto/public/CurrencyItem";
 import { RegionData } from "./dto/public/RegionData";
-import { PlaceQueryRQ } from "./rq/public/PlaceQueryRQ";
+import { ApiProvider, PlaceQueryRQ } from "./rq/public/PlaceQueryRQ";
 import { PlaceCommon } from "./dto/public/PlaceCommon";
 import {
   BaseApi,
@@ -192,8 +192,46 @@ export class PublicApi extends BaseApi {
    * @param payload Payload
    * @returns Result
    */
-  queryPlace(rq: PlaceQueryRQ, payload?: IApiPayload<PlaceCommon[]>) {
-    return this.api.post("Public/QueryPlace", rq, payload);
+  async queryPlace(rq: PlaceQueryRQ, payload?: IApiPayload<PlaceCommon[]>) {
+    // For simplified Chinese, or CN region, use China map
+    if (
+      rq.provider === null &&
+      (rq.language === "zh-Hans" ||
+        rq.language === "zh-CN" ||
+        rq.region === "CN")
+    ) {
+      // Amap first
+      const amapRq: PlaceQueryRQ = {
+        ...rq,
+        region: undefined,
+        provider: ApiProvider.Amap
+      };
+
+      const amapResult = await this.api.post(
+        "Public/QueryPlace",
+        amapRq,
+        payload
+      );
+
+      if (amapResult && amapResult.length > 0) return amapResult;
+
+      // Baidu
+      const baiduRq: PlaceQueryRQ = {
+        ...rq,
+        region: undefined,
+        provider: ApiProvider.Baidu
+      };
+
+      const baiduResult = await this.api.post(
+        "Public/QueryPlace",
+        baiduRq,
+        payload
+      );
+
+      if (baiduResult && baiduResult.length > 0) return baiduResult;
+    }
+
+    return await this.api.post("Public/QueryPlace", rq, payload);
   }
 
   /**

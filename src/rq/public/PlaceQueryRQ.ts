@@ -14,8 +14,23 @@ export enum ApiOutput {
  * 接口供应商
  */
 export enum ApiProvider {
+  /**
+   * Google Maps
+   * 谷歌地图
+   */
   Google,
-  Baidu
+
+  /**
+   * Baidu Maps
+   * 百度地图
+   */
+  Baidu,
+
+  /**
+   * Amap
+   * 高德地图
+   */
+  Amap
 }
 
 /**
