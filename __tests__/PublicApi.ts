@@ -1,7 +1,7 @@
 import { isLocalTest, TestApp } from "./app/TestApp";
 import { PublicApi } from "../src/PublicApi";
 import { PinyinFormatType } from "../src/rq/public/PinyinRQ";
-import { ApiProvider } from "../src/rq/public/PlaceQueryRQ";
+import { MapApiProvider } from "@etsoo/appscript";
 
 const app = new TestApp();
 
@@ -111,13 +111,15 @@ if (isLocalTest) {
   });
 
   test("Test for CN queryPlace", async () => {
-    const result = await api.queryPlace({
+    const [provider, result] = await api.queryPlace({
       query: "山东省青岛李沧清溪路88号玫瑰庭院10号楼二单元501室",
       region: "CN"
     });
 
     expect(result).not.toBeNull();
     if (result == null) return;
+
+    expect(provider).toBe(MapApiProvider.Amap);
 
     const first = result.filter((x) => x.district === "李沧区")[0];
     expect(first.region).toBe("CN");
@@ -129,13 +131,15 @@ if (isLocalTest) {
   });
 
   test("Test for world queryPlace", async () => {
-    const result = await api.queryPlace({
+    const [provider, result] = await api.queryPlace({
       query: "14A Cranbrook Place, Glendowie, Auckland 1071",
-      provider: ApiProvider.Google
+      provider: MapApiProvider.Google
     });
 
     expect(result).not.toBeNull();
     if (result == null) return;
+
+    expect(provider).toBe(MapApiProvider.Google);
 
     const first = result[0];
     expect(first.region).toBe("NZ");

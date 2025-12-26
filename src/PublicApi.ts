@@ -4,7 +4,7 @@ import { PinyinRQ } from "./rq/public/PinyinRQ";
 import { CreateBarcodeRQ } from "./rq/public/CreateBarcodeRQ";
 import { CurrencyItem } from "./dto/public/CurrencyItem";
 import { RegionData } from "./dto/public/RegionData";
-import { ApiProvider, PlaceQueryRQ } from "./rq/public/PlaceQueryRQ";
+import { PlaceQueryRQ } from "./rq/public/PlaceQueryRQ";
 import { PlaceCommon } from "./dto/public/PlaceCommon";
 import {
   BaseApi,
@@ -12,6 +12,7 @@ import {
   Currency,
   CustomCulture,
   IApp,
+  MapApiProvider,
   ProductUnit,
   RepeatOption,
   ResultPayload
@@ -192,7 +193,10 @@ export class PublicApi extends BaseApi {
    * @param payload Payload
    * @returns Result
    */
-  async queryPlace(rq: PlaceQueryRQ, payload?: IApiPayload<PlaceCommon[]>) {
+  async queryPlace(
+    rq: PlaceQueryRQ,
+    payload?: IApiPayload<PlaceCommon[]>
+  ): Promise<[MapApiProvider, PlaceCommon[] | undefined]> {
     // For simplified Chinese, or CN region, use China map
     if (
       rq.provider === null &&
@@ -204,7 +208,7 @@ export class PublicApi extends BaseApi {
       const amapRq: PlaceQueryRQ = {
         ...rq,
         region: undefined,
-        provider: ApiProvider.Amap
+        provider: MapApiProvider.Amap
       };
 
       const amapResult = await this.api.post(
@@ -213,13 +217,14 @@ export class PublicApi extends BaseApi {
         payload
       );
 
-      if (amapResult && amapResult.length > 0) return amapResult;
+      if (amapResult && amapResult.length > 0)
+        return [MapApiProvider.Amap, amapResult];
 
       // Baidu
       const baiduRq: PlaceQueryRQ = {
         ...rq,
         region: undefined,
-        provider: ApiProvider.Baidu
+        provider: MapApiProvider.Baidu
       };
 
       const baiduResult = await this.api.post(
@@ -228,10 +233,14 @@ export class PublicApi extends BaseApi {
         payload
       );
 
-      if (baiduResult && baiduResult.length > 0) return baiduResult;
+      if (baiduResult && baiduResult.length > 0)
+        return [MapApiProvider.Baidu, baiduResult];
     }
 
-    return await this.api.post("Public/QueryPlace", rq, payload);
+    return [
+      rq.provider ?? MapApiProvider.Google,
+      await this.api.post("Public/QueryPlace", rq, payload)
+    ];
   }
 
   /**

@@ -1,4 +1,4 @@
-import { PlaceLocation } from "@etsoo/appscript";
+import { MapApiProvider, PlaceLocation } from "@etsoo/appscript";
 
 /**
  * API output type
@@ -7,30 +7,6 @@ import { PlaceLocation } from "@etsoo/appscript";
 export enum ApiOutput {
   JSON,
   XML
-}
-
-/**
- * API provider
- * 接口供应商
- */
-export enum ApiProvider {
-  /**
-   * Google Maps
-   * 谷歌地图
-   */
-  Google,
-
-  /**
-   * Baidu Maps
-   * 百度地图
-   */
-  Baidu,
-
-  /**
-   * Amap
-   * 高德地图
-   */
-  Amap
 }
 
 /**
@@ -54,7 +30,7 @@ export type PlaceQueryRQ = {
    * API provider
    * 接口供应商
    */
-  provider?: ApiProvider;
+  provider?: MapApiProvider;
 
   /**
    * Language, like zh-CN
