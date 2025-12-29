@@ -199,7 +199,7 @@ export class PublicApi extends BaseApi {
   ): Promise<[MapApiProvider, PlaceCommon[] | undefined]> {
     // For simplified Chinese, or CN region, use China map
     if (
-      rq.provider === null &&
+      !rq.provider &&
       (rq.language === "zh-Hans" ||
         rq.language === "zh-CN" ||
         rq.region === "CN")
