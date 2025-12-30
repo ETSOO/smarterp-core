@@ -36,7 +36,9 @@ export function AddressTiplist(props: AddressTiplistProps) {
   const {
     fullWidth = true,
     getOptionLabel = (option) =>
-      `${option.name} - ${option.formattedAddress} (${option.postalCode})`,
+      `${option.name} - ${option.formattedAddress}${
+        option.postalCode ? ` (${option.postalCode})` : ""
+      }`,
     name = "address",
     label = app.get("address") ?? "Address",
     maxItems = 10,
