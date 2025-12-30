@@ -126,7 +126,7 @@ export interface ICoreApp {
    * @param identity Identity value combined
    * @returns List
    */
-  getIdentityFlags(identity?: number): ListType[];
+  getIdentityFlags(identity?: number | true): ListType[];
 }
 
 /**
@@ -304,14 +304,17 @@ export class CoreApp implements ICoreApp {
   /**
    * Get identity flags
    * 获取身份标志组合
-   * @param identity Identity value combined
+   * @param identity Identity value combined or true for items other than None
    * @returns List
    */
-  getIdentityFlags(identity?: number) {
-    if (identity == null)
-      return this.app.getEnumList(IdentityTypeFlags, "id", (id) =>
-        id > 0 ? id : undefined
-      );
+  getIdentityFlags(identity?: number | true) {
+    if (identity == null) return this.app.getEnumList(IdentityTypeFlags, "id");
+
+    if (identity === true) {
+      return this.app.getEnumList(IdentityTypeFlags, "id", (id, _key) => {
+        if (id > 0) return id;
+      });
+    }
 
     return this.app.getEnumList(IdentityTypeFlags, "id", (id, _key) => {
       if ((id & identity) > 0) return id;

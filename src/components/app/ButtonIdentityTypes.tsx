@@ -41,7 +41,7 @@ export function ButtonIdentityTypes(props: ButtonIdentityTypesProps) {
     inputName = "identityType",
     label = labels.identityType,
     labelEnd = labels.clickToChoose,
-    baseIdentity,
+    baseIdentity = true,
     onValueChange,
     value,
     ...rest

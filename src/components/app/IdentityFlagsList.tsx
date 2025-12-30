@@ -10,7 +10,7 @@ import { IdentityTypeFlags } from "@etsoo/appscript";
  */
 export function IdentityFlagsList(
   props: Omit<SelectExProps<ListType>, "options"> & {
-    baseIdentity?: IdentityTypeFlags;
+    baseIdentity?: IdentityTypeFlags | true;
   }
 ) {
   // App
