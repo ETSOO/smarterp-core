@@ -123,7 +123,7 @@ export interface ICoreApp {
   /**
    * Get identity flags
    * 获取身份标志组合
-   * @param identity Identity value combined
+   * @param identity Identity value combined or true for items other than None
    * @returns List
    */
   getIdentityFlags(identity?: number | true): ListType[];
@@ -316,8 +316,11 @@ export class CoreApp implements ICoreApp {
       });
     }
 
+    if (identity === 0) return [];
+
+    // When identity exists, includes the None item
     return this.app.getEnumList(IdentityTypeFlags, "id", (id, _key) => {
-      if ((id & identity) > 0) return id;
+      if (id === 0 || (id & identity) > 0) return id;
     });
   }
 }
