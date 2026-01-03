@@ -54,6 +54,7 @@ export function AddressTiplist(props: AddressTiplistProps) {
       fullWidth={fullWidth}
       getOptionLabel={getOptionLabel}
       idField="placeId"
+      idIsString={true}
       label={label}
       loadData={async (keyword, _, maxItems) => {
         if (keyword && keyword.length > 2) {
