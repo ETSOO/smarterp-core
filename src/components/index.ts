@@ -22,6 +22,7 @@ export * from "./public/ButtonCurrencies";
 export * from "./public/ButtonRadioRegions";
 export * from "./public/ButtonRegions";
 export * from "./public/CultureList";
+export * from "./public/ProductBaseUnits";
 
 // user
 export * from "./user/UserTiplist";
