@@ -1,11 +1,14 @@
 import { ComboBox, ComboBoxProps } from "@etsoo/materialui";
-import { ListType } from "@etsoo/shared";
+import { DataTypes, ListType } from "@etsoo/shared";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 
 /**
  * Product base units component props
  */
-export type ProductBaseUnitsProps = Omit<ComboBoxProps<ListType>, "options"> & {
+export type ProductBaseUnitsProps = DataTypes.Optional<
+  Omit<ComboBoxProps<ListType>, "options">,
+  "name" | "label"
+> & {
   /**
    * Is joined
    */
