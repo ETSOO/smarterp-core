@@ -61,6 +61,7 @@
   "oneTimePinEmailTip": "输入刚发送到您电子邮箱的验证码，如果没有找到，请查找垃圾邮件",
   "oneTimePinMobileTip": "输入刚发送到您手机号码的验证码",
   "options": "选项",
+  "orderIndex": "排序序号",
   "org": "机构",
   "orgName": "机构名称",
   "orgPin": "机构编号",

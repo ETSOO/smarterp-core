@@ -61,6 +61,7 @@
   "oneTimePinEmailTip": "輸入剛傳送到您電子郵件信箱的驗證碼，如果沒有找到，請檢查垃圾信箱",
   "oneTimePinMobileTip": "輸入剛傳送到您手機號碼的驗證碼",
   "options": "選項",
+  "orderIndex": "排序序號",
   "org": "機構",
   "orgName": "機構名稱",
   "orgPin": "機構編號",

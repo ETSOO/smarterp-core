@@ -61,6 +61,7 @@
   "oneTimePinEmailTip": "Enter up the One Time Pin just sent to your email address. If you can't find it, please check your spam folder.",
   "oneTimePinMobileTip": "Enter up the One Time Pin just sent to your mobile phone number",
   "options": "Options",
+  "orderIndex": "Order index",
   "org": "Organization",
   "orgName": "Org name",
   "orgPin": "Org No.",
