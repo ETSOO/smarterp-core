@@ -203,7 +203,10 @@ export class CoreApp implements ICoreApp {
    * @param app Base application
    * @param api API
    */
-  constructor(public readonly app: IApp, public readonly api: IApi) {}
+  constructor(
+    public readonly app: IApp,
+    public readonly api: IApi
+  ) {}
 
   /**
    * Get API service label
@@ -285,7 +288,11 @@ export class CoreApp implements ICoreApp {
     joinChar ??= ", ";
 
     const identities = this.getIdentityFlags(identity);
-    return identities.map((r) => r.label).join(joinChar);
+
+    return identities
+      .filter((r) => r.id > 0)
+      .map((r) => r.label)
+      .join(joinChar);
   }
 
   /**
