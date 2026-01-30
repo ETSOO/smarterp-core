@@ -328,24 +328,30 @@ export class OrgApi extends EntityApi {
    * Upload files
    * @param id Target id
    * @param folder Target folder
-   * @param files Files
+   * @param files Files or form data
    * @param action Action data
    * @param payload Payload
    */
   uploadFiles(
     id: number,
     folder: string,
-    files: FileList,
+    files: FileList | File[] | Blob[] | FormData,
     action: AppActionData,
     payload?: IApiPayload<UploadFilesResult>
   ) {
-    const formData = new FormData();
-    formData.append("folder", folder);
-    formData.append("sign", JSON.stringify(action));
+    let formData: FormData;
+    if (files instanceof FormData) {
+      formData = files;
+    } else {
+      formData = new FormData();
 
-    for (let i = 0; i < files.length; i++) {
-      formData.append("files", files[i]);
+      for (let i = 0; i < files.length; i++) {
+        formData.append("files", files[i]);
+      }
     }
+
+    formData.set("folder", folder);
+    formData.set("sign", JSON.stringify(action));
 
     return this.api.post(`${this.flag}/UploadFiles/${id}`, formData, payload);
   }
