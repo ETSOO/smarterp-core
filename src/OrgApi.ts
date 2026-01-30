@@ -34,6 +34,7 @@ import { OrgUpdateApiReadDto } from "./dto/org/OrgUpdateApiReadDto";
 import { OrgQueryApiRQ } from "./rq/org/OrgQueryApiRQ";
 import { OrgQueryApiData } from "./dto/org/OrgQueryApiData";
 import { CoreApiService } from "./dto/org/CoreApiService";
+import { UploadFilesResult } from "./dto/org/UploadFilesResult";
 
 /**
  * Organization API
@@ -321,6 +322,32 @@ export class OrgApi extends EntityApi {
    */
   updateApiRead(id: number, payload?: IApiPayload<OrgUpdateApiReadDto>) {
     return this.api.get(`${this.flag}/UpdateApiRead/${id}`, undefined, payload);
+  }
+
+  /**
+   * Upload files
+   * @param id Target id
+   * @param folder Target folder
+   * @param files Files
+   * @param action Action data
+   * @param payload Payload
+   */
+  uploadFiles(
+    id: number,
+    folder: string,
+    files: FileList,
+    action: AppActionData,
+    payload?: IApiPayload<UploadFilesResult>
+  ) {
+    const formData = new FormData();
+    formData.append("folder", folder);
+    formData.append("sign", JSON.stringify(action));
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append("files", files[i]);
+    }
+
+    return this.api.post(`${this.flag}/UploadFiles/${id}`, formData, payload);
   }
 
   /**
