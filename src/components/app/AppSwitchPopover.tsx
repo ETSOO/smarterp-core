@@ -66,7 +66,7 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
         if (index >= 0) data.splice(index, 1);
 
         return (
-          <Stack direction="column" margin={2}>
+          <Stack direction="column" sx={{ margin: 2 }}>
             {data.map((appData) => (
               <Button
                 key={appData.id}

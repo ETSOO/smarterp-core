@@ -1,7 +1,6 @@
 import React from "react";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import { useNavigate } from "react-router-dom";
-import { ButtonPopover } from "@etsoo/materialui";
+import { AccountTreeIcon, ButtonPopover } from "@etsoo/materialui";
 import { OrgGetMyData } from "../../dto/org/OrgGetMyData";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import ButtonGroup from "@mui/material/ButtonGroup";
@@ -72,7 +71,7 @@ export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
         }
 
         return (
-          <Stack direction="column" margin={2}>
+          <Stack direction="column" sx={{ margin: 2 }}>
             {data.map((org) => (
               <Button
                 key={org.id}
