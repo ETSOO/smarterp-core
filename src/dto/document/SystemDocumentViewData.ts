@@ -33,4 +33,10 @@ export type SystemDocumentViewData = {
    * 刷新时间
    */
   refreshTime: Date | string;
+
+  /**
+   * Cultures
+   * 文化
+   */
+  cultures?: string[];
 };

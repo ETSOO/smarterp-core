@@ -10,4 +10,10 @@ export type SystemDocumentListRQ = QueryRQ<number> & {
    * 类型
    */
   kind?: string;
+
+  /**
+   * Culture
+   * 语言文化
+   */
+  culture?: string;
 };
