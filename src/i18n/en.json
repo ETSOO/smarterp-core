@@ -120,6 +120,7 @@
   "switchOrg": "Switch organization",
   "subscribed": "Subscribed",
   "systemTemplate": "System template",
+  "systemTemplateGuide": "Are you sure to use system template? Using system template will override current custom template",
   "target": "Target",
   "targetId": "Target id",
   "template": "Template",

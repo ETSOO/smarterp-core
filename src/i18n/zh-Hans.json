@@ -120,6 +120,7 @@
   "switchOrg": "切换机构",
   "subscribed": "已订阅",
   "systemTemplate": "系统模板",
+  "systemTemplateGuide": "确定要使用系统模板吗？使用系统模板将覆盖当前的自定义模板",
   "target": "目标",
   "targetId": "目标编号",
   "template": "模板",
