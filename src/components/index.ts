@@ -10,6 +10,9 @@ export * from "./app/SearchDays";
 export * from "./app/StatusList";
 export * from "./app/UserRoleList";
 
+// document
+export * from "./document/SystemDocumentList";
+
 // org
 export * from "./org/ButtonApiServices";
 export * from "./org/OrgSwitchPopover";

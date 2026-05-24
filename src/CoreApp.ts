@@ -14,6 +14,7 @@ import {
 import { AuthCodeApi } from "./AuthCodeApi";
 import { DataTypes, ListType } from "@etsoo/shared";
 import { CoreApiService } from "./dto/org/CoreApiService";
+import { DocumentApi } from "./DocumentApi";
 
 type AppData = { id: number; appId?: number; name: string; localName?: string };
 
@@ -36,6 +37,11 @@ export interface ICoreApp {
    * Auth code API
    */
   readonly authCodeApi: AuthCodeApi;
+
+  /**
+   * Document API
+   */
+  readonly documentApi: DocumentApi;
 
   /**
    * Member API
@@ -159,6 +165,15 @@ export class CoreApp implements ICoreApp {
    */
   get authCodeApi() {
     return (this._authCodeApi ??= new AuthCodeApi(this.app, this.api));
+  }
+
+  private _documentApi?: DocumentApi;
+  /**
+   * Document API
+   * 文档接口
+   */
+  get documentApi() {
+    return (this._documentApi ??= new DocumentApi(this.app, this.api));
   }
 
   private _memberApi?: MemberApi;
