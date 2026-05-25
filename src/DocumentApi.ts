@@ -1,7 +1,17 @@
-import { EntityApi, IApi, IApiPayload, IApp } from "@etsoo/appscript";
-import { SystemDocumentListRQ } from "./rq/document/SystemDocumentListRQ";
-import { SystemDocumentListData } from "./dto/document/SystemDocumentListData";
-import { SystemDocumentViewData } from "./dto/document/SystemDocumentViewData";
+import {
+  EntityApi,
+  IApi,
+  IApiPayload,
+  IApp,
+  IdResultPayload
+} from "@etsoo/appscript";
+import { DocumentListData } from "./dto/document/DocumentListData";
+import { DocumentListRQ } from "./rq/document/DocumentListRQ";
+import { DocumentReadData } from "./dto/document/DocumentReadData";
+import { DocumentCreateRQ } from "./rq/document/DocumentCreateRQ";
+import { DocumentQueryRQ } from "./rq/document/DocumentQueryRQ";
+import { DocumentQueryData } from "./dto/document/DocumentQueryData";
+import { DocumentUpdateRQ } from "./rq/document/DocumentUpdateRQ";
 
 /**
  * Document API
@@ -17,16 +27,43 @@ export class DocumentApi extends EntityApi {
   }
 
   /**
+   * Create
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  create(rq: DocumentCreateRQ, payload?: IdResultPayload) {
+    return this.createBase(rq, payload);
+  }
+
+  /**
+   * Delete
+   * @param id Id
+   * @param payload Payload
+   * @returns Result
+   */
+  delete(id: number, payload?: IdResultPayload) {
+    return this.deleteBase(id, payload);
+  }
+
+  /**
    * List
    * @param rq Request data
    * @param payload Payload
    * @returns Result
    */
-  list(
-    rq: SystemDocumentListRQ,
-    payload: IApiPayload<SystemDocumentListData[]>
-  ) {
+  list(rq: DocumentListRQ, payload: IApiPayload<DocumentListData[]>) {
     return this.listBase(rq, payload);
+  }
+
+  /**
+   * Query
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  query(rq: DocumentQueryRQ, payload?: IApiPayload<DocumentQueryData[]>) {
+    return this.queryBase(rq, payload);
   }
 
   /**
@@ -35,7 +72,17 @@ export class DocumentApi extends EntityApi {
    * @param payload Payload
    * @returns Result
    */
-  read(id: number, payload?: IApiPayload<SystemDocumentViewData>) {
+  read(id: number, payload?: IApiPayload<DocumentReadData>) {
     return this.readBase(id, payload);
+  }
+
+  /**
+   * Update
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  update(rq: DocumentUpdateRQ, payload?: IdResultPayload) {
+    return this.updateBase(rq, payload);
   }
 }

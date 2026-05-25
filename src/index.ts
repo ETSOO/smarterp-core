@@ -9,11 +9,10 @@ export * from "./dto/app/CreateApiKeyData";
 
 export * from "./dto/authCode/AuthCodeAction";
 
-export * from "./rq/document/SystemDocumentListRQ";
-
 export * from "./dto/document/DocumentKind";
-export * from "./dto/document/SystemDocumentListData";
-export * from "./dto/document/SystemDocumentViewData";
+export * from "./dto/document/DocumentListData";
+export * from "./dto/document/DocumentQueryData";
+export * from "./dto/document/DocumentReadData";
 
 export * from "./dto/member/MemberListDto";
 export * from "./dto/member/MemberQueryDto";
@@ -63,6 +62,11 @@ export * from "./rq/app/AppUpdateRQ";
 export * from "./rq/authCode/SendEmailRQ";
 export * from "./rq/authCode/SendSMSRQ";
 export * from "./rq/authCode/ValidateRQ";
+
+export * from "./rq/document/DocumentCreateRQ";
+export * from "./rq/document/DocumentListRQ";
+export * from "./rq/document/DocumentQueryRQ";
+export * from "./rq/document/DocumentUpdateRQ";
 
 export * from "./rq/member/MemberInviteRQ";
 export * from "./rq/member/MemberListRQ";

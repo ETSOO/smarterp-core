@@ -12,7 +12,7 @@ export * from "./app/UserRoleList";
 
 // document
 export * from "./document/DocumentKindList";
-export * from "./document/SystemDocumentTiplist";
+export * from "./document/DocumentTiplist";
 
 // org
 export * from "./org/ButtonApiServices";

@@ -1,14 +1,14 @@
 import { Tiplist, TiplistProps } from "@etsoo/materialui";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
-import { SystemDocumentListData } from "../../dto/document/SystemDocumentListData";
-import { SystemDocumentListRQ } from "../../rq/document/SystemDocumentListRQ";
+import { DocumentListData } from "../../dto/document/DocumentListData";
+import { DocumentListRQ } from "../../rq/document/DocumentListRQ";
 
 /**
- * System document tiplist properties
- * 系统文档提示列表属性
+ * Document tiplist properties
+ * 文档提示列表属性
  */
-export type SystemDocumentTiplistProps = Omit<
-  TiplistProps<SystemDocumentListData, "id">,
+export type DocumentTiplistProps = Omit<
+  TiplistProps<DocumentListData, "id">,
   "loadData" | "label" | "name"
 > & {
   /**
@@ -22,24 +22,29 @@ export type SystemDocumentTiplistProps = Omit<
   name?: string;
 
   /**
+   * Kind
+   */
+  kind: string;
+
+  /**
    * Default request data
    */
-  rq?: Partial<SystemDocumentListRQ>;
+  rq?: Partial<DocumentListRQ>;
 
   /**
    * Load data handler
    * @param rq Request data
    */
-  onLoadData?: (rq: SystemDocumentListRQ) => SystemDocumentListRQ;
+  onLoadData?: (rq: DocumentListRQ) => DocumentListRQ;
 };
 
 /**
- * System document tiplist
- * 系统文档提示列表
+ * Document tiplist
+ * 文档提示列表
  * @param props Properties
  * @returns Component
  */
-export function SystemDocumentTiplist(props: SystemDocumentTiplistProps) {
+export function DocumentTiplist(props: DocumentTiplistProps) {
   // App
   const app = useRequiredAppContext();
 
@@ -50,14 +55,15 @@ export function SystemDocumentTiplist(props: SystemDocumentTiplistProps) {
     maxItems = 10,
     getOptionLabel = (data) => data.title,
     onLoadData = (rq) => rq,
-    name = "systemDocumentId",
+    name = "DocumentId",
+    kind,
     rq = { enabled: true },
     ...rest
   } = props;
 
   // Layout
   return (
-    <Tiplist<SystemDocumentListData, "id">
+    <Tiplist<DocumentListData, "id">
       label={label}
       getOptionLabel={getOptionLabel}
       name={name}
@@ -69,6 +75,7 @@ export function SystemDocumentTiplist(props: SystemDocumentTiplistProps) {
             ...rq,
             keyword,
             id,
+            kind,
             queryPaging: {
               batchSize: maxItems
             }
