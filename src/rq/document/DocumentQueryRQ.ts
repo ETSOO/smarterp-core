@@ -6,6 +6,12 @@ import { QueryRQ } from "@etsoo/appscript";
  */
 export type DocumentQueryRQ = QueryRQ & {
   /**
+   * Organization ID
+   * 机构编号
+   */
+  orgId?: number;
+
+  /**
    * Kind
    * 类型
    */

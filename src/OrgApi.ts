@@ -35,6 +35,7 @@ import { OrgQueryApiRQ } from "./rq/org/OrgQueryApiRQ";
 import { OrgQueryApiData } from "./dto/org/OrgQueryApiData";
 import { CoreApiService } from "./dto/org/CoreApiService";
 import { UploadFilesResult } from "./dto/org/UploadFilesResult";
+import { OrgOwnsRQ } from "./rq/org/OrgOwnsRQ";
 
 /**
  * Organization API
@@ -171,6 +172,16 @@ export class OrgApi extends EntityApi {
    */
   list(rq: OrgListRQ, payload?: IApiPayload<OrgListDto[]>) {
     return this.listBase(rq, payload);
+  }
+
+  /**
+   * Check organization ownership
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  owns(rq: OrgOwnsRQ, payload?: IApiPayload<boolean>) {
+    return this.api.post(`${this.flag}/Owns`, rq, payload);
   }
 
   /**

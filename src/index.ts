@@ -78,6 +78,7 @@ export * from "./rq/org/OrgCreateResourceRQ";
 export * from "./rq/org/OrgCreateRQ";
 export * from "./rq/org/OrgGetMyRQ";
 export * from "./rq/org/OrgListRQ";
+export * from "./rq/org/OrgOwnsRQ";
 export * from "./rq/org/OrgQueryApiRQ";
 export * from "./rq/org/OrgQueryResourceRQ";
 export * from "./rq/org/OrgQueryRQ";
