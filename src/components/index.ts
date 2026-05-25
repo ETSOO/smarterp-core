@@ -11,6 +11,7 @@ export * from "./app/StatusList";
 export * from "./app/UserRoleList";
 
 // document
+export * from "./document/DocumentKindList";
 export * from "./document/SystemDocumentTiplist";
 
 // org

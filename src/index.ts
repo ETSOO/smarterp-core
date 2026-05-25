@@ -11,6 +11,7 @@ export * from "./dto/authCode/AuthCodeAction";
 
 export * from "./rq/document/SystemDocumentListRQ";
 
+export * from "./dto/document/DocumentKind";
 export * from "./dto/document/SystemDocumentListData";
 export * from "./dto/document/SystemDocumentViewData";
 

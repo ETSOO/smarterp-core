@@ -12,9 +12,10 @@ import {
   UserIdentifierType
 } from "@etsoo/appscript";
 import { AuthCodeApi } from "./AuthCodeApi";
-import { DataTypes, ListType } from "@etsoo/shared";
+import { DataTypes, ListType, ListType1 } from "@etsoo/shared";
 import { CoreApiService } from "./dto/org/CoreApiService";
 import { DocumentApi } from "./DocumentApi";
+import { DocumentKind } from "./dto/document/DocumentKind";
 
 type AppData = { id: number; appId?: number; name: string; localName?: string };
 
@@ -85,6 +86,21 @@ export interface ICoreApp {
    * @returns Name
    */
   getAppName(data: AppData): string;
+
+  /**
+   * Get document kind label
+   * 获取文档类型标签
+   * @param kind Kind
+   * @returns Label
+   */
+  getDocumentKind(kind?: DocumentKind): string | undefined;
+
+  /**
+   * Get document kinds
+   * 获取文档类型列表
+   * @returns List
+   */
+  getDocumentKinds(): ListType1[];
 
   /**
    * Get user identifier type label
@@ -255,6 +271,28 @@ export class CoreApp implements ICoreApp {
     return (
       data.localName ?? this.app.get(`app${data.appId ?? data.id}`) ?? data.name
     );
+  }
+
+  /**
+   * Get document kind label
+   * 获取文档类型标签
+   * @param kind Kind
+   * @returns Label
+   */
+  getDocumentKind(kind?: DocumentKind) {
+    if (kind == null) return undefined;
+
+    const key = DocumentKind[kind];
+    return this.app.get("template" + key) ?? key;
+  }
+
+  /**
+   * Get document kinds
+   * 获取文档类型列表
+   * @returns List
+   */
+  getDocumentKinds() {
+    return this.app.getEnumStrList(DocumentKind, "template");
   }
 
   /**
