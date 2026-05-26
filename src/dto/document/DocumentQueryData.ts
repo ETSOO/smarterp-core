@@ -10,10 +10,10 @@ export type DocumentQueryData = {
   id: number;
 
   /**
-   * Organization ID
-   * 机构编号
+   * Organization name
+   * 机构名称
    */
-  orgId?: number;
+  orgName?: string;
 
   /**
    * Kind
