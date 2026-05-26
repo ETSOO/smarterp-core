@@ -125,7 +125,7 @@
   "targetId": "Target id",
   "template": "Template",
   "templateCMSASSETCHECKALERT": "CMS asset check alert",
-  "templateCMSASSETEXPIRYALERT": "CMS asset expiry alert",
+  "templateCMSASSETEXPIRYALERT": "CMS asset expiry reminder",
   "templateCMSCUSTOMERDATA": "CMS customer data",
   "templateCMSORDERDATA": "CMS order data",
   "templateCMSPODATA": "CMS PO data",

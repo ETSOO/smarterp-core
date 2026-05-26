@@ -93,7 +93,7 @@ export interface ICoreApp {
    * @param kind Kind
    * @returns Label
    */
-  getDocumentKind(kind?: DocumentKind): string | undefined;
+  getDocumentKind(kind?: DocumentKind | string): string | undefined;
 
   /**
    * Get document kinds
@@ -279,10 +279,10 @@ export class CoreApp implements ICoreApp {
    * @param kind Kind
    * @returns Label
    */
-  getDocumentKind(kind?: DocumentKind) {
+  getDocumentKind(kind?: DocumentKind | string) {
     if (kind == null) return undefined;
 
-    const key = DocumentKind[kind];
+    const key = typeof kind === "string" ? kind : DocumentKind[kind];
     return this.app.get("template" + key) ?? key;
   }
 
