@@ -1,6 +1,7 @@
-import { BaseApi, IApi, IApp, StringIdResultPayload } from "@etsoo/appscript";
+import { BaseApi, IApi, IApiPayload, IApp } from "@etsoo/appscript";
 import { SendEmailInputRQ, SendEmailRQ } from "./rq/authCode/SendEmailRQ";
 import { SendSMSInputRQ, SendSMSRQ } from "./rq/authCode/SendSMSRQ";
+import { IActionResult } from "@etsoo/shared";
 
 /**
  * Auth Code API
@@ -22,7 +23,10 @@ export class AuthCodeApi extends BaseApi {
    * @param payload Payload
    * @returns Result
    */
-  sendEmail(rq: SendEmailInputRQ, payload?: StringIdResultPayload) {
+  sendEmail(
+    rq: SendEmailInputRQ,
+    payload?: IApiPayload<IActionResult<{ id: string; email: string }>>
+  ) {
     const { deviceId, region } = this.app;
     const data: SendEmailRQ = {
       ...rq,
@@ -34,12 +38,15 @@ export class AuthCodeApi extends BaseApi {
   }
 
   /**
-   * Send email
+   * Send SMS
    * @param rq Request data
    * @param payload Payload
    * @returns Result
    */
-  sendSMS(rq: SendSMSInputRQ, payload?: StringIdResultPayload) {
+  sendSMS(
+    rq: SendSMSInputRQ,
+    payload?: IApiPayload<IActionResult<{ id: string; mobile: string }>>
+  ) {
     const { deviceId, region } = this.app;
     const data: SendSMSRQ = {
       ...rq,
