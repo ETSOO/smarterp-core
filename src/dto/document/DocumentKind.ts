@@ -1,5 +1,6 @@
 /**
  * Template document kind, the value should not exceed 20 characters
+ * @see PlatformShared.Dto.Document.DocumentKind
  * 模板文档类型，值不能超过20个字符
  */
 export enum DocumentKind {

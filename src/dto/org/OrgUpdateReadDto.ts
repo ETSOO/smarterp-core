@@ -21,6 +21,11 @@ export type OrgUpdateReadDto = {
   brand?: string;
 
   /**
+   * Slogan
+   */
+  slogan?: string;
+
+  /**
    * PIN
    */
   pin?: string;

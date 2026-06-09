@@ -18,6 +18,11 @@ export interface OrgUpdateRQ extends UpdateModel {
   brand?: string;
 
   /**
+   * Slogan
+   */
+  slogan?: string;
+
+  /**
    * PIN, unique code
    * PIN，唯一代码
    */

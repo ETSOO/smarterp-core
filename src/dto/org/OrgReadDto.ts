@@ -31,6 +31,11 @@ export type OrgReadDto = {
   brand?: string;
 
   /**
+   * Slogan
+   */
+  slogan?: string;
+
+  /**
    * Logo
    */
   logo?: string;
