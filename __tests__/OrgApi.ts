@@ -58,6 +58,10 @@ if (isLocalTest) {
   });
   */
 
+  test("Test SysResourceKeyPrefix", () => {
+    expect(OrgApi.SysResourceKeyPrefix).toBe("etsoo");
+  });
+
   test("Test for query zero return", async () => {
     const result = await api.query({
       keyword: "亿速",

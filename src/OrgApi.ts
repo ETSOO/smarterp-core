@@ -43,6 +43,12 @@ import { OrgOwnsRQ } from "./rq/org/OrgOwnsRQ";
  */
 export class OrgApi extends EntityApi {
   /**
+   * System resource key prefix
+   * 系统资源键前缀
+   */
+  static readonly SysResourceKeyPrefix = "etsoo";
+
+  /**
    * Constructor
    * @param app Application
    * @param api API
