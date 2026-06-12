@@ -12,7 +12,11 @@ export default defineConfig({
   test: {
     server: {
       deps: {
-        inline: [/@mui\/x-data-grid.*/, /@mui\/material.*/, /react-transition-group.*/]
+        inline: [
+          /@mui\/x-data-grid.*/,
+          /@mui\/material.*/,
+          /react-transition-group.*/
+        ]
       }
     },
     globals: true,
