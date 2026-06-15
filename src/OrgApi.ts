@@ -36,6 +36,8 @@ import { OrgQueryApiData } from "./dto/org/OrgQueryApiData";
 import { CoreApiService } from "./dto/org/CoreApiService";
 import { UploadFilesResult } from "./dto/org/UploadFilesResult";
 import { OrgOwnsRQ } from "./rq/org/OrgOwnsRQ";
+import { OrgUsageReportRQ } from "./rq/org/OrgUsageReportRQ";
+import { OrgReportData } from "./dto/org/OrgReportData";
 
 /**
  * Organization API
@@ -411,5 +413,15 @@ export class OrgApi extends EntityApi {
       undefined,
       payload
     );
+  }
+
+  /**
+   * Get usage report
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  usageReport(rq: OrgUsageReportRQ, payload?: IApiPayload<OrgReportData[]>) {
+    return this.api.post(`${this.flag}/UsageReport`, rq, payload);
   }
 }

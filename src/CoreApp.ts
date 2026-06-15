@@ -6,16 +6,18 @@ import { PublicApi } from "./PublicApi";
 import { UserApi } from "./UserApi";
 import {
   AuthApi,
+  BusinessUtils,
   IApp,
   IdentityType,
   IdentityTypeFlags,
   UserIdentifierType
 } from "@etsoo/appscript";
 import { AuthCodeApi } from "./AuthCodeApi";
-import { DataTypes, ListType, ListType1 } from "@etsoo/shared";
+import { DataTypes, ListType, ListType1, NumberUtils } from "@etsoo/shared";
 import { CoreApiService } from "./dto/org/CoreApiService";
 import { DocumentApi } from "./DocumentApi";
 import { DocumentKind } from "./dto/document/DocumentKind";
+import { OrgReportData } from "./dto/org/OrgReportData";
 
 type AppData = { id: number; appId?: number; name: string; localName?: string };
 
@@ -149,6 +151,33 @@ export interface ICoreApp {
    * @returns List
    */
   getIdentityFlags(identity?: number | true): ListType[];
+
+  /**
+   * Get report data
+   * 获取报告数据
+   * @param data Input data
+   * @param year Year to calculate
+   * @returns Result
+   */
+  getReportData(data: OrgReportData[], year: number): number[];
+
+  /**
+   * Transform report data for chart
+   * 转换报告数据用于图表
+   * @param data Input data
+   * @param hasLastYear Has last year data
+   * @param year Year to calculate, default is current year
+   * @returns Transformed report data
+   */
+  transformReportData(
+    data: OrgReportData[],
+    hasLastYear?: boolean,
+    year?: number
+  ): {
+    labels: string[];
+    currentYearData: number[];
+    lastYearData: number[];
+  };
 }
 
 /**
@@ -382,5 +411,53 @@ export class CoreApp implements ICoreApp {
     return this.app.getEnumList(IdentityTypeFlags, "id", (id, _key) => {
       if (id === 0 || (id & identity) > 0) return id;
     });
+  }
+
+  /**
+   * Get report data
+   * 获取报告数据
+   * @param data Input data
+   * @param year Year to calculate
+   * @returns Result
+   */
+  getReportData(data: OrgReportData[], year: number) {
+    const [start, end] = NumberUtils.getMonthPeriodRange(year);
+    const items: number[] = [];
+
+    for (let i = start; i <= end; i++) {
+      const item = data.find((d) => d.period === i);
+      items.push(item ? ("qty" in item ? item.qty : item.amount) : 0);
+    }
+
+    return items;
+  }
+
+  /**
+   * Transform report data for chart
+   * 转换报告数据用于图表
+   * @param data Input data
+   * @param hasLastYear Has last year data
+   * @param year Year to calculate, default is current year
+   * @returns Transformed report data
+   */
+  transformReportData(
+    data: OrgReportData[],
+    hasLastYear?: boolean,
+    year?: number
+  ) {
+    year ??= new Date().getFullYear();
+
+    const months = BusinessUtils.getMonths(
+      this.app.get<string[]>("months") ?? []
+    );
+    const labels = months.map((m) => m.label);
+
+    const currentYearData = this.getReportData(data, year);
+    const lastYearData =
+      hasLastYear == null || hasLastYear
+        ? this.getReportData(data, year - 1)
+        : [];
+
+    return { labels, currentYearData, lastYearData };
   }
 }

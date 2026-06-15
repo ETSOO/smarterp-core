@@ -106,6 +106,7 @@
   "roleOperator": "操作員",
   "rolePartner": "渠道夥伴",
   "roleUser": "用戶",
+  "samePeriodLastYear": "去年同期",
   "signin": "登入",
   "signout": "登出",
   "slogan": "標語",
@@ -139,5 +140,7 @@
   "uiTypeAlipay": "支付寶",
   "uiTypeGoogle": "谷歌",
   "uiTypeMicrosoft": "微軟",
-  "updatedAt": "更新時間"
+  "updatedAt": "更新時間",
+  "usage": "使用量",
+  "usageReport": "使用情況報告"
 }

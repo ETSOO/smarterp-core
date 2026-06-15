@@ -49,7 +49,7 @@
     "@vitejs/plugin-react": "^6.0.2",
     "jsdom": "^29.1.1",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.8"
+    "vitest": "^4.1.9"
   },
   "overrides": {
     "react": "$react",
@@ -57,9 +57,9 @@
   },
   "dependencies": {
     "@etsoo/appscript": "^1.6.66",
-    "@etsoo/materialui": "^1.6.70",
+    "@etsoo/materialui": "^1.6.71",
     "@etsoo/react": "^1.8.91",
-    "@etsoo/shared": "^1.2.84",
+    "@etsoo/shared": "^1.2.86",
     "@etsoo/toolpad": "^1.0.50",
     "@mui/material": "^9.1.1",
     "ajv": "^8.20.0",

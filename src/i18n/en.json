@@ -106,6 +106,7 @@
   "roleOperator": "Operator",
   "rolePartner": "Channel Partner",
   "roleUser": "User",
+  "samePeriodLastYear": "Same period last year",
   "slogan": "Slogan",
   "smarterp": "SmartERP Cloud",
   "signin": "Sign in",
@@ -139,5 +140,7 @@
   "uiTypeAlipay": "Alipay",
   "uiTypeGoogle": "Google",
   "uiTypeMicrosoft": "Microsoft",
-  "updatedAt": "Updated at"
+  "updatedAt": "Updated at",
+  "usage": "Usage",
+  "usageReport": "Usage report"
 }

@@ -6,7 +6,7 @@
     "moduleResolution": "bundler",
     "allowJs": false,
     "isolatedModules": true,
-    "outDir": "./lib",
+    "rootDir": "..",
     "noEmit": false,
     "declaration": true,
     "strict": true,

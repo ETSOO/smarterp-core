@@ -106,6 +106,7 @@
   "roleOperator": "操作员",
   "rolePartner": "渠道伙伴",
   "roleUser": "用户",
+  "samePeriodLastYear": "去年同期",
   "slogan": "标语",
   "smarterp": "司友®云ERP",
   "signin": "登录",
@@ -139,5 +140,7 @@
   "uiTypeAlipay": "支付宝",
   "uiTypeGoogle": "谷歌",
   "uiTypeMicrosoft": "微软",
-  "updatedAt": "更新时间"
+  "updatedAt": "更新时间",
+  "usage": "使用量",
+  "usageReport": "使用情况报告"
 }
