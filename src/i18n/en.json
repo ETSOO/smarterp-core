@@ -133,6 +133,7 @@
   "templateCMSPODATA": "CMS PO data",
   "templateCMSSTOCKDATA": "CMS stock data",
   "templateKind": "Template kind",
+  "timeZone": "Time zone",
   "years5": ["1 year", "2 years", "3 years", "4 years", "5 years"],
   "uiTypeEmail": "Email",
   "uiTypeMobile": "Mobile",

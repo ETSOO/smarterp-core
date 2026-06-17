@@ -22,6 +22,8 @@ import { AcceptInvitationRQ } from "./rq/public/AcceptInvitationRQ";
 import { ChinaPinData } from "./dto/public/ChinaPinData";
 import { ParseNameRQ } from "./rq/public/ParseNameRQ";
 import { NameData } from "./dto/public/NameData";
+import { TimeZoneItem } from "./dto/public/TimeZoneItem";
+import { TimeZoneRQ } from "./rq/public/TimeZoneRQ";
 
 const unitPrefix = "unit";
 
@@ -133,6 +135,16 @@ export class PublicApi extends BaseApi {
   }
 
   /**
+   * Get time zones
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  getTimeZones(rq?: TimeZoneRQ, payload?: IApiPayload<TimeZoneItem[]>) {
+    return this.api.post("Public/GetTimeZones", rq, payload);
+  }
+
+  /**
    * Get product unit's label
    * Please define the label in culture with key 'unitPC' for ProductUnit.PC like that
    * @param unit Unit
@@ -151,10 +163,10 @@ export class PublicApi extends BaseApi {
 
   private getUnitJoin(isJoined: boolean | string | undefined) {
     return typeof isJoined === "string"
-      ? this.app.get(isJoined) ?? isJoined
+      ? (this.app.get(isJoined) ?? isJoined)
       : isJoined
-      ? this.app.get("unitJoin")
-      : undefined;
+        ? this.app.get("unitJoin")
+        : undefined;
   }
 
   /**

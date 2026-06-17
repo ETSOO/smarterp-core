@@ -40,6 +40,7 @@ export * from "./dto/public/MemberInvitationDto";
 export * from "./dto/public/NameData";
 export * from "./dto/public/PlaceCommon";
 export * from "./dto/public/RegionData";
+export * from "./dto/public/TimeZoneItem";
 
 export * from "./dto/user/AuditHistoryDto";
 export * from "./dto/user/DeviceListDto";
@@ -95,6 +96,7 @@ export * from "./rq/public/CreateBarcodeRQ";
 export * from "./rq/public/ParseNameRQ";
 export * from "./rq/public/PinyinRQ";
 export * from "./rq/public/PlaceQueryRQ";
+export * from "./rq/public/TimeZoneRQ";
 
 export * from "./rq/user/AuditHistoryRQ";
 export * from "./rq/user/UserUpdateRQ";

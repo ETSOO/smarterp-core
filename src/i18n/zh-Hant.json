@@ -133,6 +133,7 @@
   "templateCMSPODATA": "CMS採購數據",
   "templateCMSSTOCKDATA": "CMS庫存數據",
   "templateKind": "模板類型",
+  "timeZone": "時區",
   "years5": ["1年", "2年", "3年", "4年", "5年"],
   "uiTypeEmail": "電子郵件",
   "uiTypeMobile": "手機號碼",
