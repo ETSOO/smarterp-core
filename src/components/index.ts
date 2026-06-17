@@ -27,7 +27,7 @@ export * from "./public/ButtonRadioRegions";
 export * from "./public/ButtonRegions";
 export * from "./public/CultureList";
 export * from "./public/ProductBaseUnits";
-export * from "./public/TimeZoneList";
+export * from "./public/TimeZoneTiplist";
 
 // user
 export * from "./user/UserTiplist";

@@ -51,4 +51,10 @@ export type OrgCreateRQ = {
    * 所在区域
    */
   region: string;
+
+  /**
+   * Time zone
+   * 时区
+   */
+  timeZone?: string;
 };

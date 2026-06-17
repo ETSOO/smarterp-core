@@ -45,4 +45,10 @@ export interface OrgUpdateRQ extends UpdateModel {
    * 查询关键字
    */
   queryKeyword?: string;
+
+  /**
+   * Time zone
+   * 时区
+   */
+  timeZone?: string;
 }

@@ -44,4 +44,10 @@ export type OrgUpdateReadDto = {
    * Query Keyword
    */
   queryKeyword?: string;
+
+  /**
+   * Time zone
+   * 时区
+   */
+  timeZone?: string;
 };
