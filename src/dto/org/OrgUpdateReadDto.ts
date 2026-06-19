@@ -49,5 +49,5 @@ export type OrgUpdateReadDto = {
    * Time zone
    * 时区
    */
-  timeZone?: string;
+  timeZone: string;
 };

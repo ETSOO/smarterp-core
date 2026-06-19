@@ -66,6 +66,7 @@ export * from "./rq/authCode/SendSMSRQ";
 export * from "./rq/authCode/ValidateRQ";
 
 export * from "./rq/document/DocumentCreateRQ";
+export * from "./rq/document/DocumentGenerateRQ";
 export * from "./rq/document/DocumentListRQ";
 export * from "./rq/document/DocumentQueryRQ";
 export * from "./rq/document/DocumentUpdateRQ";

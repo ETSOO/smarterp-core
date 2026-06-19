@@ -71,6 +71,12 @@ export type OrgReadDto = {
   queryKeyword?: string;
 
   /**
+   * Time zone
+   * 时区
+   */
+  timeZone: string;
+
+  /**
    * User status
    */
   userStatus: EntityStatus;

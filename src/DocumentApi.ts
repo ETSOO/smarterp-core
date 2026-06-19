@@ -12,6 +12,8 @@ import { DocumentCreateRQ } from "./rq/document/DocumentCreateRQ";
 import { DocumentQueryRQ } from "./rq/document/DocumentQueryRQ";
 import { DocumentQueryData } from "./dto/document/DocumentQueryData";
 import { DocumentUpdateRQ } from "./rq/document/DocumentUpdateRQ";
+import { DocumentGenerateRQ } from "./rq/document/DocumentGenerateRQ";
+import { IActionResult } from "@etsoo/shared";
 
 /**
  * Document API
@@ -44,6 +46,19 @@ export class DocumentApi extends EntityApi {
    */
   delete(id: number, payload?: IdResultPayload) {
     return this.deleteBase(id, payload);
+  }
+
+  /**
+   * Generate document
+   * @param rq Request data
+   * @param payload Payload
+   * @returns Result
+   */
+  generate(
+    rq: DocumentGenerateRQ,
+    payload: IApiPayload<string | IActionResult>
+  ) {
+    return this.api.post(`${this.flag}/Generate`, rq, payload);
   }
 
   /**
