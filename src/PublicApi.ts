@@ -258,11 +258,20 @@ export class PublicApi extends BaseApi {
   /**
    * Read member invitation
    * @param id Id
+   * @param code Hashed code
    * @param payload Payload
    * @returns Result
    */
-  readInvitation(id: string, payload?: IApiPayload<MemberInvitationDto>) {
-    return this.api.get(`Public/ReadInvitation/${id}`, undefined, payload);
+  readInvitation(
+    id: string,
+    code: string,
+    payload?: IApiPayload<MemberInvitationDto>
+  ) {
+    return this.api.get(
+      `Public/ReadInvitation/${id}?code=${code}`,
+      undefined,
+      payload
+    );
   }
 
   /**
