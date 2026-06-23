@@ -3,40 +3,40 @@ import { isLocalTest, TestApp } from "./app/TestApp";
 import { EntityStatus } from "@etsoo/appscript";
 import { OrgApi } from "../src/OrgApi";
 import { OrgCreateRQ } from "../src/rq/org/OrgCreateRQ";
-import { CoreApp } from "../src";
+import { CoreApp, PeriodReportData } from "../src";
 
 const app = new TestApp();
 await app.changeCulture(app.settings.cultures[0]);
 
 test("Test SysResourceKeyPrefix", () => {
-  const source = [
+  const source: PeriodReportData[] = [
     {
       period: 202601,
-      qty: 236
+      value: 236
     },
     {
       period: 202602,
-      qty: 99
+      value: 99
     },
     {
       period: 202603,
-      qty: 120
+      value: 120
     },
     {
       period: 202604,
-      qty: 199
+      value: 199
     },
     {
       period: 202605,
-      qty: 230
+      value: 230
     },
     {
       period: 202606,
-      qty: 3
+      value: 3
     },
     {
       period: 202505,
-      qty: 215
+      value: 215
     }
   ];
 
