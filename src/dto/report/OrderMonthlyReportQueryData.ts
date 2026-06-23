@@ -17,7 +17,7 @@ export type OrderMonthlyReportQueryData = {
 
   /**
    * Order Items
-   * 订单项目
+   * 订单数
    */
   items: number;
 
@@ -59,7 +59,7 @@ export type OrderMonthlyReportQueryData = {
 
   /**
    * Customers
-   * 订单
+   * 客户数
    */
   customers: number;
 };

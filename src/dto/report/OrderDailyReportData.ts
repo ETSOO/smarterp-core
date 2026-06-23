@@ -7,23 +7,23 @@ export type OrderDailyReportData = {
    * Period
    * 区间
    */
-  Period: string;
+  period: string;
 
   /**
    * Order Items
-   * 订单项目
+   * 订单数
    */
-  Items: number;
+  items: number;
 
   /**
    * Amount
    * 金额
    */
-  Amount: number;
+  amount: number;
 
   /**
    * Customers
-   * 订单
+   * 客户数
    */
-  Customers: number;
+  customers: number;
 };

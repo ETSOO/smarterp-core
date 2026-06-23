@@ -9,17 +9,17 @@ export type OrderMonthlyReportRQ = {
    * Action signed data
    * 操作签名数据
    */
-  Action: AppActionData;
+  action: AppActionData;
 
   /**
    * Year
    * 年
    */
-  Year?: number;
+  year?: number;
 
   /**
    * Whether to include last year data
    * 是否包含去年数据
    */
-  HasLastYear?: boolean;
+  hasLastYear?: boolean;
 };

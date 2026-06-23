@@ -9,17 +9,17 @@ export type OrderDailyReportRQ = {
    * Action signed data
    * 操作签名数据
    */
-  Action: AppActionData;
+  action: AppActionData;
 
   /**
    * Start date
    * 开始日期
    */
-  StartDate?: string; // DateOnly maps to string (ISO format: YYYY-MM-DD)
+  startDate?: string; // DateOnly maps to string (ISO format: YYYY-MM-DD)
 
   /**
    * Days to cover
    * 覆盖的天数
    */
-  Days?: number;
+  days?: number;
 };
