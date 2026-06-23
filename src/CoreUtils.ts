@@ -1,6 +1,9 @@
+import { DataTypes, NumberUtils } from "@etsoo/shared";
 import type Ajv from "ajv";
 import type { ErrorObject } from "ajv";
 import addFormats from "ajv-formats";
+import { PeriodReportData } from "./dto/report/PeriodReportData";
+import { BusinessUtils, IApp } from "@etsoo/appscript";
 
 /**
  * Core utilities
@@ -21,6 +24,48 @@ export namespace CoreUtils {
   }
 
   /**
+   * Get report data
+   * 获取报告数据
+   * @param data Input data
+   * @param year Year to calculate
+   * @param selector Selector function or number field to extract value from data
+   * @returns Result
+   */
+  export function getReportDataBase<D extends { period: number }>(
+    data: D[],
+    year: number,
+    selector:
+      | ((item: D | undefined | null) => number | undefined | null)
+      | DataTypes.Keys<D, number | null | undefined>
+  ) {
+    const [start, end] = NumberUtils.getMonthPeriodRange(year);
+    const items: number[] = [];
+
+    for (let i = start; i <= end; i++) {
+      const item = data.find((d) => d.period === i);
+      if (typeof selector === "function") {
+        items.push(selector(item) ?? 0);
+      } else {
+        if (item == null) items.push(0);
+        else items.push((item[selector] as number) ?? 0);
+      }
+    }
+
+    return items;
+  }
+
+  /**
+   * Get report data
+   * 获取报告数据
+   * @param data Input data
+   * @param year Year to calculate
+   * @returns Result
+   */
+  export function getReportData(data: PeriodReportData[], year: number) {
+    return getReportDataBase(data, year, "value");
+  }
+
+  /**
    * Merge an array with another array, starting from the end
    * 合并数组，从末尾开始
    * @param source Source array
@@ -31,6 +76,57 @@ export namespace CoreUtils {
       const r = source[i];
       if (!source.includes(r)) source.unshift(r);
     }
+  }
+
+  /**
+   * Transform report data for chart
+   * 转换报告数据用于图表
+   * @param app App instance
+   * @param data Input data
+   * @param selector Selector function or number field to extract value from data
+   * @param hasLastYear Has last year data
+   * @param year Year to calculate, default is current year
+   * @returns Transformed report data
+   */
+  export function transformReportDataBase<D extends { period: number }>(
+    app: IApp,
+    data: D[],
+    selector:
+      | ((item: D | undefined | null) => number | undefined | null)
+      | DataTypes.Keys<D, number | null | undefined>,
+    hasLastYear?: boolean,
+    year?: number
+  ) {
+    year ??= new Date().getFullYear();
+
+    const months = BusinessUtils.getMonths(app.get<string[]>("months") ?? []);
+    const labels = months.map((m) => m.label);
+
+    const currentYearData = getReportDataBase(data, year, selector);
+    const lastYearData =
+      hasLastYear == null || hasLastYear
+        ? getReportDataBase(data, year - 1, selector)
+        : [];
+
+    return { labels, currentYearData, lastYearData };
+  }
+
+  /**
+   * Transform report data for chart
+   * 转换报告数据用于图表
+   * @param app App instance
+   * @param data Input data
+   * @param hasLastYear Has last year data
+   * @param year Year to calculate, default is current year
+   * @returns Transformed report data
+   */
+  export function transformReportData(
+    app: IApp,
+    data: PeriodReportData[],
+    hasLastYear?: boolean,
+    year?: number
+  ) {
+    return transformReportDataBase(app, data, "value", hasLastYear, year);
   }
 
   let ajv: Ajv | null = null;

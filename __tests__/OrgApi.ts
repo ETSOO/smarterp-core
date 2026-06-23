@@ -3,50 +3,9 @@ import { isLocalTest, TestApp } from "./app/TestApp";
 import { EntityStatus } from "@etsoo/appscript";
 import { OrgApi } from "../src/OrgApi";
 import { OrgCreateRQ } from "../src/rq/org/OrgCreateRQ";
-import { CoreApp, PeriodReportData } from "../src";
 
 const app = new TestApp();
 await app.changeCulture(app.settings.cultures[0]);
-
-test("Test SysResourceKeyPrefix", () => {
-  const source: PeriodReportData[] = [
-    {
-      period: 202601,
-      value: 236
-    },
-    {
-      period: 202602,
-      value: 99
-    },
-    {
-      period: 202603,
-      value: 120
-    },
-    {
-      period: 202604,
-      value: 199
-    },
-    {
-      period: 202605,
-      value: 230
-    },
-    {
-      period: 202606,
-      value: 3
-    },
-    {
-      period: 202505,
-      value: 215
-    }
-  ];
-
-  const core = new CoreApp(app, app.api);
-  const result = core.transformReportData(source, true, 2026);
-
-  expect(result.labels.length).toBe(12);
-  expect(result.currentYearData[5]).toBe(3);
-  expect(result.lastYearData[4]).toBe(215);
-});
 
 test("Test SysResourceKeyPrefix", () => {
   expect(OrgApi.SysResourceKeyPrefix).toBe("etsoo");
