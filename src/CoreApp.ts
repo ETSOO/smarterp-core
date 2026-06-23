@@ -17,7 +17,8 @@ import { DataTypes, ListType, ListType1, NumberUtils } from "@etsoo/shared";
 import { CoreApiService } from "./dto/org/CoreApiService";
 import { DocumentApi } from "./DocumentApi";
 import { DocumentKind } from "./dto/document/DocumentKind";
-import { OrgReportData } from "./dto/org/OrgReportData";
+import { ReportApi } from "./ReportApi";
+import { PeriodReportData } from "./dto/report/PeriodReportData";
 
 type AppData = { id: number; appId?: number; name: string; localName?: string };
 
@@ -60,6 +61,11 @@ export interface ICoreApp {
    * Public API
    */
   readonly publicApi: PublicApi;
+
+  /**
+   * Report API
+   */
+  readonly reportApi: ReportApi;
 
   /**
    * User API
@@ -159,7 +165,7 @@ export interface ICoreApp {
    * @param year Year to calculate
    * @returns Result
    */
-  getReportData(data: OrgReportData[], year: number): number[];
+  getReportData(data: PeriodReportData[], year: number): number[];
 
   /**
    * Transform report data for chart
@@ -170,7 +176,7 @@ export interface ICoreApp {
    * @returns Transformed report data
    */
   transformReportData(
-    data: OrgReportData[],
+    data: PeriodReportData[],
     hasLastYear?: boolean,
     year?: number
   ): {
@@ -246,6 +252,15 @@ export class CoreApp implements ICoreApp {
    */
   get publicApi() {
     return (this._publicApi ??= new PublicApi(this.app, this.api));
+  }
+
+  private _reportApi?: ReportApi;
+  /**
+   * Report API
+   * 报告接口
+   */
+  get reportApi() {
+    return (this._reportApi ??= new ReportApi(this.app, this.api));
   }
 
   private _userApi?: UserApi;
@@ -420,13 +435,13 @@ export class CoreApp implements ICoreApp {
    * @param year Year to calculate
    * @returns Result
    */
-  getReportData(data: OrgReportData[], year: number) {
+  getReportData(data: PeriodReportData[], year: number) {
     const [start, end] = NumberUtils.getMonthPeriodRange(year);
     const items: number[] = [];
 
     for (let i = start; i <= end; i++) {
       const item = data.find((d) => d.period === i);
-      items.push(item ? ("qty" in item ? item.qty : item.amount) : 0);
+      items.push(item?.value ?? 0);
     }
 
     return items;
@@ -441,7 +456,7 @@ export class CoreApp implements ICoreApp {
    * @returns Transformed report data
    */
   transformReportData(
-    data: OrgReportData[],
+    data: PeriodReportData[],
     hasLastYear?: boolean,
     year?: number
   ) {
