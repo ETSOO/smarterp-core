@@ -15,7 +15,7 @@ export type OrderDailyReportRQ = {
    * Start date
    * 开始日期
    */
-  startDate?: string; // DateOnly maps to string (ISO format: YYYY-MM-DD)
+  startDate?: string;
 
   /**
    * Days to cover

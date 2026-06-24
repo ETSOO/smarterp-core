@@ -81,6 +81,7 @@
   "owner": "Owner",
   "parameters": "Parameters",
   "parentOrg": "Parent org",
+  "period": "Period",
   "pin": "ID",
   "preferredName": "Preferred name",
   "queryKeyword": "Query keyword",
