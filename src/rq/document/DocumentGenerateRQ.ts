@@ -12,6 +12,12 @@ export type DocumentGenerateRQ = {
   id: number;
 
   /**
+   * Related target id
+   * 关联对象编号
+   */
+  targetId: number;
+
+  /**
    * No cache
    * 禁用缓存
    */
