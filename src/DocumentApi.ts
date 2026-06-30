@@ -67,7 +67,7 @@ export class DocumentApi extends EntityApi {
    * @param payload Payload
    * @returns Result
    */
-  list(rq: DocumentListRQ, payload: IApiPayload<DocumentListData[]>) {
+  list(rq: DocumentListRQ, payload?: IApiPayload<DocumentListData[]>) {
     return this.listBase(rq, payload);
   }
 
