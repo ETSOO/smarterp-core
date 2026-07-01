@@ -41,6 +41,11 @@ export type OrgReadDto = {
   logo?: string;
 
   /**
+   * Company seal
+   */
+  companySeal?: string;
+
+  /**
    * PIN
    */
   pin?: string;

@@ -42,4 +42,10 @@ export type UserUpdateReadDto = {
    * 拉丁名
    */
   latinGivenName?: string;
+
+  /**
+   * Signature
+   * 签名
+   */
+  signature?: string;
 };
