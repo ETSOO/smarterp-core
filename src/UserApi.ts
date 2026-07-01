@@ -160,4 +160,20 @@ export class UserApi extends EntityApi {
   updateRead(payload?: IApiPayload<UserUpdateReadDto>) {
     return this.api.get(`${this.flag}/UpdateRead`, undefined, payload);
   }
+
+  /**
+   * Update signature
+   * @param data Signature form data
+   * @param payload Payload
+   * @returns Result
+   */
+  updateSignature(data: FormData, payload?: StringIdResultPayload) {
+    payload ??= { config: {} };
+
+    // Credentials for anti-forgery cookie sending
+    if (payload.config && payload.config.credentials == null)
+      payload.config.credentials = "include";
+
+    return this.api.put(`${this.flag}/UpdateSignature`, data, payload);
+  }
 }

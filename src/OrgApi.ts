@@ -322,6 +322,21 @@ export class OrgApi extends EntityApi {
   }
 
   /**
+   * Update company seal
+   * @param id Organization id
+   * @param data Company seal form data
+   * @param payload Payload
+   * @returns Result
+   */
+  updateCompanySeal(
+    id: number,
+    data: FormData,
+    payload?: StringIdResultPayload
+  ) {
+    return this.api.put(`${this.flag}/UpdateCompanySeal/${id}`, data, payload);
+  }
+
+  /**
    * Update read
    * @param id Id
    * @param payload Payload
