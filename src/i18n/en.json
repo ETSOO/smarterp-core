@@ -67,6 +67,7 @@
   "mainSlotProps": "Main slot props",
   "members": "Members",
   "monthsUnit": "Months",
+  "noCache": "No cache",
   "noCodeId": "Need to resend the verification code, please do not close the add window",
   "oneTimePin": "One Time Pin",
   "oneTimePinEmailTip": "Enter up the One Time Pin just sent to your email address. If you can't find it, please check your spam folder.",

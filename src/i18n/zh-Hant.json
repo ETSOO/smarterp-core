@@ -67,6 +67,7 @@
   "isVerified": "已驗證",
   "members": "成員數",
   "monthsUnit": "個月",
+  "noCache": "不使用緩存",
   "noCodeId": "需要重新發送驗證碼，請不要關閉添加窗口",
   "oneTimePin": "驗證碼",
   "oneTimePinEmailTip": "輸入剛傳送到您電子郵件信箱的驗證碼，如果沒有找到，請檢查垃圾信箱",

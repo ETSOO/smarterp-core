@@ -56,7 +56,7 @@ export class DocumentApi extends EntityApi {
    */
   generate(
     rq: DocumentGenerateRQ,
-    payload: IApiPayload<string | IActionResult>
+    payload?: IApiPayload<string | IActionResult>
   ) {
     return this.api.post(`${this.flag}/Generate`, rq, payload);
   }
