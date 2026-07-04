@@ -6,7 +6,7 @@ import { MapApiProvider } from "@etsoo/appscript";
 const app = new TestApp();
 
 // Make sure the app is initialized before running the tests
-await new Promise((resolve) => setTimeout(resolve, 100));
+await new Promise((resolve) => setTimeout(resolve, 200));
 
 await app.changeCulture(app.settings.cultures[0]);
 
