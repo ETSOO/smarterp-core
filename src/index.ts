@@ -121,6 +121,7 @@ export * from "./rq/report/OrgUsageReportRQ";
 
 // APIs
 export * from "./AppApi";
+export * from "./AppSwitchCall";
 export * from "./AuthCodeApi";
 export * from "./CoreApp";
 export * from "./CoreUtils";

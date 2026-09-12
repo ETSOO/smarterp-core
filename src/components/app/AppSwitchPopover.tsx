@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { ButtonPopover } from "@etsoo/materialui";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import { AppData } from "../../dto/app/AppData";
-import { AuthRequest, IdentityType } from "@etsoo/appscript";
+import { IdentityType } from "@etsoo/appscript";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import { AppSwitchCall } from "../../AppSwitchCall";
 
 export type AppSwitchPopoverProps = {
   appName: string;
@@ -70,55 +71,7 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
             {data.map((appData) => (
               <Button
                 key={appData.id}
-                onClick={async () => {
-                  /*
-                  // Method 1, get the login URL and redirect
-                  const tasks = appData.urls.map((u) =>
-                    app.core.authApi.getLogInUrl(
-                      "APP",
-                      { showLoading: false, onError: () => false },
-                      u.api
-                    )
-                  );
-
-                  const result = await Promise.allSettled(tasks);
-                  const success = result.find(
-                    (r) => r.status === "fulfilled" && r.value != null
-                  ) as PromiseFulfilledResult<string> | undefined;
-                  if (success) {
-                    app.clearSession();
-                    app.loadUrlEx(success.value);
-                  } else {
-                    app.notifier.alert(app.get("networkFailure"));
-                  }
-                */
-
-                  // Method 2, get the RequestAuth, sign in and redirect
-                  const tasks = appData.urls.map((u) =>
-                    app.core.authApi.getAuthRequest(
-                      "APP",
-                      { showLoading: false, onError: () => false },
-                      u.api
-                    )
-                  );
-
-                  const result = await Promise.allSettled(tasks);
-                  const success = result.find(
-                    (r) => r.status === "fulfilled" && r.value != null
-                  ) as PromiseFulfilledResult<AuthRequest> | undefined;
-                  if (success) {
-                    const url = await app.core.authApi.authRequest(
-                      success.value
-                    );
-                    if (url) {
-                      app.clearSession();
-                      app.loadUrlEx(url);
-                      return;
-                    }
-                  }
-
-                  app.notifier.alert(app.get("networkFailure"));
-                }}
+                onClick={() => AppSwitchCall(app, appData)}
               >
                 {app.core.getAppName(appData)}
               </Button>
