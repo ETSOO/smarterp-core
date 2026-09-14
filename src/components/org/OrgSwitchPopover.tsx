@@ -10,11 +10,12 @@ import Stack from "@mui/material/Stack";
 export type OrgSwitchPopoverProps = {
   appId?: number;
   organizationName?: string;
+  maxItems?: number;
 };
 
 export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
   // Destruct
-  const { appId, organizationName } = props;
+  const { appId, organizationName, maxItems = 10 } = props;
 
   // Route
   const navigate = useNavigate();
@@ -27,9 +28,6 @@ export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
 
   // Refs
   const anchorRef = React.useRef<HTMLButtonElement>(null);
-
-  // Max items to read
-  const maxItems = 10;
 
   // Current organization
   const currentOrg = app.userData?.organization;
@@ -89,7 +87,10 @@ export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
               </Button>
             ))}
             {(data.length === 0 || data.length === maxItems) && (
-              <Button onClick={() => navigate("./org/my")}>
+              <Button
+                onClick={() => navigate("./org/my")}
+                sx={{ justifyContent: "flex-end" }}
+              >
                 {labels.more}...
               </Button>
             )}

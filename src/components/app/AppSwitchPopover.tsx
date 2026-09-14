@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ButtonPopover } from "@etsoo/materialui";
+import { ButtonPopover, SVGUtils } from "@etsoo/materialui";
 import { useRequiredAppContext } from "../../ICoreServiceApp";
 import { AppData } from "../../dto/app/AppData";
 import { IdentityType } from "@etsoo/appscript";
@@ -11,11 +11,12 @@ import { AppSwitchCall } from "../../AppSwitchCall";
 
 export type AppSwitchPopoverProps = {
   appName: string;
+  maxItems?: number;
 };
 
 export function AppSwitchPopover(props: AppSwitchPopoverProps) {
   // Destruct
-  const { appName } = props;
+  const { appName, maxItems = 10 } = props;
 
   // Route
   const navigate = useNavigate();
@@ -25,9 +26,6 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
 
   // Labels
   const labels = app.getLabels("more", "switchApp");
-
-  // Max items to read
-  const maxItems = 10;
 
   // Current app
   const currentApp = app.settings.appId;
@@ -72,12 +70,17 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
               <Button
                 key={appData.id}
                 onClick={() => AppSwitchCall(app, appData)}
+                startIcon={SVGUtils.createIcon(appData.logo)}
+                sx={{ justifyContent: "flex-start" }}
               >
                 {app.core.getAppName(appData)}
               </Button>
             ))}
             {(data.length === 0 || data.length === maxItems) && (
-              <Button onClick={() => navigate("./app/my")}>
+              <Button
+                onClick={() => navigate("./app/my")}
+                sx={{ justifyContent: "flex-end" }}
+              >
                 {labels.more}...
               </Button>
             )}
