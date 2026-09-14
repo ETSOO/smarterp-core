@@ -62,6 +62,8 @@ export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
       {(data) => {
         if (data == null) return <React.Fragment />;
 
+        const hasMore = data.length === maxItems;
+
         // Remove the current organization
         if (currentOrg != null) {
           const index = data.findIndex((org) => org.id === currentOrg);
@@ -86,7 +88,7 @@ export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
                 {org.name}
               </Button>
             ))}
-            {(data.length === 0 || data.length === maxItems) && (
+            {(data.length === 0 || hasMore) && (
               <Button
                 onClick={() => navigate("./org/my")}
                 sx={{ justifyContent: "flex-end" }}

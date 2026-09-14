@@ -60,6 +60,8 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
       {(data) => {
         if (data == null) return <React.Fragment />;
 
+        const hasMore = data.length === maxItems;
+
         // Remove the current app
         const index = data.findIndex((a) => a.id === currentApp);
         if (index >= 0) data.splice(index, 1);
@@ -76,7 +78,7 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
                 {app.core.getAppName(appData)}
               </Button>
             ))}
-            {(data.length === 0 || data.length === maxItems) && (
+            {(data.length === 0 || hasMore) && (
               <Button
                 onClick={() => navigate("./app/my")}
                 sx={{ justifyContent: "flex-end" }}
