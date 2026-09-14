@@ -90,7 +90,7 @@ export function OrgSwitchPopover(props: OrgSwitchPopoverProps) {
             ))}
             {(data.length === 0 || hasMore) && (
               <Button
-                onClick={() => navigate("./org/my")}
+                onClick={() => navigate("./org")}
                 sx={{ justifyContent: "flex-end" }}
               >
                 {labels.more}...

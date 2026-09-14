@@ -80,7 +80,7 @@ export function AppSwitchPopover(props: AppSwitchPopoverProps) {
             ))}
             {(data.length === 0 || hasMore) && (
               <Button
-                onClick={() => navigate("./app/my")}
+                onClick={() => navigate("./myapp")}
                 sx={{ justifyContent: "flex-end" }}
               >
                 {labels.more}...
